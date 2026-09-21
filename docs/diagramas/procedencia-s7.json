@@ -1,0 +1,108 @@
+{
+  "date": "2026-09-20",
+  "authoritative_source": "Lucidchart y Google Doc de Semana 7",
+  "google_doc": "https://docs.google.com/document/d/1BFg3RyFkN_HhRrEfmrd5rTXi0I6fseI1gssDeygQ1Rw/edit",
+  "note": "Las páginas 3, 5, 7 y 9 fueron confirmadas por el usuario como las bases correctas. Se refinaron directamente. Las páginas 17 y 18 son secuencias complementarias. Los modelos Mermaid/SVG anteriores no son los diagramas finales.",
+  "figures": [
+    {
+      "figure": 1,
+      "title": "Vista funcional",
+      "asset": "lucid-01-funcional.png",
+      "lucid_document_id": "48598a5b-beb0-45f1-8f76-832056912678",
+      "lucid_page_id": "sD2rkI0wiboS",
+      "editable_url": "https://lucid.app/lucidchart/48598a5b-beb0-45f1-8f76-832056912678/edit?page=sD2rkI0wiboS",
+      "source": "Exportación de Lucidchart",
+      "sha256": "04e86260f6db75298281c35a3ade1b2c738a974b91dfce3abea7959038c7f1c5"
+    },
+    {
+      "figure": 2,
+      "title": "Estructura hexagonal",
+      "asset": "lucid-02-hexagonal.png",
+      "lucid_document_id": "48598a5b-beb0-45f1-8f76-832056912678",
+      "lucid_page_id": "JVnrTKTer72h",
+      "editable_url": "https://lucid.app/lucidchart/48598a5b-beb0-45f1-8f76-832056912678/edit?page=JVnrTKTer72h",
+      "source": "Exportación de Lucidchart",
+      "sha256": "6b3dfa8268e08b371ec50163f3bb05a8e59106cd7f4520e0ff1852d3dcc7ad65"
+    },
+    {
+      "figure": 3,
+      "title": "Despliegue conservado de Semana 6",
+      "asset": "lucid-03-despliegue-s6.png",
+      "lucid_document_id": null,
+      "lucid_page_id": null,
+      "editable_url": null,
+      "source": "Imagen del PDF de Semana 6, conservada; página editable no identificada",
+      "sha256": "879c21bbd0178aab014fd035e54232da3a7b5204074f183d3088372d3c0761ba"
+    },
+    {
+      "figure": 4,
+      "title": "Información y propiedad de datos",
+      "asset": "lucid-04-informacion.png",
+      "lucid_document_id": "48598a5b-beb0-45f1-8f76-832056912678",
+      "lucid_page_id": "uWnrQ4I3Be9m",
+      "editable_url": "https://lucid.app/lucidchart/48598a5b-beb0-45f1-8f76-832056912678/edit?page=uWnrQ4I3Be9m",
+      "source": "Exportación de Lucidchart",
+      "sha256": "3675c13f2157a1a055550a37ce8f252177457a19a60a17577a3638c909d5e036"
+    },
+    {
+      "figure": 5,
+      "title": "Flujo de cotización",
+      "asset": "lucid-05-flujo-cotizacion.png",
+      "lucid_document_id": "ccffee59-dde0-4ee9-97c4-ecdf283c37ac",
+      "lucid_page_id": "quote",
+      "editable_url": "https://lucid.app/lucidchart/ccffee59-dde0-4ee9-97c4-ecdf283c37ac/edit?page=quote",
+      "source": "Exportación de Lucidchart",
+      "sha256": "14b3c6736b0cc352f6f04cf5fb904354922a709879b3c35c8602e2e272e90e7b"
+    },
+    {
+      "figure": 6,
+      "title": "Publicación y consumo",
+      "asset": "lucid-06-outbox-inbox.png",
+      "lucid_document_id": "ccffee59-dde0-4ee9-97c4-ecdf283c37ac",
+      "lucid_page_id": "events",
+      "editable_url": "https://lucid.app/lucidchart/ccffee59-dde0-4ee9-97c4-ecdf283c37ac/edit?page=events",
+      "source": "Exportación de Lucidchart",
+      "sha256": "a4a3af7d67e9a58ce16a7d5ddb9b0ebe3c07f0592334aabff924e2b9c464cd8b"
+    },
+    {
+      "figure": 7,
+      "title": "Evidencia binaria",
+      "asset": "lucid-07-evidencia-r2.png",
+      "lucid_document_id": "ccffee59-dde0-4ee9-97c4-ecdf283c37ac",
+      "lucid_page_id": "evidence",
+      "editable_url": "https://lucid.app/lucidchart/ccffee59-dde0-4ee9-97c4-ecdf283c37ac/edit?page=evidence",
+      "source": "Exportación de Lucidchart",
+      "sha256": "06c7108b2cd5e832fff78adc5f6dcd682e207520595a1bc577a45e3b183e871a"
+    },
+    {
+      "figure": 8,
+      "title": "Interacción de cotización y perfilamiento",
+      "asset": "lucid-08-interaccion.png",
+      "lucid_document_id": "48598a5b-beb0-45f1-8f76-832056912678",
+      "lucid_page_id": ".Wnrt7v3wcNm",
+      "editable_url": "https://lucid.app/lucidchart/48598a5b-beb0-45f1-8f76-832056912678/edit?page=.Wnrt7v3wcNm",
+      "source": "Exportación de Lucidchart",
+      "sha256": "572c44c07eaec71fdc8ba0bd86569c5190867032c9d5b14156ee52917ccc41b0"
+    },
+    {
+      "figure": 9,
+      "title": "Actualización y auditoría asíncronas",
+      "asset": "lucid-09-actualizacion-auditoria.png",
+      "lucid_document_id": "48598a5b-beb0-45f1-8f76-832056912678",
+      "lucid_page_id": "j.awHeLs8s6r",
+      "editable_url": "https://lucid.app/lucidchart/48598a5b-beb0-45f1-8f76-832056912678/edit?page=j.awHeLs8s6r",
+      "source": "Exportación de Lucidchart",
+      "sha256": "aafc615b64db2f5dd1f9ac54d3d942f9628af96b9c1461f6e8c4519782d35371"
+    },
+    {
+      "figure": 10,
+      "title": "Recuperación acotada de SELECT",
+      "asset": "lucid-10-recuperacion-sql.png",
+      "lucid_document_id": "48598a5b-beb0-45f1-8f76-832056912678",
+      "lucid_page_id": "U-awjyDsvcRs",
+      "editable_url": "https://lucid.app/lucidchart/48598a5b-beb0-45f1-8f76-832056912678/edit?page=U-awjyDsvcRs",
+      "source": "Exportación de Lucidchart",
+      "sha256": "17679e50f613db0833bb27479b128367151d1db43642b87e73e7d76aeb483d62"
+    }
+  ]
+}

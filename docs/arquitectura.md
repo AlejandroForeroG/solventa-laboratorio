@@ -1,6 +1,6 @@
 # Catálogo de modelos y decisiones de arquitectura
 
-La [arquitectura final de Semana 7](arquitectura-s7.md) contiene 10 secciones principales, nueve tablas y nueve figuras del documento de entrega. También está disponible como [Google Doc](https://docs.google.com/document/d/1BFg3RyFkN_HhRrEfmrd5rTXi0I6fseI1gssDeygQ1Rw/edit). Este catálogo reúne las fuentes editables y vistas complementarias.
+La [arquitectura final de Semana 7](arquitectura-s7.md) contiene 10 secciones principales, nueve tablas y diez figuras del documento de entrega. También está disponible como [Google Doc](https://docs.google.com/document/d/1BFg3RyFkN_HhRrEfmrd5rTXi0I6fseI1gssDeygQ1Rw/edit). [PDF de entrega revisado](https://drive.google.com/file/d/1713qHIL4C8yKortSbukF5MvtoOQl-gnX/view). Este catálogo reúne las fuentes editables y vistas complementarias.
 
 Fecha: 20 de septiembre de 2026. Base: arquitectura de Semana 6 y modelos de Lucidchart; evidencia: 30 corridas de EXP-S5-01. Se mantienen los tres servicios del producto, los canales web y móvil y los flujos de pólizas, pagos y siniestros.
 
@@ -21,73 +21,67 @@ La recuperación SQL existe como opción diagnóstica; la actualización asíncr
 
 ## Modelos ajustados
 
-La conexión a [Lucidchart](https://lucid.app/lucidchart/48598a5b-beb0-45f1-8f76-832056912678/edit) permitió consultar el documento, pero devolvió `canEdit: false`. Por ello, este paquete entrega las vistas completas en Mermaid y SVG para trasladarlas a Lucidchart; el original no se ha modificado.
+Las vistas finales se mantienen en Lucidchart. Se editaron las páginas originales confirmadas por el usuario, conservando sus componentes, conexiones y convenciones visuales. Las nuevas secuencias detallan las propuestas de Semana 7. [Procedencia de las figuras](diagramas/procedencia-s7.json).
 
-Las cuatro primeras vistas parten de las páginas 11, 15, 12 y 14 de Lucidchart y conservan sus identificadores; [procedencia.json](diagramas/procedencia.json) registra ese mapeo histórico. También se contrastaron con las imágenes efectivamente incrustadas en el documento de Semana 6, recuperando la API común y fachada de socios, el desglose hexagonal, CI/CD y la publicación por propietario. Algunos conectores se desglosan mediante esos componentes explícitos. La interacción recupera confirmación con revalidación, consumo con commit/ACK y sondeos de recuperación. Los conteos de procedencia describen la fuente Lucid anterior, no el tamaño de estos modelos extendidos. Las propuestas de Semana 7 mantienen su identificación y sus límites de evidencia.
+El despliegue conserva la figura de Semana 6: los ajustes se ejecutan dentro de los Workers existentes. Su página editable no fue identificada entre los enlaces proporcionados. Los Mermaid y SVG anteriores se conservan como antecedentes; no representan las figuras finales de esta entrega.
 
 ### 1. Vista funcional
 
-Acquisition & Risk mantiene cotización, perfilamiento, señales y ofertas; Identity, Consent & Ecosystem mantiene autorización y consentimiento; Policy, Claims & Payments mantiene emisión, pagos, siniestros e indemnizaciones. El nuevo consumidor pertenece a Acquisition y utiliza los puertos y repositorios de ese propietario. No se incorpora un cuarto servicio.
+![Vista funcional](diagramas/lucid-01-funcional.png)
 
-![Vista funcional completa](diagramas/01-funcional.svg)
-
-[Fuente Mermaid](diagramas/01-funcional.mmd).
+[Abrir diagrama editable en Lucidchart](https://lucid.app/lucidchart/48598a5b-beb0-45f1-8f76-832056912678/edit?page=sD2rkI0wiboS).
 
 ### 2. Estructura hexagonal
 
-La recuperación SQL pertenece al adaptador de persistencia. La actualización asíncrona es un caso de uso de Acquisition invocado por el consumidor. El dominio conserva sus reglas sin depender de Cloudflare ni del modelo del proveedor. Los contratos públicos y de eventos permanecen versionados.
+![Estructura hexagonal](diagramas/lucid-02-hexagonal.png)
 
-![Estructura hexagonal](diagramas/02-hexagonal.svg)
+[Abrir diagrama editable en Lucidchart](https://lucid.app/lucidchart/48598a5b-beb0-45f1-8f76-832056912678/edit?page=JVnrTKTer72h).
 
-[Fuente Mermaid](diagramas/02-hexagonal.mmd).
+### 3. Despliegue conservado de Semana 6
 
-### 3. Despliegue
-
-Se conservan Workers, Hyperdrive, CockroachDB, Queues, Workflows y R2. El consumidor de actualización y el publicador se ejecutan dentro del Worker Acquisition. Los roles SQL siguen separados por propietario. El modelo multirregional corresponde al objetivo de producción; el laboratorio usó CockroachDB Basic en us-east-1 y carga desde Bogotá.
-
-![Despliegue](diagramas/03-despliegue.svg)
-
-[Fuente Mermaid](diagramas/03-despliegue.mmd).
+![Despliegue conservado de Semana 6](diagramas/lucid-03-despliegue-s6.png)
 
 ### 4. Información y propiedad de datos
 
-Acquisition incorpora fuente, fecha de captura, vencimiento y versión de consentimiento al respaldo; registra la solicitud de actualización y la auditoría del resultado. Identity conserva la autorización como fuente de verdad. Un mensaje que contiene una referencia de consentimiento no concede permiso por sí solo. Se mantienen cotizaciones, ofertas, pólizas, pagos, siniestros, evidencias, indemnizaciones y los registros outbox/inbox de cada propietario.
+![Información y propiedad de datos](diagramas/lucid-04-informacion.png)
 
-![Información y propiedad](diagramas/04-informacion.svg)
+[Abrir diagrama editable en Lucidchart](https://lucid.app/lucidchart/48598a5b-beb0-45f1-8f76-832056912678/edit?page=uWnrQ4I3Be9m).
 
-[Fuente Mermaid](diagramas/04-informacion.mmd).
+### 5. Flujo de cotización
 
-### 5. Interacción de cotización y perfilamiento
+![Flujo de cotización](diagramas/lucid-05-flujo-cotizacion.png)
 
-El recorrido valida consentimiento antes de acceder a señales. Se separan resultado definitivo, respaldo, preliminar, denegación y error técnico. Una escritura no confirmada se informa como error; no se promete persistencia de auditoría cuando falla la base de datos. Las acciones irreversibles conservan autorización, confirmación e idempotencia.
+[Abrir diagrama editable en Lucidchart](https://lucid.app/lucidchart/ccffee59-dde0-4ee9-97c4-ecdf283c37ac/edit?page=quote).
 
-![Interacción de cotización y perfilamiento](diagramas/05-interaccion.svg)
+### 6. Publicación y consumo
 
-[Fuente Mermaid](diagramas/05-interaccion.mmd).
+![Publicación y consumo](diagramas/lucid-06-outbox-inbox.png)
 
-### 6. Actualización y auditoría asíncronas
-
-El resultado y la solicitud de trabajo se confirman en una transacción local. El publicador entrega el evento a Queue; el consumidor comprueba consentimiento, deduplica y confirma el mensaje después de persistir el efecto. La versión se revalida antes de aplicar las señales y cada uso posterior vuelve a comprobar autorización. Los errores persistentes pasan a la cola de mensajes fallidos para revisión.
-
-![Actualización y auditoría](diagramas/06-actualizacion-auditoria.svg)
-
-[Fuente Mermaid](diagramas/06-actualizacion-auditoria.mmd).
+[Abrir diagrama editable en Lucidchart](https://lucid.app/lucidchart/ccffee59-dde0-4ee9-97c4-ecdf283c37ac/edit?page=events).
 
 ### 7. Evidencia binaria
 
-Se conserva la carga directa a R2 y los estados PENDIENTE, CARGADA y VERIFICADA del propietario Policy. Un objeto cargado no equivale a evidencia verificada. La conciliación resuelve archivos huérfanos y confirmaciones ausentes; no existe una transacción distribuida entre R2 y SQL.
+![Evidencia binaria](diagramas/lucid-07-evidencia-r2.png)
 
-![Carga y verificación de evidencia](diagramas/07-evidencias-r2.svg)
+[Abrir diagrama editable en Lucidchart](https://lucid.app/lucidchart/ccffee59-dde0-4ee9-97c4-ecdf283c37ac/edit?page=evidence).
 
-[Fuente Mermaid](diagramas/07-evidencias-r2.mmd).
+### 8. Interacción de cotización y perfilamiento
 
-### 8. Procesos contractuales y consistencia
+![Interacción de cotización y perfilamiento](diagramas/lucid-08-interaccion.png)
 
-Se mantienen firma, emisión, pagos, siniestros e indemnización, con Workflows, outbox/inbox e idempotencia. Ante un efecto financiero incierto se concilia antes de repetir. Los objetivos regionales se conservan dentro del diseño; no se atribuyen al ensayo de Open Finance.
+[Abrir diagrama editable en Lucidchart](https://lucid.app/lucidchart/48598a5b-beb0-45f1-8f76-832056912678/edit?page=.Wnrt7v3wcNm).
 
-![Procesos contractuales](diagramas/08-procesos-contractuales.svg)
+### 9. Actualización y auditoría asíncronas
 
-[Fuente Mermaid](diagramas/08-procesos-contractuales.mmd).
+![Actualización y auditoría asíncronas](diagramas/lucid-09-actualizacion-auditoria.png)
+
+[Abrir diagrama editable en Lucidchart](https://lucid.app/lucidchart/48598a5b-beb0-45f1-8f76-832056912678/edit?page=j.awHeLs8s6r).
+
+### 10. Recuperación acotada de SELECT
+
+![Recuperación acotada de SELECT](diagramas/lucid-10-recuperacion-sql.png)
+
+[Abrir diagrama editable en Lucidchart](https://lucid.app/lucidchart/48598a5b-beb0-45f1-8f76-832056912678/edit?page=U-awjyDsvcRs).
 
 ## Parámetros y reglas de implementación
 
@@ -102,7 +96,7 @@ Se mantienen firma, emisión, pagos, siniestros e indemnización, con Workflows,
 | Persistencia y mensajería | Agregado, auditoría y outbox en transacción local. Consumidor con eventId y efecto local atómicos; ACK después de commit |
 | Trazabilidad | Identificador extremo a extremo; distinguir recepción, despacho, cancelación y cierre; los hechos desconocidos se mantienen explícitos |
 
-El límite de 700 ms es una barrera de ejecución, no el objetivo normal de latencia. Las pruebas diagnósticas SQL registraron respuestas de hasta 836 ms. El cierre de conexiones y la respuesta de extremo a extremo deben presupuestarse: la propuesta no garantiza por sí sola p99 ≤ 500 ms.
+El límite de 700 ms es una barrera de ejecución, no el objetivo normal de latencia. Las pruebas diagnósticas SQL registraron respuestas de hasta 836 ms. El cierre de conexiones y la respuesta de extremo a extremo deben presupuestarse: la propuesta no garantiza por sí sola p99 ≤ 500 ms. Adoptar el SELECT de hasta 200 ms queda condicionado a resolver en refinamiento la interpretación del criterio de 120 ms, conforme al plan de Proyecto Final 2.
 
 ## Incorporación a Proyecto Final 2
 
@@ -114,9 +108,3 @@ El límite de 700 ms es una barrera de ejecución, no el objetivo normal de late
 | Estados en web y móvil | Fuente y antigüedad visibles; distinguir preliminar, definitiva, denegada y error |
 
 Estas decisiones corrigen debilidades concretas manteniendo la arquitectura escogida. El experimento respalda la contención de fallas y el control de uso de datos; los incumplimientos guían las tareas anteriores.
-
-## Referencias y términos
-
-La entrega de Queue admite duplicados, por lo que el consumidor debe ser idempotente. [Cloudflare: garantías de entrega](https://developers.cloudflare.com/queues/reference/delivery-guarantees/). La lectura de consentimiento debe usar la configuración sin caché para obtener el estado fresco. [Cloudflare: caché de consultas de Hyperdrive](https://developers.cloudflare.com/hyperdrive/concepts/query-caching/).
-
-Outbox: registros pendientes de publicar en la base del propietario. Inbox: identificadores procesados que impiden repetir efectos. Consumidor idempotente: procesar dos veces el mismo mensaje produce un solo efecto. DLQ: cola que conserva mensajes que agotaron sus intentos. Propietario: servicio autorizado a modificar un conjunto de datos. El [glosario del informe](resultados.md#glosario) explica los términos del laboratorio.

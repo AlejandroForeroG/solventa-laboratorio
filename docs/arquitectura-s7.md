@@ -13,7 +13,7 @@ El experimento evalúa cotización y perfilamiento. Emisión, pólizas, pagos y 
 ## 2. Requisitos arquitectónicamente significativos
 
 | ID | Atributo | Escenario resumido | Medida |
-| --- | --- | --- | --- |
+| :---- | :---- | :---- | :---- |
 | QP-01 | Rendimiento | socio solicita cotización en pico normal | p95 ≤ 250 ms y p99 ≤ 500 ms E2E |
 | QP-02 | Rendimiento | cliente autoriza perfilamiento con señales internas y externas | p95 ≤ 400 ms y p99 ≤ 800 ms E2E |
 | QE-01 | Escalabilidad | campaña masiva de socio; el tráfico crece 100× | escalar de 500 a 50.000 cotizaciones/min conservando el p95; autoescalado ≤ 60 s; pendiente de validación |
@@ -45,24 +45,28 @@ Los ASR de rendimiento, privacidad y modificabilidad gobiernan el recorrido eval
 
 ## 3. Vista funcional
 
-![01-funcional](diagramas/01-funcional.svg)
+![Vista funcional](diagramas/lucid-01-funcional.png)
 
-[Figura 1](https://github.com/AlejandroForeroG/solventa-laboratorio/blob/main/docs/diagramas/01-funcional.svg). Vista funcional ajustada. Se conservan canales, tres dominios, proveedores y conectores de S6. Identity mantiene la autoridad de consentimiento; Acquisition & Risk incorpora actualización asíncrona de señales. La recuperación de SELECT pertenece al repositorio de cada propietario; resultado, auditoría y outbox se confirman localmente. E08 respalda la barrera medida, no toda la implementación propuesta.
+[Figura 1](https://lucid.app/lucidchart/48598a5b-beb0-45f1-8f76-832056912678/edit?page=sD2rkI0wiboS). Vista funcional ajustada.
+
+Se conservan canales, tres dominios, proveedores y conectores de S6. Identity mantiene la autoridad de consentimiento; Acquisition & Risk incorpora actualización asíncrona de señales. La recuperación de SELECT pertenece al repositorio de cada propietario; resultado, auditoría y outbox se confirman localmente. E08 respalda la barrera medida, no toda la implementación propuesta.
 
 La API común de web/móvil y la fachada de socios, la pasarela de pagos, la firma/reaseguro/ACORD y las notificaciones mantienen adaptadores y contratos separados dentro de los dominios existentes.
 
 ### 3.1 Estructura interna hexagonal de cada Worker
 
-![02-hexagonal](diagramas/02-hexagonal.svg)
+![Estructura hexagonal](diagramas/lucid-02-hexagonal.png)
 
-[Figura 2](https://github.com/AlejandroForeroG/solventa-laboratorio/blob/main/docs/diagramas/02-hexagonal.svg). Estructura hexagonal ajustada. Se conservan Domain, Application, puertos y adaptadores. La política de SELECT reside en persistencia; la actualización usa puertos de consentimiento, proveedor y outbox sin llevar SDK al núcleo. OpenFinancePort con simulador aporta evidencia parcial de QM-02; no demuestra integración productiva ni todos los contratos.
+[Figura 2](https://lucid.app/lucidchart/48598a5b-beb0-45f1-8f76-832056912678/edit?page=JVnrTKTer72h). Estructura hexagonal ajustada.
+
+Se conservan Domain, Application, puertos y adaptadores. La política de SELECT reside en persistencia; la actualización usa puertos de consentimiento, proveedor y outbox sin llevar SDK al núcleo. OpenFinancePort con simulador aporta evidencia parcial de QM-02; no demuestra integración productiva ni todos los contratos.
 
 Hono enruta HTTP; Inbound transforma peticiones, mensajes de cola y webhooks; Application orquesta casos de uso mediante puertos. Domain distingue entidades (Policy, User y Claim), objetos de valor (Money y Percentage) y servicios de dominio. Repository guarda y recupera entidades; Providers representa capacidades de otros Workers y terceros; Messaging publica eventos. Outbound/ACL implementa esos contratos sin filtrar modelos externos al dominio.
 
 ### 3.2 Componentes y responsabilidades
 
 | Componente | Responsabilidad propia | Datos/decisiones que produce | Fuera de su límite | ASR dominante |
-| --- | --- | --- | --- | --- |
+| :---- | :---- | :---- | :---- | :---- |
 | Web React/Vite | experiencia responsiva para cotización y operación | comandos y consultas del usuario | reglas actuariales y persistencia | QP-01, QI-02 |
 | Mobile React Native/Expo | experiencia del cliente, captura controlada, modo degradado y sincronización | comandos idempotentes y evidencias autorizadas | ser fuente de verdad contractual | QS-01, QA-01 |
 | Partner API clients | integrar socios mediante contratos versionados | solicitudes con credenciales, scopes e idempotency-key | acceso directo a Workers internos o datos | QI-02, QS-01 |
@@ -81,7 +85,7 @@ Hono enruta HTTP; Inbound transforma peticiones, mensajes de cola y webhooks; Ap
 ### 3.3 Catálogo de conectores
 
 | Conector | Tipo y dirección | Contrato | Controles obligatorios | Decisión de uso |
-| --- | --- | --- | --- | --- |
+| :---- | :---- | :---- | :---- | :---- |
 | HTTPS/JSON público | síncrono; canales/socios → Edge | OpenAPI versionada | TLS, OAuth/OIDC, scopes, cuota, idempotency-key y correlation-id | frontera pública única |
 | Service Binding RPC | síncrono; Worker → Worker | interfaz TypeScript versionada | await, deadline, error canónico y máximo una dependencia remota en hot path | evita URL pública y conserva despliegue independiente |
 | Queue | asíncrono; productor → consumidor | evento versionado con eventId | entrega al menos una vez, idempotencia, reintento, DLQ y métrica de rezago | hechos de dominio y trabajos no inmediatos |
@@ -114,16 +118,18 @@ No hay reintento síncrono de Open Finance. La excepción propuesta es un único
 
 ## 4. Vista de despliegue
 
-![03-despliegue](diagramas/03-despliegue.svg)
+![Despliegue conservado de Semana 6](diagramas/lucid-03-despliegue-s6.png)
 
-[Figura 3](https://github.com/AlejandroForeroG/solventa-laboratorio/blob/main/docs/diagramas/03-despliegue.svg). Despliegue objetivo ajustado. Los handlers de actualización y auditoría permanecen en sus Workers propietarios, con Queue, outbox y SQL. El laboratorio midió Acquisition, Identity y Simulator, dos Hyperdrive sin caché y CockroachDB Basic en AWS us-east-1, desde Bogotá. Simulator no sustituye Policy, Claims & Payments. Tres regiones y servicios productivos dibujados son diseño objetivo sin validación experimental.
+Figura 3. Despliegue objetivo conservado de S6.
+
+Los handlers de actualización y auditoría permanecen en sus Workers propietarios, con Queue, outbox y SQL. El laboratorio midió Acquisition, Identity y Simulator, dos Hyperdrive sin caché y CockroachDB Basic en AWS us-east-1, desde Bogotá. Simulator no sustituye Policy, Claims & Payments. Tres regiones y servicios productivos dibujados son diseño objetivo sin validación experimental.
 
 El recorrido del desarrollador hacia CI/CD e IaC incluye build, pruebas, migraciones versionadas y despliegue; esos artefactos se promueven mediante las reglas de cada ambiente.
 
 ### 4.1 Asignación de componentes a nodos
 
 | Componente funcional | Artefacto desplegable | Nodo/servicio de ejecución | Conectores principales | Responsabilidad operativa |
-| --- | --- | --- | --- | --- |
+| :---- | :---- | :---- | :---- | :---- |
 | Web | bundle React/Vite | activos estáticos en Cloudflare Global Network + navegador | HTTPS | servir interfaz y consumir API |
 | Mobile | paquete Expo/React Native | dispositivo Android/iOS | HTTPS, almacenamiento cifrado local | captura, operación degradada y sincronización |
 | Partner API clients | aplicación del socio | plataforma externa | HTTPS/OAuth 2.0 | consumo de contrato público |
@@ -145,7 +151,7 @@ Todos los componentes funcionales mantienen asignación explícita. El consumido
 ### 4.2 Ambientes
 
 | Ambiente | Recursos | Datos | Propósito | Regla de promoción |
-| --- | --- | --- | --- | --- |
+| :---- | :---- | :---- | :---- | :---- |
 | Local | Wrangler/Miniflare, servicios simulados y SQL local o de prueba | sintéticos reiniciables | lógica, contratos y casos negativos | unitarias, lint y contratos verdes |
 | CI/Preview | Workers temporales, bindings de preview, proveedor simulado y CockroachDB/R2 de prueba | sintéticos versionados | integración, E2E acotado y depuración del experimento | commit, configuración y evidencia identificados |
 | Desarrollo | tres Workers y servicios Cloudflare aislados | sintéticos compartidos controlados | integración continua del equipo | smoke tests y cero críticos/altos |
@@ -186,16 +192,18 @@ Los nombres de recursos, credenciales, buckets, colas y configuraciones Hyperdri
 
 ## 5. Vista de información
 
-![04-informacion](diagramas/04-informacion.svg)
+![Información y propiedad de datos](diagramas/lucid-04-informacion.png)
 
-[Figura 4](https://github.com/AlejandroForeroG/solventa-laboratorio/blob/main/docs/diagramas/04-informacion.svg). Información ajustada. Se conservan agregados y propietarios. Se añaden metadatos de fuente, vigencia, propósito y versión de consentimiento, trabajo de actualización y auditoría/outbox local. E07/E08 respaldan las barreras medidas. Queues no vuelve exactamente una vez al transporte y la transacción no cruza propietarios.
+[Figura 4](https://lucid.app/lucidchart/48598a5b-beb0-45f1-8f76-832056912678/edit?page=uWnrQ4I3Be9m). Información ajustada.
+
+Se conservan agregados y propietarios. Se añaden metadatos de fuente, vigencia, propósito y versión de consentimiento, trabajo de actualización y auditoría/outbox local. E07/E08 respaldan las barreras medidas. Queues no vuelve exactamente una vez al transporte y la transacción no cruza propietarios.
 
 AR, PCP e ICE tienen cada uno su transacción, publicador e inbox. Cada publicador reclama con lease y conserva eventId; solo marca publicación tras confirmación. Cada consumidor aplica UNIQUE(eventId, consumidor), confirma inbox y efecto juntos y después envía ACK. Reintentos y DLQ conservan eventId para reproceso y alertan por rezago.
 
 ### 5.1 Modelo y ownership
 
 | Agregado/estructura | Propietario | Contenido esencial | Consistencia y controles |
-| --- | --- | --- | --- |
+| :---- | :---- | :---- | :---- |
 | Cliente | Identity, Consent & Ecosystem | identificador tokenizado, estado y referencias | PII minimizada; acceso por scope |
 | Consentimiento | Identity, Consent & Ecosystem | propósito, alcance, fuente, versión, grantedAt, expiresAt y revokedAt | autorización vigente antes de usar señales |
 | Cotización | Acquisition & Risk | solicitud normalizada, versión de regla, resultado y estado de degradación | transacción local e idempotency-key |
@@ -213,21 +221,27 @@ Compartir el clúster físico no autoriza acceso cruzado a tablas. Se usan esque
 
 Cotización normal y degradada
 
-![s6-05-cotizacion](diagramas/s6-05-cotizacion.png)
+![Flujo de cotización](diagramas/lucid-05-flujo-cotizacion.png)
 
-Figura 5. Cotización normal y degradada. Se mantiene el flujo de S6: consentimiento fresco antes de proveedor o respaldo; uso de copia solo si es elegible. Sin copia válida se devuelve preliminar sin oferta definitiva. Fuente, antigüedad y motivo llegan al cliente. La política de SELECT se aplica a las lecturas del propietario; una lectura fallida conserva causa técnica. La actualización posterior sigue el flujo adicional de la sección 6.2.
+[Figura 5](https://lucid.app/lucidchart/ccffee59-dde0-4ee9-97c4-ecdf283c37ac/edit?page=quote). Cotización normal y degradada.
+
+Se mantiene el flujo de S6: consentimiento fresco antes de proveedor o respaldo; uso de copia solo si es elegible. Sin copia válida se devuelve preliminar sin oferta definitiva. Fuente, antigüedad y motivo llegan al cliente. La política de SELECT se aplica a las lecturas del propietario; una lectura fallida conserva causa técnica. La actualización posterior sigue el flujo adicional de la sección 6.2.
 
 Propagación de eventos
 
-![s6-06-eventos](diagramas/s6-06-eventos.png)
+![Publicación y consumo](diagramas/lucid-06-outbox-inbox.png)
 
-Figura 6. Propagación de eventos. Resultado, auditoría y outbox se guardan en una transacción del productor. Un fallo de commit impide declarar auditoría durable o trabajo aceptado. El consumidor confirma efecto e inbox antes del ACK; los duplicados no repiten el efecto lógico. Un despacho sin recibo permanece sin confirmar. La entrega es al menos una vez y la consistencia entre propietarios es eventual.
+[Figura 6](https://lucid.app/lucidchart/ccffee59-dde0-4ee9-97c4-ecdf283c37ac/edit?page=events). Propagación de eventos.
+
+Resultado, auditoría y outbox se guardan en una transacción del productor. Un fallo de commit impide declarar auditoría durable o trabajo aceptado. El consumidor confirma efecto e inbox antes del ACK; los duplicados no repiten el efecto lógico. Un despacho sin recibo permanece sin confirmar. La entrega es al menos una vez y la consistencia entre propietarios es eventual.
 
 Carga y verificación de evidencias
 
-![s6-07-evidencias](diagramas/s6-07-evidencias.png)
+![Evidencia binaria](diagramas/lucid-07-evidencia-r2.png)
 
-Figura 7. Carga y verificación de evidencias, conservada de S6. El cliente carga directamente a R2. CARGADA acredita existencia; VERIFICADA requiere checksum y metadatos. La reconciliación reintenta el registro o elimina huérfanos según la política. R2 y SQL no comparten transacción. Este flujo no se declara probado por las corridas de cotización y perfilamiento.
+[Figura 7](https://lucid.app/lucidchart/ccffee59-dde0-4ee9-97c4-ecdf283c37ac/edit?page=evidence). Carga y verificación de evidencias, conservada de S6.
+
+El cliente carga directamente a R2. CARGADA acredita existencia; VERIFICADA requiere checksum y metadatos. La reconciliación reintenta el registro o elimina huérfanos según la política. R2 y SQL no comparten transacción. Este flujo no se declara probado por las corridas de cotización y perfilamiento.
 
 ### 5.3 Estrategia de replicación y consistencia
 
@@ -247,16 +261,18 @@ Figura 7. Carga y verificación de evidencias, conservada de S6. El cliente carg
 
 ## 6. Vista de interacción: cotización y perfilamiento degradados
 
-![05-interaccion](diagramas/05-interaccion.svg)
+![Interacción de cotización y perfilamiento](diagramas/lucid-08-interaccion.png)
 
-[Figura 8](https://github.com/AlejandroForeroG/solventa-laboratorio/blob/main/docs/diagramas/05-interaccion.svg). Interacción ajustada. E01 produjo 25 respuestas degradadas en 90.000 solicitudes y un error técnico. E05 r2 incumplió p99 de cotización (556 > 500 ms) y E06 r2 incumplió Wilson de perfilamiento (99,8858 % < 99,9 %). Se conserva la protección externa y se propone recuperación de SELECT, sin reclasificar los 503 históricos ni afirmar mejora de p99 demostrada.
+[Figura 8](https://lucid.app/lucidchart/48598a5b-beb0-45f1-8f76-832056912678/edit?page=.Wnrt7v3wcNm). Interacción ajustada.
+
+E01 produjo 25 respuestas degradadas en 90.000 solicitudes y un error técnico. E05 r2 incumplió p99 de cotización (556 > 500 ms) y E06 r2 incumplió Wilson de perfilamiento (99,8858 % < 99,9 %). Se conserva la protección externa y se propone recuperación de SELECT, sin reclasificar los 503 históricos ni afirmar mejora de p99 demostrada.
 
 El flujo incluye la confirmación explícita de una acción irreversible con revalidación en servidor, la entrega al consumidor y su commit/ACK, y los sondeos de recuperación del circuito.
 
 ### 6.1 Presupuesto y medición
 
 | Segmento | Objetivo de instrumentación | Observación |
-| --- | --- | --- |
+| :---- | :---- | :---- |
 | Edge, routing y serialización | 30 ms p95 | guía de instrumentación, no garantía aislada |
 | Aplicación y persistencia | 70 ms p95 | incluye cálculo y transacción breve |
 | Open Finance Adapter | deadline operativo 120 ms | al vencer se corta y clasifica la degradación |
@@ -268,13 +284,23 @@ El límite duro del servicio sigue en 700 ms y el cliente experimental espera ha
 
 ### 6.2 Actualización asíncrona de señales y auditoría
 
-![06-actualizacion-auditoria](diagramas/06-actualizacion-auditoria.svg)
+![Actualización y auditoría asíncronas](diagramas/lucid-09-actualizacion-auditoria.png)
 
-[Figura 9](https://github.com/AlejandroForeroG/solventa-laboratorio/blob/main/docs/diagramas/06-actualizacion-auditoria.svg). Flujo adicional de S7. Acquisition & Risk solicita, publica y consume su trabajo sin añadir una dependencia al recorrido síncrono. La autorización se verifica al ejecutar y antes de aplicar; el consentimiento almacenado en el mensaje no concede acceso. Cada uso posterior requiere nueva validación. El commit de efecto e inbox precede al ACK y los fallos persistentes permanecen observables.
+[Figura 9](https://lucid.app/lucidchart/48598a5b-beb0-45f1-8f76-832056912678/edit?page=j.awHeLs8s6r). Actualización autorizada y auditoría.
+
+Acquisition & Risk solicita, publica y consume su trabajo sin añadir una dependencia al recorrido síncrono. La autorización se verifica al ejecutar y antes de aplicar; el consentimiento almacenado en el mensaje no concede acceso. Cada uso posterior requiere nueva validación. El commit de efecto e inbox precede al ACK y los fallos persistentes permanecen observables.
 
 TrabajoActualización es propiedad de Acquisition & Risk: eventId, sujeto tokenizado, propósito/alcance, referencia y versión de consentimiento, estado, intentos y tiempos. Se registra con el outbox de origen. El respaldo conserva source, capturedAt, expiresAt, consentVersion y calidad; una actualización antigua no reemplaza una más reciente. La aplicación controla la concurrencia mediante versión esperada y una transacción local.
 
 La comprobación en Identity y el commit en Acquisition & Risk no son una transacción distribuida. Se limita la ventana con revalidación antes de aplicar y se impide reutilizar el dato sin autorización fresca; no se promete atomicidad global frente a una revocación concurrente. Una verificación no disponible bloquea la consulta o el uso y conserva causa técnica.
+
+### 6.3 Recuperación acotada de lecturas SQL
+
+![Recuperación acotada de SELECT](diagramas/lucid-10-recuperacion-sql.png)
+
+[Figura 10](https://lucid.app/lucidchart/48598a5b-beb0-45f1-8f76-832056912678/edit?page=U-awjyDsvcRs). Recuperación acotada de SELECT.
+
+El repositorio de cada propietario clasifica el fallo, cancela o cierra el intento anterior y permite un solo reintento elegible dentro del tiempo restante. El límite de 700 ms corresponde al recorrido completo: la recuperación no reinicia el reloj ni amplía el plazo de Open Finance. Los errores de autorización y las escrituras quedan fuera de esta política. Adoptar el SELECT de hasta 200 ms queda condicionado a resolver en refinamiento la interpretación del criterio de 120 ms, como establece el plan de Proyecto Final 2; no puede contradecir el criterio acordado.
 
 ## 7. Patrones y tácticas priorizados
 
@@ -313,7 +339,7 @@ La replicación regional conserva QA-01/02 y requiere aprovisionamiento y ejerci
 ## 8. Trazabilidad decisión–ASR–evidencia
 
 | Decisión | Vista | ASR | Evidencia que puede demostrarla | Estado |
-| --- | --- | --- | --- | --- |
+| :---- | :---- | :---- | :---- | :---- |
 | Tres Workers cohesionados | funcional/despliegue | QM-01 | cambios confinados y despliegues separados | Conservado; validación integral pendiente |
 | Puertos + Adapter/ACL | funcional | QM-02, QI-01 | sustitución de adapter y contratos verdes | Evidencia parcial con simulador |
 | Deadline + breaker + fallback | despliegue/interacción | QP-01/02 | E01–E09: reducción 92,24–97,31 %; privacidad medida; fallos E01/E05/E06 y control E09 | 30 corridas; hipótesis conjunta no aceptada; E10/E11 cancelados |
@@ -333,13 +359,13 @@ ADR-S7-03 — Auditoría durable. Los 33 recibos no confirmados motivan resultad
 ## 9. Decisiones descartadas o condicionadas
 
 | Alternativa | Decisión | Razón técnica | Gatillo de revisión |
-| --- | --- | --- | --- |
+| :---- | :---- | :---- | :---- |
 | microservicio por capacidad | no adoptar | sobrecarga de despliegue/contratos para cuatro personas | autonomía o aislamiento insuficiente |
 | BFF por canal | condicionado | API común cubre recorridos actuales | chattiness o agregación sensible medida |
 | Event Sourcing integral | no adoptar | costo de reconstrucción y operación mayor al beneficio demostrado | requisito de historial que outbox/auditoría no cubra |
 | CQRS general | no adoptar | no existen formas/cargas divergentes demostradas | lectura incompatible con modelo transaccional |
 | retry síncrono agresivo | no adoptar | amplifica falla y rompe presupuesto | operación idempotente fuera del hot path |
-| breaker coordinado global | condicionado | añade salto/estado al hot path | reducción local futura < 80 % o recuperación insuficiente; E05/E09 supera el gatillo medido |
+| breaker coordinado global | condicionado | añade salto/estado al hot path | reducción < 80 % (E05/E09 > 80 %: no activado); recuperación se revisa aparte |
 
 ## 10. Conclusiones del cierre experimental
 
