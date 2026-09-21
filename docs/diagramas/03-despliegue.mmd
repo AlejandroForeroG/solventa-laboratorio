@@ -1,0 +1,77 @@
+%%{init: {"theme": "base", "themeVariables": {"primaryColor": "#ffffff", "primaryTextColor": "#000000", "primaryBorderColor": "#000000", "lineColor": "#000000", "secondaryColor": "#ffffff", "tertiaryColor": "#ffffff", "clusterBkg": "#ffffff", "clusterBorder": "#000000", "edgeLabelBackground": "#ffffff", "fontFamily": "Arial", "actorBkg": "#ffffff", "actorBorder": "#000000", "actorTextColor": "#000000", "noteBkgColor": "#ffffff", "noteTextColor": "#000000", "noteBorderColor": "#000000", "labelBoxBkgColor": "#ffffff", "labelBoxBorderColor": "#000000", "signalColor": "#000000", "signalTextColor": "#000000"}}}%%
+flowchart TB
+  subgraph N1["CockroachDB Cloud: objetivo de producción, no desplegado ni validado"]
+    N19[("Región A")]
+    N20[("Región B")]
+    N21[("Región C")]
+    N22["3 regiones - SURVIVE REGION FAILURE<br/>localidad por tabla en migraciones<br/>plan y códigos físicos al aprovisionar"]
+  end
+  N3["GitHub Actions / IaC<br/>Local → Preview → Desarrollo → Staging → Producción<br/>recursos y secretos segregados, rollback"]
+  N4["Telemetría sin PII<br/>p95/p99, instanceId, errores<br/>estado breaker, llamadas, rezago"]
+  N5["QA-01/02: ejercicios pendientes<br/>zona: RTO 10 min / RPO 30 s<br/>región: RTO 5 min / sin pérdida confirmada"]
+  N6["Navegador - SPA React/Vite"]
+  N7["Android/iOS - React Native/Expo<br/>caché cifrada, outbox local"]
+  N8["Plataforma del socio"]
+  N23["Open Finance/Open Data"]
+  N24["Pagos, firma, ACORD"]
+  N25["IdP, KYC, socios, push"]
+  subgraph G26["Cloudflare Global Network"]
+    subgraph N2["Workers Runtime: despliegues independientes"]
+      N10["acquisition-risk<br/>API, consumer, scheduled publisher"]
+      N11["policy-claims-payments<br/>API, consumer, scheduled publisher"]
+      N12["identity-consent-ecosystem<br/>API, consumer, scheduled publisher"]
+    end
+    N9["PoP - TLS, CDN, WAF, cuotas, routing"]
+    N13["Queues por tipo de carga<br/>consumidores idempotentes"]
+    N14["DLQ - reintento acotado<br/>rezago y contrapresión"]
+    N15["Workflows<br/>pasos durables, callbacks, retry"]
+    N16["R2 por ambiente<br/>evidencias, checksum, retención"]
+    N17["Hyperdrive por propietario<br/>pooling, usuario SQL mínimo privilegio<br/>sin caché para lectura fresca"]
+    N18["Protección por proveedor/operación<br/>deadline inicial 120 ms, breaker local<br/>bulkhead condicionado a medición"]
+  end
+  N3 -.->|"artefactos y<br/>configuración"| N2
+  N3 -.->|"migraciones"| N1
+  N2 -.-> N4
+  N5 -.-> N1
+  N6 -->|"HTTPS"| N9
+  N7 -->|"HTTPS, sync idempotente"| N9
+  N8 -->|"OAuth, API versionada"| N9
+  N9 --> N10
+  N9 --> N11
+  N9 --> N12
+  N10 <-->|"Service Binding"| N12
+  N10 <-->|"Service Binding fuera de<br/>cadena crítica"| N11
+  N11 <-->|"Service Binding"| N12
+  N10 --> N13
+  N11 --> N13
+  N12 --> N13
+  N13 --> N10
+  N13 --> N11
+  N13 --> N12
+  N13 --> N14
+  N11 --> N15
+  N11 -->|"autoriza y reconcilia<br/>metadata"| N16
+  N6 -.->|"upload directo autorizado"| N16
+  N7 -.->|"upload directo autorizado"| N16
+  N10 --> N17
+  N11 --> N17
+  N12 --> N17
+  N19 <-->|"consenso por rangos"| N20
+  N20 <-->|"consenso por rangos"| N21
+  N21 <-->|"consenso por rangos"| N19
+  N22 -.-> N19
+  N22 -.-> N20
+  N22 -.-> N21
+  N17 -->|"PostgreSQL/TLS, acceso<br/>lógico al clúster"| N19
+  N10 --> N18
+  N18 --> N23
+  N11 --> N24
+  N12 --> N25
+  UPD["Propuesta S7: trabajo de actualización<br/>consumer dentro de acquisition-risk<br/>sin cuarto servicio ni nueva base"]
+  N13 --> UPD
+  UPD --> N10
+  UPD -.->|"Nueva comprobación de consentimiento"| N12
+  SQLPOL["Propuesta S7: SELECT hasta 200 ms inicial<br/>máximo un reintento, espera 10–25 ms<br/>límite total 700 ms, presupuesto local por dependencia"]
+  SQLPOL -.-> N17
+  DUR["Propuesta S7: auditoría SQL por propietario<br/>publicación por outbox y conciliación<br/>independiente del muestreo del panel"]
+  DUR -.-> N4

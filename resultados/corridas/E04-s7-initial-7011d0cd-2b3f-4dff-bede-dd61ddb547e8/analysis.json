@@ -1,0 +1,220 @@
+{
+  "runId": "E04-s7-initial-7011d0cd-2b3f-4dff-bede-dd61ddb547e8",
+  "evidenceDirectory": "C:\\Users\\aleja\\Documents\\proyecto-final\\experiment\\experimentos\\resultados-crudos\\E04-s7-initial-7011d0cd-2b3f-4dff-bede-dd61ddb547e8",
+  "caseId": "E04",
+  "phase": "initial",
+  "diagnostic": false,
+  "results": {
+    "quote": {
+      "emitted": 21001,
+      "complete": 21000,
+      "classifications": {
+        "normal": 2683,
+        "degraded": 18317,
+        "denied": 0,
+        "technical_error": 1
+      },
+      "p50": 141,
+      "p95": 184,
+      "p99": 216,
+      "wilsonLower": 0.999730298053894,
+      "fallbackRatio": 0.872196562068473,
+      "providerAttempts": 3933,
+      "serverResponses": 21001,
+      "reconciled": true,
+      "loadComplete": true,
+      "latencyPass": true,
+      "completenessPass": true
+    },
+    "profile": {
+      "emitted": 9001,
+      "complete": 9001,
+      "classifications": {
+        "normal": 935,
+        "degraded": 8066,
+        "denied": 0,
+        "technical_error": 0
+      },
+      "p50": 143,
+      "p95": 183,
+      "p99": 219,
+      "wilsonLower": 0.9995733850554349,
+      "fallbackRatio": 0.8961226530385513,
+      "providerAttempts": 1398,
+      "serverResponses": 9001,
+      "reconciled": true,
+      "loadComplete": true,
+      "latencyPass": true,
+      "completenessPass": true
+    }
+  },
+  "dropped": 0,
+  "droppedByPhase": {
+    "warmup": 0,
+    "conditioning": 0,
+    "measured": 0,
+    "pending": 0,
+    "finished": 0
+  },
+  "clientReconciliation": {
+    "available": true,
+    "phases": {
+      "warmup": {
+        "emitted": 12000,
+        "responses": 12000,
+        "api": 12000,
+        "missingResponses": [],
+        "missingApi": [],
+        "unexpectedResponses": [],
+        "unexpectedApi": [],
+        "differences": [],
+        "duplicateIds": {
+          "emitted": [],
+          "responses": [],
+          "api": []
+        },
+        "reconciled": true
+      },
+      "conditioning": {
+        "emitted": 0,
+        "responses": 0,
+        "api": 0,
+        "missingResponses": [],
+        "missingApi": [],
+        "unexpectedResponses": [],
+        "unexpectedApi": [],
+        "differences": [],
+        "duplicateIds": {
+          "emitted": [],
+          "responses": [],
+          "api": []
+        },
+        "reconciled": true
+      },
+      "measured": {
+        "emitted": 30002,
+        "responses": 30002,
+        "api": 30002,
+        "missingResponses": [],
+        "missingApi": [],
+        "unexpectedResponses": [],
+        "unexpectedApi": [],
+        "differences": [],
+        "duplicateIds": {
+          "emitted": [],
+          "responses": [],
+          "api": []
+        },
+        "reconciled": true
+      }
+    },
+    "skipped": 0,
+    "reconciled": true
+  },
+  "privacyViolations": 0,
+  "receiptReconciled": false,
+  "incidents": {
+    "version": 1,
+    "scope": "all_phases",
+    "counts": {
+      "client_failure_with_api_record": 1,
+      "missing_provider_receipt": 1,
+      "server_dependency_or_application_failure": 1
+    },
+    "incidents": [
+      {
+        "id": "quote/quote-11172",
+        "phase": "measured",
+        "at": 1789408527043,
+        "category": "client_failure_with_api_record",
+        "observed": {
+          "status": 503,
+          "errorCode": 1503,
+          "timings": {
+            "duration": 752.506,
+            "blocked": 0,
+            "looking_up": 0,
+            "connecting": 0,
+            "tls_handshaking": 0,
+            "sending": 0,
+            "waiting": 752.506,
+            "receiving": 0
+          },
+          "cfRay": "a3b143391d57da99-MIA",
+          "serverClassification": "technical_error",
+          "serverReason": "hard_deadline"
+        },
+        "attribution": "unresolved",
+        "nextEvidence": "Comparar ingreso, final del handler y transporte; una respuesta registrada no demuestra entrega al cliente."
+      },
+      {
+        "id": "quote/quote-143",
+        "phase": "warmup",
+        "category": "missing_provider_receipt",
+        "observed": {
+          "dispatchAt": 1789408368753,
+          "abortAt": 1789408368873,
+          "abortCause": "deadline",
+          "classification": "degraded",
+          "reason": "deadline"
+        },
+        "attribution": "unresolved",
+        "nextEvidence": "Cruzar provider_dispatch, ingress del simulador, provider y evidence_error. Un despacho es intención de fetch, no recepción confirmada."
+      },
+      {
+        "id": "quote/quote-11172",
+        "phase": "measured",
+        "category": "server_dependency_or_application_failure",
+        "observed": {
+          "reason": "hard_deadline",
+          "activeStage": "consent"
+        },
+        "attribution": "unresolved",
+        "nextEvidence": "Revisar etapa y código SQL, cancelación y métricas de pool en el intervalo; no atribuir SQL únicamente a Cloudflare."
+      }
+    ],
+    "limitations": [
+      "Categorías pueden solaparse por solicitud; no sumar como solicitudes únicas.",
+      "Logs Cloudflare complementarios no se descargan automáticamente en este informe.",
+      "Ausencia de evidencia no identifica al responsable. Los resultados históricos no contienen los nuevos ingress.",
+      "Instrumentación de consola agrega volumen y puede perderse; no equivale a un recibo durable."
+    ],
+    "mitigations": {
+      "client_transport": "Registrar CPU, DNS y salud del runner; contrastar con runner independiente en diagnóstico separado.",
+      "provider": "Conservar deadline, breaker y fallback seguro; probar cambios por separado sin ocultar errores.",
+      "sql": "Correlacionar connect/query/close y pool; evaluar reintento acotado solo de lectura bajo deadline y presupuesto.",
+      "evidence": "Reexportar por lectura; conservar huecos e INCONCLUSO; investigar errores de persistencia."
+    }
+  },
+  "mitigatedDependencyFailures": [],
+  "providerReceipts": 10184,
+  "providerCompletions": 10184,
+  "providerReconciliation": {
+    "reconciled": false,
+    "attempts": 10185,
+    "dispatches": 10185,
+    "cancelledBeforeDispatch": [],
+    "unexplainedNonDispatch": [],
+    "missingReceipts": [
+      "quote/quote-143"
+    ],
+    "unexpectedReceipts": [],
+    "duplicateApi": [],
+    "duplicateReceipts": [],
+    "completionReconciled": true,
+    "missingEnds": [],
+    "unexpectedEnds": [],
+    "duplicateEnds": []
+  },
+  "providerCompletionReconciled": true,
+  "serverWindowCalls": 1405,
+  "probeViolations": 7,
+  "valid": false,
+  "status": "INCONCLUSO",
+  "pending": [
+    "E05/E09: comparación emparejada y apertura por isolate",
+    "E06: cronología de cinco éxitos, dos minutos sin reapertura y pico de recuperación",
+    "Revisión humana de privacidad, trazas y limitaciones; E11 completo antes de aceptar"
+  ],
+  "note": "El resumen automático no declara aceptación de EXP-S5-01. Conserva evidencias y aplica las reglas completas del protocolo."
+}

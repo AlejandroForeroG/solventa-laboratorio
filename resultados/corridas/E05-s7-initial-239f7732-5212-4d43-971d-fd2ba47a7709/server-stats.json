@@ -1,0 +1,18 @@
+[
+  {
+    "kind": "api",
+    "n": 41954
+  },
+  {
+    "kind": "isolate",
+    "n": 100
+  },
+  {
+    "kind": "provider",
+    "n": 13827
+  },
+  {
+    "kind": "provider_end",
+    "n": 13827
+  }
+]

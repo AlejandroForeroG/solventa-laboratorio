@@ -1,0 +1,35 @@
+{
+  "name": "solventa-laboratorio",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "tsx --test backend/test/*.test.ts experimentos/test/*.test.ts",
+    "typecheck": "tsc --noEmit",
+    "dev": "wrangler dev -c backend/acquisition/wrangler.jsonc -c backend/identity/wrangler.jsonc -c experimentos/simulator/wrangler.jsonc",
+    "bank": "tsx experimentos/cli.ts",
+    "campaign": "tsx experimentos/campaign.ts",
+    "types": "node tools/bank-types.mjs",
+    "demo": "tsx tools/demo.ts",
+    "results": "tsx tools/results.ts",
+    "reproduce": "tsx tools/demo.ts --all"
+  },
+  "dependencies": {
+    "hono": "^4.13.7",
+    "pg": "^8.23.0",
+    "zod": "^4.6.1"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^5.20260908.1",
+    "@types/node": "^22.20.2",
+    "@types/pg": "^8.23.1",
+    "tsx": "^4.23.13",
+    "typescript": "^7.0.2",
+    "wrangler": "^4.130.0"
+  },
+  "overrides": {
+    "sharp": "0.35.4"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

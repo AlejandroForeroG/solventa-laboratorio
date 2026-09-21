@@ -1,0 +1,11 @@
+{
+  "runId": "E09-s7-initial-3ac5e9c9-a9ae-4929-b535-fb8d4534a036",
+  "originalSha256": "1d0b87a1024e269eb1e93269b35d4486f5af828dbb7f2ef4e3b94b86e9dd1e07",
+  "originalStatus": "INCONCLUSO",
+  "derivedStatus": "INCONCLUSO",
+  "originalProbeViolations": 0,
+  "correctedProbeViolations": 0,
+  "allPhaseCorrectedViolations": 0,
+  "method": "breakerEvents event=probe at, grouped by isolate/operation; original validity and other criteria preserved",
+  "notExperimentAcceptance": true
+}

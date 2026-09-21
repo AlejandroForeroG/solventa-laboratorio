@@ -1,0 +1,121 @@
+{
+  "run": {
+    "runId": "E07-s7-initial-9f441662-e360-44ee-9faf-14a80afac612",
+    "caseId": "E07",
+    "phase": "initial",
+    "repetition": 3,
+    "fixture": "absent",
+    "deadlineMs": 120,
+    "breakerEnabled": true,
+    "bulkhead": 64,
+    "latencyMs": 40,
+    "errorRate": 1,
+    "jitterMs": 0,
+    "invalidPayload": false,
+    "seed": 4501,
+    "startAt": 1789424585482,
+    "warmupMs": 120000,
+    "conditioningMs": 0,
+    "measuredMs": 300000,
+    "fixtureNow": 1788955200000
+  },
+  "baseUrl": "https://solventa-exp-acquisition-staging.ja-forerog1.workers.dev",
+  "diagnostic": false,
+  "rate": 100,
+  "sourceHash": "3be4896596bc560927a7b5767bdda7447a4d1d1de81419e421e96a02d01e32be",
+  "clientLedgerVersion": 1,
+  "clockGuardEnforced": true,
+  "networkBaseline": {
+    "roundTripMs": 53,
+    "estimatedClockOffsetMs": -27.5,
+    "selection": "minimum-rtt-of-5",
+    "samples": [
+      {
+        "pingStart": 1789424565595,
+        "pingEnd": 1789424565913,
+        "health": {
+          "service": "solventa-experimental-bank",
+          "mode": "staging-sql",
+          "serverNow": 1789424565850,
+          "capabilities": [
+            "sql-read-recovery-v2",
+            "snapshot-failure-degrade-v1"
+          ]
+        },
+        "roundTripMs": 318,
+        "estimatedClockOffsetMs": 96
+      },
+      {
+        "pingStart": 1789424565913,
+        "pingEnd": 1789424565968,
+        "health": {
+          "service": "solventa-experimental-bank",
+          "mode": "staging-sql",
+          "serverNow": 1789424565913,
+          "capabilities": [
+            "sql-read-recovery-v2",
+            "snapshot-failure-degrade-v1"
+          ]
+        },
+        "roundTripMs": 55,
+        "estimatedClockOffsetMs": -27.5
+      },
+      {
+        "pingStart": 1789424565968,
+        "pingEnd": 1789424566024,
+        "health": {
+          "service": "solventa-experimental-bank",
+          "mode": "staging-sql",
+          "serverNow": 1789424565968,
+          "capabilities": [
+            "sql-read-recovery-v2",
+            "snapshot-failure-degrade-v1"
+          ]
+        },
+        "roundTripMs": 56,
+        "estimatedClockOffsetMs": -28
+      },
+      {
+        "pingStart": 1789424566024,
+        "pingEnd": 1789424566078,
+        "health": {
+          "service": "solventa-experimental-bank",
+          "mode": "staging-sql",
+          "serverNow": 1789424566024,
+          "capabilities": [
+            "sql-read-recovery-v2",
+            "snapshot-failure-degrade-v1"
+          ]
+        },
+        "roundTripMs": 54,
+        "estimatedClockOffsetMs": -27
+      },
+      {
+        "pingStart": 1789424566078,
+        "pingEnd": 1789424566131,
+        "health": {
+          "service": "solventa-experimental-bank",
+          "mode": "staging-sql",
+          "serverNow": 1789424566077,
+          "capabilities": [
+            "sql-read-recovery-v2",
+            "snapshot-failure-degrade-v1"
+          ]
+        },
+        "roundTripMs": 53,
+        "estimatedClockOffsetMs": -27.5
+      }
+    ]
+  },
+  "node": "v22.21.1",
+  "k6": "k6.exe v2.2.0 (commit/00a9a1b7f5, go1.26.5, windows/amd64)",
+  "commit": "f5284b128d794696367cb8d42e3b22e4fd6546d7",
+  "sourceStatus": " M AGENTS.md\n M README.md\n M backend/acquisition/index.ts\n M backend/application/execute.ts\n M backend/identity/index.ts\n M backend/shared/contracts.ts\n M backend/shared/database.ts\n M backend/shared/deadline.ts\n M docs/01-guia-interna-ejecutar-E01-E11.md\n M experimentos/README.md\n M experimentos/analyze.ts\n M experimentos/cli.ts\n M experimentos/infra/compose.yaml\n M experimentos/infra/configure.mjs\n M experimentos/k6/bank.js\n M experimentos/simulator/index.ts\n M tsconfig.json\n?? .gitingore\n?? backend/acquisition/wrangler.local-sql.jsonc\n?? backend/acquisition/wrangler.staging.jsonc\n?? backend/identity/wrangler.local-sql.jsonc\n?? backend/identity/wrangler.staging.jsonc\n?? backend/shared/dependency-error.ts\n?? backend/shared/evidence-delivery.ts\n?? backend/shared/read-recovery.ts\n?? backend/shared/request-trace.ts\n?? backend/shared/telemetry.ts\n?? backend/test/admission.test.ts\n?? backend/test/cancellation.test.ts\n?? backend/test/dependency-error.test.ts\n?? backend/test/evidence-delivery.test.ts\n?? backend/test/read-recovery.test.ts\n?? backend/test/snapshot-failure.test.ts\n?? docs/AVANCE-SQL-2026-09-09.md\n?? docs/AVANCE-STAGING-2026-09-09.md\n?? docs/CIERRE-INVESTIGACION-Y-CONTINUIDAD-S7-2026-09-14.md\n?? docs/CONCLUSIONES-INVESTIGACION-S7-2026-09-14.md\n?? docs/CONEXION-SQL-PENDIENTE.md\n?? docs/CONTINUACION-LOTE-S7-2026-09-14.md\n?? docs/CORRECCION-CANCELACIONES-2026-09-09.md\n?? docs/DIAGNOSTICO-E01-2026-09-09.md\n?? docs/DIAGNOSTICO-S7-2026-09-14.md\n?? docs/E01-CANDIDATA-2026-09-09.md\n?? docs/EVALUACION-E01-REP2-Y-TRAZAS-2026-09-14.md\n?? docs/LOTE-INICIAL-V2-2026-09-14.md\n?? docs/MITIGACION-SQL-S7-2026-09-14.md\n?? docs/NOTA-E01-REP2-V2-2026-09-14.md\n?? docs/PERSISTENCIA-EVIDENCIA-V2-2026-09-14.md\n?? docs/PLAN-PRUEBAS-10-13-SEPTIEMBRE.md\n?? docs/REVISION-RECIBO-19895-2026-09-14.md\n?? docs/VALIDACION-TRAZAS-2026-09-14.md\n?? experimentos/client-ledger.ts\n?? experimentos/export-evidence.ts\n?? experimentos/incidents.ts\n?? experimentos/reconcile.ts\n?? experimentos/simulator/wrangler.local-sql.jsonc\n?? experimentos/simulator/wrangler.staging.jsonc\n?? experimentos/test/client-ledger.test.ts\n?? experimentos/test/export-evidence.test.ts\n?? experimentos/test/incidents.test.ts\n?? experimentos/test/reconcile.test.ts\n?? tools/audit-s6-metrics.py\n?? tools/close-s7-investigation.mjs\n?? tools/continue-s7-initial.py\n?? tools/diagnose-s7.mjs\n?? tools/inventory-s6-close.py\n?? tools/investigate-s7-closure.mjs\n?? tools/package-s6-close.py\n?? tools/prepare-week6-continuation.py\n?? tools/probe-read-recovery.ts\n?? tools/probe-s7-admission.ts\n?? tools/probe-s7-hyperdrive.mjs\n?? tools/probe-s7-sql.mjs\n?? tools/run-s7-directed.mjs\n?? tools/run-s7-initial.py\n?? tools/run-trace-validation.py\n?? tools/run-week6-batch.py\n?? tools/summarize-s7-mitigation.mjs\n?? tools/sync-clock.ps1\n?? tools/test-s7-continuation.py\n",
+  "runnerLocation": "Bogota-Colombia",
+  "timezone": "America/Bogota",
+  "dbTopology": "Workers+Hyperdrive+CockroachDB Basic AWS us-east-1; single-region test database",
+  "artifactVersion": "{\"acquisition\":\"8b7f3d37-2afa-4789-9aed-6ee05ef34100\",\"identity\":\"670d7a51-63d6-48d9-9d81-ac7d9cfd833e\",\"simulator\":\"4c1d53ce-1c0d-4214-9355-3626154540be\"}",
+  "protocol": "EXP-S5-01, Drive 2026-09-07",
+  "bulkheadStatus": "64 por isolate/operación; parámetro de montaje, eficacia pendiente",
+  "recoveryRateWindowMs": 10000
+}

@@ -1,0 +1,16 @@
+node_modules/
+.replay/
+.wrangler/
+.env
+.env.*
+!.env.example
+.dev.vars*
+*.local.json
+*.staging.jsonc
+*.local-sql.jsonc
+tools/k6/
+experimentos/resultados-crudos/
+descargas/
+__pycache__/
+*.log
+coverage/

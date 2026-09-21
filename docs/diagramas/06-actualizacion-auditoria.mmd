@@ -1,0 +1,49 @@
+%%{init: {"theme": "base", "themeVariables": {"primaryColor": "#ffffff", "primaryTextColor": "#000000", "primaryBorderColor": "#000000", "lineColor": "#000000", "secondaryColor": "#ffffff", "tertiaryColor": "#ffffff", "clusterBkg": "#ffffff", "clusterBorder": "#000000", "edgeLabelBackground": "#ffffff", "fontFamily": "Arial", "actorBkg": "#ffffff", "actorBorder": "#000000", "actorTextColor": "#000000", "noteBkgColor": "#ffffff", "noteTextColor": "#000000", "noteBorderColor": "#000000", "labelBoxBkgColor": "#ffffff", "labelBoxBorderColor": "#000000", "signalColor": "#000000", "signalTextColor": "#000000"}}}%%
+sequenceDiagram
+    autonumber
+    participant A as Acquisition & Risk
+    participant D as SQL Acquisition
+    participant U as Publisher Acquisition
+    participant Q as Queue
+    participant W as Consumidor Acquisition
+    participant I as Identity / Consent
+    participant P as Adapter Open Finance
+    participant L as DLQ
+    A->>D: Transacción: resultado, auditoría y actualización pendiente
+    D-->>A: Commit
+    A-->>A: Responder sin esperar el trabajo de actualización
+    U->>D: Reclamar outbox con eventId y versión
+    U->>Q: Publicar trabajo
+    Q-->>U: Confirmación
+    U->>D: Confirmar publicación, reconciliar si fue incierta
+    Q->>W: Entregar evento, puede estar repetido
+    W->>D: Consultar estado idempotente del trabajo
+    alt Ya completado
+        W-->>Q: ACK sin repetir efecto
+    else Pendiente
+        W->>I: Verificar consentimiento actual, propósito y alcance
+        alt Revocado o vencido
+            W->>D: Transacción: cancelación, inbox y auditoría
+            W-->>Q: ACK después de commit
+        else Verificación temporalmente no disponible
+            W-->>Q: Reintento asíncrono acotado, no consultar datos
+        else Autorizado
+            W->>P: Obtener señales bajo límites del adaptador
+            P-->>W: Señales o error
+            alt Señales válidas
+                W->>I: Revalidar versión antes de aplicar el resultado
+                alt Sigue autorizada
+                    W->>D: Transacción: respaldo con fuente y vencimiento, inbox y auditoría
+                    W-->>Q: ACK después de commit
+                else Autorización cambió
+                    W->>D: Descartar datos, registrar cancelación e inbox
+                    W-->>Q: ACK después de commit
+                end
+            else Falla transitoria o persistencia no confirmada
+                W-->>Q: Reintento acotado, sin ACK de efecto no confirmado
+            end
+        end
+    end
+    Q->>L: Agotados los intentos o mensaje no procesable
+    Note over W,I: La referencia del mensaje no concede autorización<br/>Cada uso posterior del respaldo también valida consentimiento
+    Note over D,L: Propuesta S7: métricas de rezago, antigüedad y errores<br/>Despacho sin recibo queda identificado, no se supone éxito

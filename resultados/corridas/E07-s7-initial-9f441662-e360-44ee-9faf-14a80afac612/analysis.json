@@ -1,0 +1,295 @@
+{
+  "runId": "E07-s7-initial-9f441662-e360-44ee-9faf-14a80afac612",
+  "evidenceDirectory": "C:\\Users\\aleja\\Documents\\proyecto-final\\experiment\\experimentos\\resultados-crudos\\E07-s7-initial-9f441662-e360-44ee-9faf-14a80afac612",
+  "caseId": "E07",
+  "phase": "initial",
+  "diagnostic": false,
+  "results": {
+    "quote": {
+      "emitted": 21000,
+      "complete": 21000,
+      "classifications": {
+        "normal": 0,
+        "degraded": 21000,
+        "denied": 0,
+        "technical_error": 0
+      },
+      "p50": 136,
+      "p95": 156,
+      "p99": 183,
+      "wilsonLower": 0.9998171001251503,
+      "fallbackRatio": 1,
+      "providerAttempts": 474,
+      "serverResponses": 21000,
+      "reconciled": true,
+      "loadComplete": true,
+      "latencyPass": true,
+      "completenessPass": true
+    },
+    "profile": {
+      "emitted": 9000,
+      "complete": 9000,
+      "classifications": {
+        "normal": 0,
+        "degraded": 9000,
+        "denied": 0,
+        "technical_error": 0
+      },
+      "p50": 137,
+      "p95": 165,
+      "p99": 190,
+      "wilsonLower": 0.9995733376739991,
+      "fallbackRatio": 1,
+      "providerAttempts": 288,
+      "serverResponses": 9000,
+      "reconciled": true,
+      "loadComplete": true,
+      "latencyPass": true,
+      "completenessPass": true
+    }
+  },
+  "dropped": 0,
+  "droppedByPhase": {
+    "warmup": 0,
+    "conditioning": 0,
+    "measured": 0,
+    "pending": 0,
+    "finished": 0
+  },
+  "clientReconciliation": {
+    "available": true,
+    "phases": {
+      "warmup": {
+        "emitted": 12002,
+        "responses": 12002,
+        "api": 12002,
+        "missingResponses": [],
+        "missingApi": [],
+        "unexpectedResponses": [],
+        "unexpectedApi": [],
+        "differences": [],
+        "duplicateIds": {
+          "emitted": [],
+          "responses": [],
+          "api": []
+        },
+        "reconciled": true
+      },
+      "conditioning": {
+        "emitted": 0,
+        "responses": 0,
+        "api": 0,
+        "missingResponses": [],
+        "missingApi": [],
+        "unexpectedResponses": [],
+        "unexpectedApi": [],
+        "differences": [],
+        "duplicateIds": {
+          "emitted": [],
+          "responses": [],
+          "api": []
+        },
+        "reconciled": true
+      },
+      "measured": {
+        "emitted": 30000,
+        "responses": 30000,
+        "api": 30000,
+        "missingResponses": [],
+        "missingApi": [],
+        "unexpectedResponses": [],
+        "unexpectedApi": [],
+        "differences": [],
+        "duplicateIds": {
+          "emitted": [],
+          "responses": [],
+          "api": []
+        },
+        "reconciled": true
+      }
+    },
+    "skipped": 0,
+    "reconciled": true
+  },
+  "privacyViolations": 0,
+  "receiptReconciled": false,
+  "incidents": {
+    "version": 1,
+    "scope": "all_phases",
+    "counts": {
+      "client_failure_with_api_record": 1,
+      "missing_provider_receipt": 5,
+      "server_dependency_or_application_failure": 1
+    },
+    "incidents": [
+      {
+        "id": "profile/profile-1796",
+        "phase": "warmup",
+        "at": 1789424646104,
+        "category": "client_failure_with_api_record",
+        "observed": {
+          "status": 503,
+          "errorCode": 1503,
+          "timings": {
+            "duration": 755.314,
+            "blocked": 0,
+            "looking_up": 0,
+            "connecting": 0,
+            "tls_handshaking": 0,
+            "sending": 0,
+            "waiting": 755.314,
+            "receiving": 0
+          },
+          "cfRay": "a3b2ccc15bf167c8-MIA",
+          "serverClassification": "technical_error",
+          "serverReason": "hard_deadline"
+        },
+        "attribution": "unresolved",
+        "nextEvidence": "Comparar ingreso, final del handler y transporte; una respuesta registrada no demuestra entrega al cliente."
+      },
+      {
+        "id": "profile/profile-7",
+        "phase": "warmup",
+        "category": "missing_provider_receipt",
+        "observed": {
+          "dispatchAt": 1789424586079,
+          "abortAt": 1789424586199,
+          "abortCause": "deadline",
+          "classification": "degraded",
+          "reason": "no_eligible_snapshot"
+        },
+        "attribution": "unresolved",
+        "nextEvidence": "Cruzar provider_dispatch, ingress del simulador, provider y evidence_error. Un despacho es intención de fetch, no recepción confirmada."
+      },
+      {
+        "id": "quote/quote-30",
+        "phase": "warmup",
+        "category": "missing_provider_receipt",
+        "observed": {
+          "dispatchAt": 1789424586101,
+          "abortAt": 1789424586221,
+          "abortCause": "deadline",
+          "classification": "degraded",
+          "reason": "no_eligible_snapshot"
+        },
+        "attribution": "unresolved",
+        "nextEvidence": "Cruzar provider_dispatch, ingress del simulador, provider y evidence_error. Un despacho es intención de fetch, no recepción confirmada."
+      },
+      {
+        "id": "quote/quote-23",
+        "phase": "warmup",
+        "category": "missing_provider_receipt",
+        "observed": {
+          "dispatchAt": 1789424586097,
+          "abortAt": 1789424586217,
+          "abortCause": "deadline",
+          "classification": "degraded",
+          "reason": "no_eligible_snapshot"
+        },
+        "attribution": "unresolved",
+        "nextEvidence": "Cruzar provider_dispatch, ingress del simulador, provider y evidence_error. Un despacho es intención de fetch, no recepción confirmada."
+      },
+      {
+        "id": "profile/profile-9",
+        "phase": "warmup",
+        "category": "missing_provider_receipt",
+        "observed": {
+          "dispatchAt": 1789424586101,
+          "abortAt": 1789424586221,
+          "abortCause": "deadline",
+          "classification": "degraded",
+          "reason": "no_eligible_snapshot"
+        },
+        "attribution": "unresolved",
+        "nextEvidence": "Cruzar provider_dispatch, ingress del simulador, provider y evidence_error. Un despacho es intención de fetch, no recepción confirmada."
+      },
+      {
+        "id": "profile/profile-8",
+        "phase": "warmup",
+        "category": "missing_provider_receipt",
+        "observed": {
+          "dispatchAt": 1789424586103,
+          "abortAt": 1789424586223,
+          "abortCause": "deadline",
+          "classification": "degraded",
+          "reason": "no_eligible_snapshot"
+        },
+        "attribution": "unresolved",
+        "nextEvidence": "Cruzar provider_dispatch, ingress del simulador, provider y evidence_error. Un despacho es intención de fetch, no recepción confirmada."
+      },
+      {
+        "id": "profile/profile-1796",
+        "phase": "warmup",
+        "category": "server_dependency_or_application_failure",
+        "observed": {
+          "reason": "hard_deadline",
+          "activeStage": "snapshot",
+          "consentSql": {
+            "stage": "completed",
+            "startedAt": 1789424645348,
+            "connectMs": 3,
+            "queryMs": 41,
+            "closeMs": 0,
+            "finishedAt": 1789424645392
+          },
+          "snapshotSql": {
+            "stage": "query",
+            "startedAt": 1789424645395,
+            "connectMs": 3,
+            "cancelledAt": 1789424646043,
+            "cancelledStage": "query"
+          }
+        },
+        "attribution": "unresolved",
+        "nextEvidence": "Revisar etapa y código SQL, cancelación y métricas de pool en el intervalo; no atribuir SQL únicamente a Cloudflare."
+      }
+    ],
+    "limitations": [
+      "Categorías pueden solaparse por solicitud; no sumar como solicitudes únicas.",
+      "Logs Cloudflare complementarios no se descargan automáticamente en este informe.",
+      "Ausencia de evidencia no identifica al responsable. Los resultados históricos no contienen los nuevos ingress.",
+      "Instrumentación de consola agrega volumen y puede perderse; no equivale a un recibo durable."
+    ],
+    "mitigations": {
+      "client_transport": "Registrar CPU, DNS y salud del runner; contrastar con runner independiente en diagnóstico separado.",
+      "provider": "Conservar deadline, breaker y fallback seguro; probar cambios por separado sin ocultar errores.",
+      "sql": "Correlacionar connect/query/close y pool; evaluar reintento acotado solo de lectura bajo deadline y presupuesto.",
+      "evidence": "Reexportar por lectura; conservar huecos e INCONCLUSO; investigar errores de persistencia."
+    }
+  },
+  "mitigatedDependencyFailures": [],
+  "providerReceipts": 1789,
+  "providerCompletions": 1789,
+  "providerReconciliation": {
+    "reconciled": false,
+    "attempts": 1794,
+    "dispatches": 1794,
+    "cancelledBeforeDispatch": [],
+    "unexplainedNonDispatch": [],
+    "missingReceipts": [
+      "profile/profile-7",
+      "quote/quote-30",
+      "quote/quote-23",
+      "profile/profile-9",
+      "profile/profile-8"
+    ],
+    "unexpectedReceipts": [],
+    "duplicateApi": [],
+    "duplicateReceipts": [],
+    "completionReconciled": true,
+    "missingEnds": [],
+    "unexpectedEnds": [],
+    "duplicateEnds": []
+  },
+  "providerCompletionReconciled": true,
+  "serverWindowCalls": 150,
+  "probeViolations": 0,
+  "valid": false,
+  "status": "INCONCLUSO",
+  "pending": [
+    "E05/E09: comparación emparejada y apertura por isolate",
+    "E06: cronología de cinco éxitos, dos minutos sin reapertura y pico de recuperación",
+    "Revisión humana de privacidad, trazas y limitaciones; E11 completo antes de aceptar"
+  ],
+  "note": "El resumen automático no declara aceptación de EXP-S5-01. Conserva evidencias y aplica las reglas completas del protocolo."
+}

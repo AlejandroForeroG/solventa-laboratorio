@@ -1,0 +1,35 @@
+%%{init: {"theme": "base", "themeVariables": {"primaryColor": "#ffffff", "primaryTextColor": "#000000", "primaryBorderColor": "#000000", "lineColor": "#000000", "secondaryColor": "#ffffff", "tertiaryColor": "#ffffff", "clusterBkg": "#ffffff", "clusterBorder": "#000000", "edgeLabelBackground": "#ffffff", "fontFamily": "Arial", "actorBkg": "#ffffff", "actorBorder": "#000000", "actorTextColor": "#000000", "noteBkgColor": "#ffffff", "noteTextColor": "#000000", "noteBorderColor": "#000000", "labelBoxBkgColor": "#ffffff", "labelBoxBorderColor": "#000000", "signalColor": "#000000", "signalTextColor": "#000000"}}}%%
+flowchart TB
+  N1["HTTP / Service Binding / Queue"]
+  N8["Infraestructura<br/>CockroachDB vía Hyperdrive<br/>R2 - Queues - Workflows"]
+  N9["Open Finance / Open Data<br/>o simulador EXP-S5-01"]
+  N10["En ejecución: puerto → adaptador<br/>En código: adaptador → contrato<br/>inyección por composición"]
+  N11["QM-01/02, QI-01/02, QS-01<br/>unitarias sin red, reglas de dependencias<br/>sustitución confinada del proveedor"]
+  N12["OpenAPI y Pact<br/>bloquear incompatibilidad en CI<br/>evolución compatible y deprecación explícita"]
+  N13["Se replica en AR, PCP e ICE<br/>cada Worker conserva dominio y ownership propios<br/>no biblioteca de negocio centralizada"]
+  subgraph G14["Interior de cada Worker: mismo principio, responsabilidades propias"]
+    N2["Inbound adapters<br/>Hono, RPC, consumidor<br/>validar contrato y contexto"]
+    N3["Application<br/>caso de uso, autorización<br/>coordinar transacción local"]
+    N4["Domain<br/>entidades, agregados, políticas<br/>sin SDK, runtime ni red"]
+    N5["Outbound ports<br/>contratos definidos hacia el núcleo<br/>Repository, RiskSignals, Consent"]
+    N6["Outbound adapters<br/>SQL, R2 - Queue, proveedores<br/>implementan puertos"]
+    N7["Adapter/ACL Open Finance<br/>schema externo → RiskSignals<br/>fuente, capturedAt, calidad<br/>referencia de consentimiento"]
+  end
+  N2 -->|"invoca"| N3
+  N3 -->|"usa reglas"| N4
+  N3 -->|"requiere contrato"| N5
+  N6 -.->|"implementa: dependencia<br/>de código"| N5
+  N7 -.->|"implementa: dependencia<br/>de código"| N5
+  N1 --> N2
+  N6 -->|"I/O"| N8
+  N7 -->|"HTTPS, deadline, breaker"| N9
+  N10 -.-> N5
+  N11 -.-> N4
+  N12 -.-> N2
+  N13 -.-> N3
+  READ["Propuesta S7: política de lectura SQL<br/>cancelación, cierre y un reintento permitido<br/>fuera de Domain"]
+  READ -.-> N6
+  REF["Propuesta S7: caso de actualización asíncrona<br/>consentimiento fresco y señales vigentes<br/>resultado y auditoría transaccionales"]
+  REF -.-> N3
+  TRACK["Seguimiento por instancia y operación<br/>estado del circuito y última actividad"]
+  TRACK -.-> N7

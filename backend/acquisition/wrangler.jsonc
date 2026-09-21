@@ -1,0 +1,42 @@
+{
+  "$schema": "../../node_modules/wrangler/config-schema.json",
+  "name": "solventa-exp-acquisition",
+  "main": "index.ts",
+  "compatibility_date": "2026-09-09",
+  "compatibility_flags": [
+    "nodejs_compat"
+  ],
+  "secrets": {
+    "required": [
+      "BANK_TOKEN"
+    ]
+  },
+  "vars": {
+    "BANK_MODE": "local-memory"
+  },
+  "hyperdrive": [
+    {
+      "binding": "RISK_DB",
+      "id": "00000000000000000000000000000000",
+      "localConnectionString": "postgresql://root:local-only@127.0.0.1:26257/solventa_exp?sslmode=disable"
+    }
+  ],
+  "services": [
+    {
+      "binding": "IDENTITY",
+      "service": "solventa-exp-identity"
+    },
+    {
+      "binding": "SIMULATOR",
+      "service": "solventa-exp-simulator"
+    }
+  ],
+  "observability": {
+    "enabled": true,
+    "head_sampling_rate": 1
+  },
+  "dev": {
+    "port": 8787,
+    "ip": "127.0.0.1"
+  }
+}

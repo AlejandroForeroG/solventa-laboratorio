@@ -1,0 +1,34 @@
+%%{init: {"theme": "base", "themeVariables": {"primaryColor": "#ffffff", "primaryTextColor": "#000000", "primaryBorderColor": "#000000", "lineColor": "#000000", "secondaryColor": "#ffffff", "tertiaryColor": "#ffffff", "clusterBkg": "#ffffff", "clusterBorder": "#000000", "edgeLabelBackground": "#ffffff", "fontFamily": "Arial", "actorBkg": "#ffffff", "actorBorder": "#000000", "actorTextColor": "#000000", "noteBkgColor": "#ffffff", "noteTextColor": "#000000", "noteBorderColor": "#000000", "labelBoxBkgColor": "#ffffff", "labelBoxBorderColor": "#000000", "signalColor": "#000000", "signalTextColor": "#000000"}}}%%
+sequenceDiagram
+    actor C as Web / Mobile
+    participant P as Policy, Claims & Payments
+    participant D as SQL propietario PCP
+    participant R as R2
+    participant V as Verificador / reconciliador PCP
+    participant Q as Queue
+    C->>P: Solicitar carga autorizada e idempotente
+    P->>D: Crear EvidenceMetadata PENDIENTE
+    P-->>C: URL temporal, tamaño y tipo permitidos
+    C->>R: Cargar binario directamente
+    R-->>C: Resultado de carga
+    C->>P: Confirmar objectKey y checksum
+    P->>R: Comprobar existencia y metadatos
+    alt Archivo presente
+        P->>D: Estado CARGADA y outbox, misma transacción
+        P-->>C: Carga registrada, verificación pendiente
+        P->>Q: Publicar desde outbox
+        Q->>V: Verificación idempotente
+        V->>R: Validar checksum, límites y contenido
+        alt Verificación válida
+            V->>D: Estado VERIFICADA, inbox y auditoría
+            V-->>Q: ACK después de commit
+        else Archivo inválido
+            V->>D: Registrar rechazo y causa
+            V-->>Q: Confirmar resultado persistido
+        end
+    else Archivo o confirmación ausente
+        P-->>C: Estado pendiente y opción de recuperación
+        V->>R: Conciliar objetos y metadatos
+        V->>D: Reparar referencia o registrar huérfano
+    end
+    Note over D,R: Se conserva el diseño S6: no hay transacción SQL–R2<br/>Retención, eliminación de huérfanos y autorización por propietario

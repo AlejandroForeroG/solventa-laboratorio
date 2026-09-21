@@ -1,0 +1,2957 @@
+{
+  "runId": "E09-s7-initial-3d00ce45-ef7c-4201-89ec-7722508474a9",
+  "evidenceDirectory": "C:\\Users\\aleja\\Documents\\proyecto-final\\experiment\\experimentos\\resultados-crudos\\E09-s7-initial-3d00ce45-ef7c-4201-89ec-7722508474a9",
+  "caseId": "E09",
+  "phase": "initial",
+  "diagnostic": false,
+  "results": {
+    "quote": {
+      "emitted": 20946,
+      "complete": 20860,
+      "classifications": {
+        "normal": 0,
+        "degraded": 20867,
+        "denied": 0,
+        "technical_error": 79
+      },
+      "p50": 258,
+      "p95": 369,
+      "p99": 926.0999999999985,
+      "wilsonLower": 0.9949326033748657,
+      "fallbackRatio": 0.9962283968299437,
+      "providerAttempts": 20867,
+      "serverResponses": 20935,
+      "reconciled": false,
+      "loadComplete": true,
+      "latencyPass": false,
+      "completenessPass": false
+    },
+    "profile": {
+      "emitted": 8985,
+      "complete": 8956,
+      "classifications": {
+        "normal": 0,
+        "degraded": 8958,
+        "denied": 0,
+        "technical_error": 27
+      },
+      "p50": 258,
+      "p95": 371.7999999999993,
+      "p99": 915.6399999999958,
+      "wilsonLower": 0.9953684462489163,
+      "fallbackRatio": 0.9969949916527546,
+      "providerAttempts": 8958,
+      "serverResponses": 8985,
+      "reconciled": true,
+      "loadComplete": true,
+      "latencyPass": false,
+      "completenessPass": false
+    }
+  },
+  "dropped": 69,
+  "droppedByPhase": {
+    "warmup": 0,
+    "conditioning": 0,
+    "measured": 69,
+    "pending": 0,
+    "finished": 0
+  },
+  "clientReconciliation": {
+    "available": true,
+    "phases": {
+      "warmup": {
+        "emitted": 12000,
+        "responses": 12000,
+        "api": 12000,
+        "missingResponses": [],
+        "missingApi": [],
+        "unexpectedResponses": [],
+        "unexpectedApi": [],
+        "differences": [],
+        "duplicateIds": {
+          "emitted": [],
+          "responses": [],
+          "api": []
+        },
+        "reconciled": true
+      },
+      "conditioning": {
+        "emitted": 0,
+        "responses": 0,
+        "api": 0,
+        "missingResponses": [],
+        "missingApi": [],
+        "unexpectedResponses": [],
+        "unexpectedApi": [],
+        "differences": [],
+        "duplicateIds": {
+          "emitted": [],
+          "responses": [],
+          "api": []
+        },
+        "reconciled": true
+      },
+      "measured": {
+        "emitted": 29931,
+        "responses": 29931,
+        "api": 29920,
+        "missingResponses": [],
+        "missingApi": [
+          "quote/quote-28318",
+          "quote/quote-28325",
+          "quote/quote-28327",
+          "quote/quote-28361",
+          "quote/quote-28362",
+          "quote/quote-28363",
+          "quote/quote-28380",
+          "quote/quote-28382",
+          "quote/quote-28397",
+          "quote/quote-28410",
+          "quote/quote-28412"
+        ],
+        "unexpectedResponses": [],
+        "unexpectedApi": [],
+        "differences": [
+          "quote/quote-28295",
+          "quote/quote-28298",
+          "profile/profile-12135",
+          "quote/quote-28316",
+          "profile/profile-12136",
+          "quote/quote-28317",
+          "quote/quote-28319",
+          "quote/quote-28322",
+          "quote/quote-28324",
+          "quote/quote-28326",
+          "profile/profile-12143",
+          "quote/quote-28328",
+          "profile/profile-12144",
+          "quote/quote-28329",
+          "quote/quote-28330",
+          "profile/profile-12145",
+          "profile/profile-12146",
+          "quote/quote-28335",
+          "quote/quote-28339",
+          "quote/quote-28341",
+          "quote/quote-28343",
+          "quote/quote-28344",
+          "quote/quote-28345",
+          "profile/profile-12150",
+          "quote/quote-28348",
+          "profile/profile-12151",
+          "quote/quote-28349",
+          "quote/quote-28350",
+          "quote/quote-28354",
+          "quote/quote-28357",
+          "quote/quote-28360",
+          "quote/quote-28364",
+          "quote/quote-28365",
+          "profile/profile-12161",
+          "profile/profile-12162",
+          "quote/quote-28371",
+          "profile/profile-12164",
+          "quote/quote-28373",
+          "profile/profile-12166",
+          "quote/quote-28379",
+          "profile/profile-12168",
+          "quote/quote-28381",
+          "quote/quote-28383",
+          "profile/profile-12172",
+          "profile/profile-12173",
+          "quote/quote-28390",
+          "quote/quote-28391",
+          "quote/quote-28392",
+          "profile/profile-12174",
+          "quote/quote-28394",
+          "quote/quote-28395",
+          "quote/quote-28396",
+          "quote/quote-28401",
+          "quote/quote-28402",
+          "quote/quote-28403",
+          "quote/quote-28404",
+          "profile/profile-12178",
+          "quote/quote-28405",
+          "quote/quote-28406",
+          "quote/quote-28407",
+          "profile/profile-12179",
+          "quote/quote-28408",
+          "quote/quote-28409",
+          "profile/profile-12180",
+          "quote/quote-28411",
+          "profile/profile-12181",
+          "quote/quote-28413",
+          "quote/quote-28414",
+          "profile/profile-12182",
+          "quote/quote-28418",
+          "quote/quote-28419",
+          "quote/quote-28420",
+          "quote/quote-28421",
+          "quote/quote-28422",
+          "quote/quote-28423",
+          "profile/profile-12187",
+          "quote/quote-28424",
+          "profile/profile-12188",
+          "quote/quote-28425",
+          "quote/quote-28426",
+          "profile/profile-12189",
+          "quote/quote-28438",
+          "profile/profile-12197",
+          "profile/profile-12198",
+          "quote/quote-28454",
+          "quote/quote-28457",
+          "quote/quote-28458",
+          "quote/quote-28459",
+          "quote/quote-28461",
+          "quote/quote-28462",
+          "quote/quote-28489",
+          "quote/quote-28510",
+          "quote/quote-28532",
+          "quote/quote-28565",
+          "profile/profile-12270"
+        ],
+        "duplicateIds": {
+          "emitted": [],
+          "responses": [],
+          "api": []
+        },
+        "reconciled": false
+      }
+    },
+    "skipped": 2,
+    "reconciled": false
+  },
+  "privacyViolations": 0,
+  "receiptReconciled": false,
+  "incidents": {
+    "version": 1,
+    "scope": "all_phases",
+    "counts": {
+      "client_failure_with_api_record": 95,
+      "missing_api_record": 11,
+      "missing_provider_receipt": 2
+    },
+    "incidents": [
+      {
+        "id": "quote/quote-28295",
+        "phase": "measured",
+        "at": 1789429870449,
+        "category": "client_failure_with_api_record",
+        "observed": {
+          "status": 0,
+          "errorCode": 1050,
+          "timings": {
+            "duration": 2001.7861,
+            "blocked": 0,
+            "looking_up": 0,
+            "connecting": 0,
+            "tls_handshaking": 0,
+            "sending": 0,
+            "waiting": 2001.7861,
+            "receiving": 0
+          },
+          "cfRay": null,
+          "serverClassification": "degraded",
+          "serverReason": "provider_error"
+        },
+        "attribution": "unresolved",
+        "nextEvidence": "Comparar ingreso, final del handler y transporte; una respuesta registrada no demuestra entrega al cliente."
+      },
+      {
+        "id": "quote/quote-28298",
+        "phase": "measured",
+        "at": 1789429870491,
+        "category": "client_failure_with_api_record",
+        "observed": {
+          "status": 0,
+          "errorCode": 1050,
+          "timings": {
+            "duration": 2000.5295,
+            "blocked": 0,
+            "looking_up": 0,
+            "connecting": 0,
+            "tls_handshaking": 0,
+            "sending": 0,
+            "waiting": 2000.5295,
+            "receiving": 0
+          },
+          "cfRay": null,
+          "serverClassification": "degraded",
+          "serverReason": "provider_error"
+        },
+        "attribution": "unresolved",
+        "nextEvidence": "Comparar ingreso, final del handler y transporte; una respuesta registrada no demuestra entrega al cliente."
+      },
+      {
+        "id": "profile/profile-12135",
+        "phase": "measured",
+        "at": 1789429870734,
+        "category": "client_failure_with_api_record",
+        "observed": {
+          "status": 0,
+          "errorCode": 1050,
+          "timings": {
+            "duration": 2000.5244,
+            "blocked": 0,
+            "looking_up": 0,
+            "connecting": 0,
+            "tls_handshaking": 0,
+            "sending": 0,
+            "waiting": 2000.5244,
+            "receiving": 0
+          },
+          "cfRay": null,
+          "serverClassification": "degraded",
+          "serverReason": "provider_error"
+        },
+        "attribution": "unresolved",
+        "nextEvidence": "Comparar ingreso, final del handler y transporte; una respuesta registrada no demuestra entrega al cliente."
+      },
+      {
+        "id": "quote/quote-28316",
+        "phase": "measured",
+        "at": 1789429870762,
+        "category": "client_failure_with_api_record",
+        "observed": {
+          "status": 0,
+          "errorCode": 1050,
+          "timings": {
+            "duration": 1304.213,
+            "blocked": 696.5455,
+            "looking_up": 0,
+            "connecting": 380.8577,
+            "tls_handshaking": 315.1676,
+            "sending": 0.5202,
+            "waiting": 1303.6928,
+            "receiving": 0
+          },
+          "cfRay": null,
+          "serverClassification": "degraded",
+          "serverReason": "provider_error"
+        },
+        "attribution": "unresolved",
+        "nextEvidence": "Comparar ingreso, final del handler y transporte; una respuesta registrada no demuestra entrega al cliente."
+      },
+      {
+        "id": "profile/profile-12136",
+        "phase": "measured",
+        "at": 1789429870767,
+        "category": "client_failure_with_api_record",
+        "observed": {
+          "status": 0,
+          "errorCode": 1050,
+          "timings": {
+            "duration": 2000.3638,
+            "blocked": 0,
+            "looking_up": 0,
+            "connecting": 0,
+            "tls_handshaking": 0,
+            "sending": 0,
+            "waiting": 378.0047,
+            "receiving": 1622.3591
+          },
+          "cfRay": null,
+          "serverClassification": "degraded",
+          "serverReason": "provider_error"
+        },
+        "attribution": "unresolved",
+        "nextEvidence": "Comparar ingreso, final del handler y transporte; una respuesta registrada no demuestra entrega al cliente."
+      },
+      {
+        "id": "quote/quote-28317",
+        "phase": "measured",
+        "at": 1789429870790,
+        "category": "client_failure_with_api_record",
+        "observed": {
+          "status": 0,
+          "errorCode": 1050,
+          "timings": {
+            "duration": 1332.156,
+            "blocked": 668.2103,
+            "looking_up": 0,
+            "connecting": 353.56,
+            "tls_handshaking": 314.6503,
+            "sending": 0,
+            "waiting": 1332.156,
+            "receiving": 0
+          },
+          "cfRay": null,
+          "serverClassification": "degraded",
+          "serverReason": "provider_error"
+        },
+        "attribution": "unresolved",
+        "nextEvidence": "Comparar ingreso, final del handler y transporte; una respuesta registrada no demuestra entrega al cliente."
+      },
+      {
+        "id": "quote/quote-28318",
+        "phase": "measured",
+        "at": 1789429870819,
+        "category": "missing_api_record",
+        "observed": {
+          "status": 0,
+          "errorCode": 1050,
+          "timings": {
+            "duration": 0,
+            "blocked": 0,
+            "looking_up": 0,
+            "connecting": 1533.2446,
+            "tls_handshaking": 0,
+            "sending": 0,
+            "waiting": 0,
+            "receiving": 0
+          },
+          "cfRay": null,
+          "serverClassification": null,
+          "serverReason": null
+        },
+        "attribution": "unresolved",
+        "nextEvidence": "Correlacionar ingress y handler_end de acquisition con CF-Ray y registros del host. Ausencia de API no prueba ausencia de ejecución."
+      },
+      {
+        "id": "quote/quote-28319",
+        "phase": "measured",
+        "at": 1789429870848,
+        "category": "client_failure_with_api_record",
+        "observed": {
+          "status": 0,
+          "errorCode": 1050,
+          "timings": {
+            "duration": 1389.0394,
+            "blocked": 611.3723,
+            "looking_up": 0,
+            "connecting": 295.6543,
+            "tls_handshaking": 315.718,
+            "sending": 0.522,
+            "waiting": 1388.5174,
+            "receiving": 0
+          },
+          "cfRay": null,
+          "serverClassification": "degraded",
+          "serverReason": "provider_error"
+        },
+        "attribution": "unresolved",
+        "nextEvidence": "Comparar ingreso, final del handler y transporte; una respuesta registrada no demuestra entrega al cliente."
+      },
+      {
+        "id": "quote/quote-28322",
+        "phase": "measured",
+        "at": 1789429870905,
+        "category": "client_failure_with_api_record",
+        "observed": {
+          "status": 0,
+          "errorCode": 1050,
+          "timings": {
+            "duration": 1146.032,
+            "blocked": 854.5349,
+            "looking_up": 0,
+            "connecting": 545.5604,
+            "tls_handshaking": 308.9745,
+            "sending": 0,
+            "waiting": 1146.032,
+            "receiving": 0
+          },
+          "cfRay": null,
+          "serverClassification": "degraded",
+          "serverReason": "provider_error"
+        },
+        "attribution": "unresolved",
+        "nextEvidence": "Comparar ingreso, final del handler y transporte; una respuesta registrada no demuestra entrega al cliente."
+      },
+      {
+        "id": "quote/quote-28324",
+        "phase": "measured",
+        "at": 1789429870962,
+        "category": "client_failure_with_api_record",
+        "observed": {
+          "status": 0,
+          "errorCode": 1050,
+          "timings": {
+            "duration": 302.5809,
+            "blocked": 1697.9878,
+            "looking_up": 0,
+            "connecting": 1390.3915,
+            "tls_handshaking": 307.5963,
+            "sending": 0,
+            "waiting": 302.5809,
+            "receiving": 0
+          },
+          "cfRay": null,
+          "serverClassification": "degraded",
+          "serverReason": "provider_error"
+        },
+        "attribution": "unresolved",
+        "nextEvidence": "Comparar ingreso, final del handler y transporte; una respuesta registrada no demuestra entrega al cliente."
+      },
+      {
+        "id": "quote/quote-28325",
+        "phase": "measured",
+        "at": 1789429870991,
+        "category": "missing_api_record",
+        "observed": {
+          "status": 0,
+          "errorCode": 1050,
+          "timings": {
+            "duration": 0,
+            "blocked": 0,
+            "looking_up": 0,
+            "connecting": 460.3842,
+            "tls_handshaking": 0,
+            "sending": 0,
+            "waiting": 0,
+            "receiving": 0
+          },
+          "cfRay": null,
+          "serverClassification": null,
+          "serverReason": null
+        },
+        "attribution": "unresolved",
+        "nextEvidence": "Correlacionar ingress y handler_end de acquisition con CF-Ray y registros del host. Ausencia de API no prueba ausencia de ejecución."
+      },
+      {
+        "id": "quote/quote-28326",
+        "phase": "measured",
+        "at": 1789429871019,
+        "category": "client_failure_with_api_record",
+        "observed": {
+          "status": 0,
+          "errorCode": 1050,
+          "timings": {
+            "duration": 1255.4507,
+            "blocked": 745.8248,
+            "looking_up": 0,
+            "connecting": 431.6705,
+            "tls_handshaking": 312.9136,
+            "sending": 0.7365,
+            "waiting": 1254.7142,
+            "receiving": 0
+          },
+          "cfRay": null,
+          "serverClassification": "degraded",
+          "serverReason": "provider_error"
+        },
+        "attribution": "unresolved",
+        "nextEvidence": "Comparar ingreso, final del handler y transporte; una respuesta registrada no demuestra entrega al cliente."
+      },
+      {
+        "id": "profile/profile-12143",
+        "phase": "measured",
+        "at": 1789429871034,
+        "category": "client_failure_with_api_record",
+        "observed": {
+          "status": 0,
+          "errorCode": 1050,
+          "timings": {
+            "duration": 1274.6243,
+            "blocked": 725.6876,
+            "looking_up": 0,
+            "connecting": 417.7758,
+            "tls_handshaking": 307.9118,
+            "sending": 0,
+            "waiting": 1274.6243,
+            "receiving": 0
+          },
+          "cfRay": null,
+          "serverClassification": "degraded",
+          "serverReason": "provider_error"
+        },
+        "attribution": "unresolved",
+        "nextEvidence": "Comparar ingreso, final del handler y transporte; una respuesta registrada no demuestra entrega al cliente."
+      },
+      {
+        "id": "quote/quote-28327",
+        "phase": "measured",
+        "at": 1789429871048,
+        "category": "missing_api_record",
+        "observed": {
+          "status": 0,
+          "errorCode": 1050,
+          "timings": {
+            "duration": 0,
+            "blocked": 0,
+            "looking_up": 0,
+            "connecting": 402.6054,
+            "tls_handshaking": 0,
+            "sending": 0,
+            "waiting": 0,
+            "receiving": 0
+          },
+          "cfRay": null,
+          "serverClassification": null,
+          "serverReason": null
+        },
+        "attribution": "unresolved",
+        "nextEvidence": "Correlacionar ingress y handler_end de acquisition con CF-Ray y registros del host. Ausencia de API no prueba ausencia de ejecución."
+      },
+      {
+        "id": "quote/quote-28328",
+        "phase": "measured",
+        "at": 1789429871077,
+        "category": "client_failure_with_api_record",
+        "observed": {
+          "status": 0,
+          "errorCode": 1050,
+          "timings": {
+            "duration": 1317.5169,
+            "blocked": 682.8727,
+            "looking_up": 0,
+            "connecting": 374.4047,
+            "tls_handshaking": 308.468,
+            "sending": 0,
+            "waiting": 1317.5169,
+            "receiving": 0
+          },
+          "cfRay": null,
+          "serverClassification": "degraded",
+          "serverReason": "provider_error"
+        },
+        "attribution": "unresolved",
+        "nextEvidence": "Comparar ingreso, final del handler y transporte; una respuesta registrada no demuestra entrega al cliente."
+      },
+      {
+        "id": "profile/profile-12144",
+        "phase": "measured",
+        "at": 1789429871100,
+        "category": "client_failure_with_api_record",
+        "observed": {
+          "status": 0,
+          "errorCode": 1050,
+          "timings": {
+            "duration": 1341.1698,
+            "blocked": 659.3271,
+            "looking_up": 0,
+            "connecting": 351.4153,
+            "tls_handshaking": 307.9118,
+            "sending": 0,
+            "waiting": 1341.1698,
+            "receiving": 0
+          },
+          "cfRay": null,
+          "serverClassification": "degraded",
+          "serverReason": "provider_error"
+        },
+        "attribution": "unresolved",
+        "nextEvidence": "Comparar ingreso, final del handler y transporte; una respuesta registrada no demuestra entrega al cliente."
+      },
+      {
+        "id": "quote/quote-28329",
+        "phase": "measured",
+        "at": 1789429871105,
+        "category": "client_failure_with_api_record",
+        "observed": {
+          "status": 0,
+          "errorCode": 1050,
+          "timings": {
+            "duration": 1340.6827,
+            "blocked": 659.7467,
+            "looking_up": 0,
+            "connecting": 345.7704,
+            "tls_handshaking": 313.9763,
+            "sending": 0.7365,
+            "waiting": 1339.9462,
+            "receiving": 0
+          },
+          "cfRay": null,
+          "serverClassification": "degraded",
+          "serverReason": "provider_error"
+        },
+        "attribution": "unresolved",
+        "nextEvidence": "Comparar ingreso, final del handler y transporte; una respuesta registrada no demuestra entrega al cliente."
+      },
+      {
+        "id": "quote/quote-28330",
+        "phase": "measured",
+        "at": 1789429871133,
+        "category": "client_failure_with_api_record",
+        "observed": {
+          "status": 0,
+          "errorCode": 1050,
+          "timings": {
+            "duration": 1374.0432,
+            "blocked": 626.0481,
+            "looking_up": 0,
+            "connecting": 318.1363,
+            "tls_handshaking": 307.9118,
+            "sending": 0,
+            "waiting": 1374.0432,
+            "receiving": 0
+          },
+          "cfRay": null,
+          "serverClassification": "degraded",
+          "serverReason": "provider_error"
+        },
+        "attribution": "unresolved",
+        "nextEvidence": "Comparar ingreso, final del handler y transporte; una respuesta registrada no demuestra entrega al cliente."
+      },
+      {
+        "id": "profile/profile-12145",
+        "phase": "measured",
+        "at": 1789429871166,
+        "category": "client_failure_with_api_record",
+        "observed": {
+          "status": 0,
+          "errorCode": 1050,
+          "timings": {
+            "duration": 194.9121,
+            "blocked": 1805.147,
+            "looking_up": 0,
+            "connecting": 286.6876,
+            "tls_handshaking": 1518.4594,
+            "sending": 0.5246,
+            "waiting": 194.3875,
+            "receiving": 0
+          },
+          "cfRay": null,
+          "serverClassification": "degraded",
+          "serverReason": "deadline"
+        },
+        "attribution": "unresolved",
+        "nextEvidence": "Comparar ingreso, final del handler y transporte; una respuesta registrada no demuestra entrega al cliente."
+      },
+      {
+        "id": "profile/profile-12146",
+        "phase": "measured",
+        "at": 1789429871200,
+        "category": "client_failure_with_api_record",
+        "observed": {
+          "status": 0,
+          "errorCode": 1050,
+          "timings": {
+            "duration": 2000.1413,
+            "blocked": 0,
+            "looking_up": 0,
+            "connecting": 0,
+            "tls_handshaking": 0,
+            "sending": 0,
+            "waiting": 2000.1413,
+            "receiving": 0
+          },
+          "cfRay": null,
+          "serverClassification": "degraded",
+          "serverReason": "provider_error"
+        },
+        "attribution": "unresolved",
+        "nextEvidence": "Comparar ingreso, final del handler y transporte; una respuesta registrada no demuestra entrega al cliente."
+      },
+      {
+        "id": "quote/quote-28335",
+        "phase": "measured",
+        "at": 1789429871205,
+        "category": "client_failure_with_api_record",
+        "observed": {
+          "status": 0,
+          "errorCode": 1050,
+          "timings": {
+            "duration": 2000.0264,
+            "blocked": 0,
+            "looking_up": 0,
+            "connecting": 0,
+            "tls_handshaking": 0,
+            "sending": 0,
+            "waiting": 1450.0349,
+            "receiving": 549.9915
+          },
+          "cfRay": null,
+          "serverClassification": "degraded",
+          "serverReason": "provider_error"
+        },
+        "attribution": "unresolved",
+        "nextEvidence": "Comparar ingreso, final del handler y transporte; una respuesta registrada no demuestra entrega al cliente."
+      },
+      {
+        "id": "quote/quote-28339",
+        "phase": "measured",
+        "at": 1789429871266,
+        "category": "client_failure_with_api_record",
+        "observed": {
+          "status": 0,
+          "errorCode": 1050,
+          "timings": {
+            "duration": 2003.4673,
+            "blocked": 0,
+            "looking_up": 0,
+            "connecting": 0,
+            "tls_handshaking": 0,
+            "sending": 0,
+            "waiting": 1393.2176,
+            "receiving": 610.2497
+          },
+          "cfRay": null,
+          "serverClassification": "degraded",
+          "serverReason": "provider_error"
+        },
+        "attribution": "unresolved",
+        "nextEvidence": "Comparar ingreso, final del handler y transporte; una respuesta registrada no demuestra entrega al cliente."
+      },
+      {
+        "id": "quote/quote-28341",
+        "phase": "measured",
+        "at": 1789429871290,
+        "category": "client_failure_with_api_record",
+        "observed": {
+          "status": 0,
+          "errorCode": 1050,
+          "timings": {
+            "duration": 2000.2044,
+            "blocked": 0,
+            "looking_up": 0,
+            "connecting": 0,
+            "tls_handshaking": 0,
+            "sending": 0.5042,
+            "waiting": 1371.5485,
+            "receiving": 628.1517
+          },
+          "cfRay": null,
+          "serverClassification": "degraded",
+          "serverReason": "provider_error"
+        },
+        "attribution": "unresolved",
+        "nextEvidence": "Comparar ingreso, final del handler y transporte; una respuesta registrada no demuestra entrega al cliente."
+      },
+      {
+        "id": "quote/quote-28343",
+        "phase": "measured",
+        "at": 1789429871320,
+        "category": "client_failure_with_api_record",
+        "observed": {
+          "status": 0,
+          "errorCode": 1050,
+          "timings": {
+            "duration": 2000.4499,
+            "blocked": 0,
+            "looking_up": 0,
+            "connecting": 0,
+            "tls_handshaking": 0,
+            "sending": 0,
+            "waiting": 2000.4499,
+            "receiving": 0
+          },
+          "cfRay": null,
+          "serverClassification": "degraded",
+          "serverReason": "provider_error"
+        },
+        "attribution": "unresolved",
+        "nextEvidence": "Comparar ingreso, final del handler y transporte; una respuesta registrada no demuestra entrega al cliente."
+      },
+      {
+        "id": "quote/quote-28344",
+        "phase": "measured",
+        "at": 1789429871333,
+        "category": "client_failure_with_api_record",
+        "observed": {
+          "status": 0,
+          "errorCode": 1050,
+          "timings": {
+            "duration": 2000.4314,
+            "blocked": 0,
+            "looking_up": 0,
+            "connecting": 0,
+            "tls_handshaking": 0,
+            "sending": 0,
+            "waiting": 1321.876,
+            "receiving": 678.5554
+          },
+          "cfRay": null,
+          "serverClassification": "degraded",
+          "serverReason": "provider_error"
+        },
+        "attribution": "unresolved",
+        "nextEvidence": "Comparar ingreso, final del handler y transporte; una respuesta registrada no demuestra entrega al cliente."
+      },
+      {
+        "id": "quote/quote-28345",
+        "phase": "measured",
+        "at": 1789429871347,
+        "category": "client_failure_with_api_record",
+        "observed": {
+          "status": 0,
+          "errorCode": 1050,
+          "timings": {
+            "duration": 2000.0803,
+            "blocked": 0,
+            "looking_up": 0,
+            "connecting": 0,
+            "tls_handshaking": 0,
+            "sending": 0,
+            "waiting": 1307.39,
+            "receiving": 692.6903
+          },
+          "cfRay": null,
+          "serverClassification": "degraded",
+          "serverReason": "provider_error"
+        },
+        "attribution": "unresolved",
+        "nextEvidence": "Comparar ingreso, final del handler y transporte; una respuesta registrada no demuestra entrega al cliente."
+      },
+      {
+        "id": "profile/profile-12150",
+        "phase": "measured",
+        "at": 1789429871367,
+        "category": "client_failure_with_api_record",
+        "observed": {
+          "status": 0,
+          "errorCode": 1050,
+          "timings": {
+            "duration": 1292.5967,
+            "blocked": 708.5479,
+            "looking_up": 0,
+            "connecting": 386.2713,
+            "tls_handshaking": 321.673,
+            "sending": 0.6036,
+            "waiting": 1291.9931,
+            "receiving": 0
+          },
+          "cfRay": null,
+          "serverClassification": "degraded",
+          "serverReason": "provider_error"
+        },
+        "attribution": "unresolved",
+        "nextEvidence": "Comparar ingreso, final del handler y transporte; una respuesta registrada no demuestra entrega al cliente."
+      },
+      {
+        "id": "quote/quote-28348",
+        "phase": "measured",
+        "at": 1789429871405,
+        "category": "client_failure_with_api_record",
+        "observed": {
+          "status": 0,
+          "errorCode": 1050,
+          "timings": {
+            "duration": 1329.6051,
+            "blocked": 670.5989,
+            "looking_up": 0,
+            "connecting": 348.3223,
+            "tls_handshaking": 322.2766,
+            "sending": 0,
+            "waiting": 1329.6051,
+            "receiving": 0
+          },
+          "cfRay": null,
+          "serverClassification": "degraded",
+          "serverReason": "provider_error"
+        },
+        "attribution": "unresolved",
+        "nextEvidence": "Comparar ingreso, final del handler y transporte; una respuesta registrada no demuestra entrega al cliente."
+      },
+      {
+        "id": "profile/profile-12151",
+        "phase": "measured",
+        "at": 1789429871433,
+        "category": "client_failure_with_api_record",
+        "observed": {
+          "status": 0,
+          "errorCode": 1050,
+          "timings": {
+            "duration": 1364.6523,
+            "blocked": 635.7926,
+            "looking_up": 0,
+            "connecting": 319.14,
+            "tls_handshaking": 316.6526,
+            "sending": 0.5268,
+            "waiting": 1364.1255,
+            "receiving": 0
+          },
+          "cfRay": null,
+          "serverClassification": "degraded",
+          "serverReason": "provider_error"
+        },
+        "attribution": "unresolved",
+        "nextEvidence": "Comparar ingreso, final del handler y transporte; una respuesta registrada no demuestra entrega al cliente."
+      },
+      {
+        "id": "quote/quote-28349",
+        "phase": "measured",
+        "at": 1789429871433,
+        "category": "client_failure_with_api_record",
+        "observed": {
+          "status": 0,
+          "errorCode": 1050,
+          "timings": {
+            "duration": 1359.1267,
+            "blocked": 641.9218,
+            "looking_up": 0,
+            "connecting": 319.14,
+            "tls_handshaking": 322.1782,
+            "sending": 0.6036,
+            "waiting": 1358.5231,
+            "receiving": 0
+          },
+          "cfRay": null,
+          "serverClassification": "degraded",
+          "serverReason": "provider_error"
+        },
+        "attribution": "unresolved",
+        "nextEvidence": "Comparar ingreso, final del handler y transporte; una respuesta registrada no demuestra entrega al cliente."
+      },
+      {
+        "id": "quote/quote-28350",
+        "phase": "measured",
+        "at": 1789429871462,
+        "category": "client_failure_with_api_record",
+        "observed": {
+          "status": 0,
+          "errorCode": 1050,
+          "timings": {
+            "duration": 1393.0205,
+            "blocked": 607.4276,
+            "looking_up": 0,
+            "connecting": 291.8052,
+            "tls_handshaking": 315.6224,
+            "sending": 0.5268,
+            "waiting": 1392.4937,
+            "receiving": 0
+          },
+          "cfRay": null,
+          "serverClassification": "degraded",
+          "serverReason": "provider_error"
+        },
+        "attribution": "unresolved",
+        "nextEvidence": "Comparar ingreso, final del handler y transporte; una respuesta registrada no demuestra entrega al cliente."
+      },
+      {
+        "id": "quote/quote-28354",
+        "phase": "measured",
+        "at": 1789429871519,
+        "category": "client_failure_with_api_record",
+        "observed": {
+          "status": 0,
+          "errorCode": 1050,
+          "timings": {
+            "duration": 2000.2995,
+            "blocked": 0,
+            "looking_up": 0,
+            "connecting": 0,
+            "tls_handshaking": 0,
+            "sending": 0,
+            "waiting": 1183.7818,
+            "receiving": 816.5177
+          },
+          "cfRay": null,
+          "serverClassification": "degraded",
+          "serverReason": "provider_error"
+        },
+        "attribution": "unresolved",
+        "nextEvidence": "Comparar ingreso, final del handler y transporte; una respuesta registrada no demuestra entrega al cliente."
+      },
+      {
+        "id": "quote/quote-28357",
+        "phase": "measured",
+        "at": 1789429871562,
+        "category": "client_failure_with_api_record",
+        "observed": {
+          "status": 0,
+          "errorCode": 1050,
+          "timings": {
+            "duration": 2000.5096,
+            "blocked": 0,
+            "looking_up": 0,
+            "connecting": 0,
+            "tls_handshaking": 0,
+            "sending": 0,
+            "waiting": 2000.5096,
+            "receiving": 0
+          },
+          "cfRay": null,
+          "serverClassification": "degraded",
+          "serverReason": "provider_error"
+        },
+        "attribution": "unresolved",
+        "nextEvidence": "Comparar ingreso, final del handler y transporte; una respuesta registrada no demuestra entrega al cliente."
+      },
+      {
+        "id": "quote/quote-28360",
+        "phase": "measured",
+        "at": 1789429871620,
+        "category": "client_failure_with_api_record",
+        "observed": {
+          "status": 0,
+          "errorCode": 1050,
+          "timings": {
+            "duration": 1261.7749,
+            "blocked": 738.7744,
+            "looking_up": 0,
+            "connecting": 444.3462,
+            "tls_handshaking": 294.4282,
+            "sending": 0,
+            "waiting": 1261.7749,
+            "receiving": 0
+          },
+          "cfRay": null,
+          "serverClassification": "degraded",
+          "serverReason": "provider_error"
+        },
+        "attribution": "unresolved",
+        "nextEvidence": "Comparar ingreso, final del handler y transporte; una respuesta registrada no demuestra entrega al cliente."
+      },
+      {
+        "id": "quote/quote-28361",
+        "phase": "measured",
+        "at": 1789429871647,
+        "category": "missing_api_record",
+        "observed": {
+          "status": 0,
+          "errorCode": 1050,
+          "timings": {
+            "duration": 0,
+            "blocked": 0,
+            "looking_up": 0,
+            "connecting": 1319.1781,
+            "tls_handshaking": 0,
+            "sending": 0,
+            "waiting": 0,
+            "receiving": 0
+          },
+          "cfRay": null,
+          "serverClassification": null,
+          "serverReason": null
+        },
+        "attribution": "unresolved",
+        "nextEvidence": "Correlacionar ingress y handler_end de acquisition con CF-Ray y registros del host. Ausencia de API no prueba ausencia de ejecución."
+      },
+      {
+        "id": "quote/quote-28362",
+        "phase": "measured",
+        "at": 1789429871676,
+        "category": "missing_api_record",
+        "observed": {
+          "status": 0,
+          "errorCode": 1050,
+          "timings": {
+            "duration": 0,
+            "blocked": 0,
+            "looking_up": 0,
+            "connecting": 0,
+            "tls_handshaking": 0,
+            "sending": 0,
+            "waiting": 0,
+            "receiving": 0
+          },
+          "cfRay": null,
+          "serverClassification": null,
+          "serverReason": null
+        },
+        "attribution": "unresolved",
+        "nextEvidence": "Correlacionar ingress y handler_end de acquisition con CF-Ray y registros del host. Ausencia de API no prueba ausencia de ejecución."
+      },
+      {
+        "id": "quote/quote-28363",
+        "phase": "measured",
+        "at": 1789429871705,
+        "category": "missing_api_record",
+        "observed": {
+          "status": 0,
+          "errorCode": 1050,
+          "timings": {
+            "duration": 0,
+            "blocked": 0,
+            "looking_up": 0,
+            "connecting": 0,
+            "tls_handshaking": 0,
+            "sending": 0,
+            "waiting": 0,
+            "receiving": 0
+          },
+          "cfRay": null,
+          "serverClassification": null,
+          "serverReason": null
+        },
+        "attribution": "unresolved",
+        "nextEvidence": "Correlacionar ingress y handler_end de acquisition con CF-Ray y registros del host. Ausencia de API no prueba ausencia de ejecución."
+      },
+      {
+        "id": "quote/quote-28364",
+        "phase": "measured",
+        "at": 1789429871734,
+        "category": "client_failure_with_api_record",
+        "observed": {
+          "status": 0,
+          "errorCode": 1050,
+          "timings": {
+            "duration": 1375.9871,
+            "blocked": 624.7955,
+            "looking_up": 0,
+            "connecting": 330.3673,
+            "tls_handshaking": 293.8852,
+            "sending": 0.543,
+            "waiting": 1375.4441,
+            "receiving": 0
+          },
+          "cfRay": null,
+          "serverClassification": "degraded",
+          "serverReason": "provider_error"
+        },
+        "attribution": "unresolved",
+        "nextEvidence": "Comparar ingreso, final del handler y transporte; una respuesta registrada no demuestra entrega al cliente."
+      },
+      {
+        "id": "quote/quote-28365",
+        "phase": "measured",
+        "at": 1789429871762,
+        "category": "client_failure_with_api_record",
+        "observed": {
+          "status": 0,
+          "errorCode": 1050,
+          "timings": {
+            "duration": 1399.2452,
+            "blocked": 601.3124,
+            "looking_up": 0,
+            "connecting": 307.4569,
+            "tls_handshaking": 293.8555,
+            "sending": 0,
+            "waiting": 1399.2452,
+            "receiving": 0
+          },
+          "cfRay": null,
+          "serverClassification": "degraded",
+          "serverReason": "provider_error"
+        },
+        "attribution": "unresolved",
+        "nextEvidence": "Comparar ingreso, final del handler y transporte; una respuesta registrada no demuestra entrega al cliente."
+      },
+      {
+        "id": "profile/profile-12161",
+        "phase": "measured",
+        "at": 1789429871767,
+        "category": "client_failure_with_api_record",
+        "observed": {
+          "status": 0,
+          "errorCode": 1050,
+          "timings": {
+            "duration": 2000.4253,
+            "blocked": 0,
+            "looking_up": 0,
+            "connecting": 0,
+            "tls_handshaking": 0,
+            "sending": 0,
+            "waiting": 1807.1587,
+            "receiving": 193.2666
+          },
+          "cfRay": null,
+          "serverClassification": "degraded",
+          "serverReason": "provider_error"
+        },
+        "attribution": "unresolved",
+        "nextEvidence": "Comparar ingreso, final del handler y transporte; una respuesta registrada no demuestra entrega al cliente."
+      },
+      {
+        "id": "profile/profile-12162",
+        "phase": "measured",
+        "at": 1789429871800,
+        "category": "client_failure_with_api_record",
+        "observed": {
+          "status": 0,
+          "errorCode": 1050,
+          "timings": {
+            "duration": 2000.4846,
+            "blocked": 0,
+            "looking_up": 0,
+            "connecting": 0,
+            "tls_handshaking": 0,
+            "sending": 0,
+            "waiting": 2000.4846,
+            "receiving": 0
+          },
+          "cfRay": null,
+          "serverClassification": "degraded",
+          "serverReason": "provider_error"
+        },
+        "attribution": "unresolved",
+        "nextEvidence": "Comparar ingreso, final del handler y transporte; una respuesta registrada no demuestra entrega al cliente."
+      },
+      {
+        "id": "quote/quote-28371",
+        "phase": "measured",
+        "at": 1789429871848,
+        "category": "client_failure_with_api_record",
+        "observed": {
+          "status": 0,
+          "errorCode": 1050,
+          "timings": {
+            "duration": 2000.4133,
+            "blocked": 0,
+            "looking_up": 0,
+            "connecting": 0,
+            "tls_handshaking": 0,
+            "sending": 0,
+            "waiting": 510.8358,
+            "receiving": 1489.5775
+          },
+          "cfRay": null,
+          "serverClassification": "degraded",
+          "serverReason": "provider_error"
+        },
+        "attribution": "unresolved",
+        "nextEvidence": "Comparar ingreso, final del handler y transporte; una respuesta registrada no demuestra entrega al cliente."
+      },
+      {
+        "id": "profile/profile-12164",
+        "phase": "measured",
+        "at": 1789429871867,
+        "category": "client_failure_with_api_record",
+        "observed": {
+          "status": 0,
+          "errorCode": 1050,
+          "timings": {
+            "duration": 2000.5947,
+            "blocked": 0,
+            "looking_up": 0,
+            "connecting": 0,
+            "tls_handshaking": 0,
+            "sending": 0,
+            "waiting": 1713.1728,
+            "receiving": 287.4219
+          },
+          "cfRay": null,
+          "serverClassification": "degraded",
+          "serverReason": "provider_error"
+        },
+        "attribution": "unresolved",
+        "nextEvidence": "Comparar ingreso, final del handler y transporte; una respuesta registrada no demuestra entrega al cliente."
+      },
+      {
+        "id": "quote/quote-28373",
+        "phase": "measured",
+        "at": 1789429871876,
+        "category": "client_failure_with_api_record",
+        "observed": {
+          "status": 0,
+          "errorCode": 1050,
+          "timings": {
+            "duration": 2000.2589,
+            "blocked": 0,
+            "looking_up": 0,
+            "connecting": 0,
+            "tls_handshaking": 0,
+            "sending": 0,
+            "waiting": 2000.2589,
+            "receiving": 0
+          },
+          "cfRay": null,
+          "serverClassification": "degraded",
+          "serverReason": "provider_error"
+        },
+        "attribution": "unresolved",
+        "nextEvidence": "Comparar ingreso, final del handler y transporte; una respuesta registrada no demuestra entrega al cliente."
+      },
+      {
+        "id": "profile/profile-12166",
+        "phase": "measured",
+        "at": 1789429871933,
+        "category": "client_failure_with_api_record",
+        "observed": {
+          "status": 0,
+          "errorCode": 1050,
+          "timings": {
+            "duration": 2000.5868,
+            "blocked": 0,
+            "looking_up": 0,
+            "connecting": 0,
+            "tls_handshaking": 0,
+            "sending": 0,
+            "waiting": 2000.5868,
+            "receiving": 0
+          },
+          "cfRay": null,
+          "serverClassification": "degraded",
+          "serverReason": "provider_error"
+        },
+        "attribution": "unresolved",
+        "nextEvidence": "Comparar ingreso, final del handler y transporte; una respuesta registrada no demuestra entrega al cliente."
+      },
+      {
+        "id": "quote/quote-28379",
+        "phase": "measured",
+        "at": 1789429871976,
+        "category": "client_failure_with_api_record",
+        "observed": {
+          "status": 0,
+          "errorCode": 1050,
+          "timings": {
+            "duration": 1316.6074,
+            "blocked": 683.8584,
+            "looking_up": 0,
+            "connecting": 376.7693,
+            "tls_handshaking": 307.0891,
+            "sending": 0,
+            "waiting": 1310.1633,
+            "receiving": 6.4441
+          },
+          "cfRay": null,
+          "serverClassification": "degraded",
+          "serverReason": "provider_error"
+        },
+        "attribution": "unresolved",
+        "nextEvidence": "Comparar ingreso, final del handler y transporte; una respuesta registrada no demuestra entrega al cliente."
+      },
+      {
+        "id": "profile/profile-12168",
+        "phase": "measured",
+        "at": 1789429872000,
+        "category": "client_failure_with_api_record",
+        "observed": {
+          "status": 0,
+          "errorCode": 1050,
+          "timings": {
+            "duration": 2000.1843,
+            "blocked": 0,
+            "looking_up": 0,
+            "connecting": 0,
+            "tls_handshaking": 0,
+            "sending": 0,
+            "waiting": 2000.1843,
+            "receiving": 0
+          },
+          "cfRay": null,
+          "serverClassification": "degraded",
+          "serverReason": "provider_error"
+        },
+        "attribution": "unresolved",
+        "nextEvidence": "Comparar ingreso, final del handler y transporte; una respuesta registrada no demuestra entrega al cliente."
+      },
+      {
+        "id": "quote/quote-28380",
+        "phase": "measured",
+        "at": 1789429872005,
+        "category": "missing_api_record",
+        "observed": {
+          "status": 0,
+          "errorCode": 1050,
+          "timings": {
+            "duration": 0,
+            "blocked": 0,
+            "looking_up": 0,
+            "connecting": 348.1749,
+            "tls_handshaking": 0,
+            "sending": 0,
+            "waiting": 0,
+            "receiving": 0
+          },
+          "cfRay": null,
+          "serverClassification": null,
+          "serverReason": null
+        },
+        "attribution": "unresolved",
+        "nextEvidence": "Correlacionar ingress y handler_end de acquisition con CF-Ray y registros del host. Ausencia de API no prueba ausencia de ejecución."
+      },
+      {
+        "id": "quote/quote-28381",
+        "phase": "measured",
+        "at": 1789429872033,
+        "category": "client_failure_with_api_record",
+        "observed": {
+          "status": 0,
+          "errorCode": 1050,
+          "timings": {
+            "duration": 1378.6413,
+            "blocked": 621.9777,
+            "looking_up": 0,
+            "connecting": 319.1136,
+            "tls_handshaking": 302.8641,
+            "sending": 0,
+            "waiting": 1319.6936,
+            "receiving": 58.9477
+          },
+          "cfRay": null,
+          "serverClassification": "degraded",
+          "serverReason": "provider_error"
+        },
+        "attribution": "unresolved",
+        "nextEvidence": "Comparar ingreso, final del handler y transporte; una respuesta registrada no demuestra entrega al cliente."
+      },
+      {
+        "id": "quote/quote-28382",
+        "phase": "measured",
+        "at": 1789429872062,
+        "category": "missing_api_record",
+        "observed": {
+          "status": 0,
+          "errorCode": 1050,
+          "timings": {
+            "duration": 0,
+            "blocked": 0,
+            "looking_up": 0,
+            "connecting": 290.1635,
+            "tls_handshaking": 0,
+            "sending": 0,
+            "waiting": 0,
+            "receiving": 0
+          },
+          "cfRay": null,
+          "serverClassification": null,
+          "serverReason": null
+        },
+        "attribution": "unresolved",
+        "nextEvidence": "Correlacionar ingress y handler_end de acquisition con CF-Ray y registros del host. Ausencia de API no prueba ausencia de ejecución."
+      },
+      {
+        "id": "quote/quote-28383",
+        "phase": "measured",
+        "at": 1789429872076,
+        "category": "client_failure_with_api_record",
+        "observed": {
+          "status": 0,
+          "errorCode": 1050,
+          "timings": {
+            "duration": 2000.403,
+            "blocked": 0,
+            "looking_up": 0,
+            "connecting": 0,
+            "tls_handshaking": 0,
+            "sending": 0,
+            "waiting": 2000.403,
+            "receiving": 0
+          },
+          "cfRay": null,
+          "serverClassification": "degraded",
+          "serverReason": "provider_error"
+        },
+        "attribution": "unresolved",
+        "nextEvidence": "Comparar ingreso, final del handler y transporte; una respuesta registrada no demuestra entrega al cliente."
+      },
+      {
+        "id": "profile/profile-12172",
+        "phase": "measured",
+        "at": 1789429872133,
+        "category": "client_failure_with_api_record",
+        "observed": {
+          "status": 0,
+          "errorCode": 1050,
+          "timings": {
+            "duration": 2000.3061,
+            "blocked": 0,
+            "looking_up": 0,
+            "connecting": 0,
+            "tls_handshaking": 0,
+            "sending": 0,
+            "waiting": 2000.3061,
+            "receiving": 0
+          },
+          "cfRay": null,
+          "serverClassification": "degraded",
+          "serverReason": "provider_error"
+        },
+        "attribution": "unresolved",
+        "nextEvidence": "Comparar ingreso, final del handler y transporte; una respuesta registrada no demuestra entrega al cliente."
+      },
+      {
+        "id": "profile/profile-12173",
+        "phase": "measured",
+        "at": 1789429872167,
+        "category": "client_failure_with_api_record",
+        "observed": {
+          "status": 0,
+          "errorCode": 1050,
+          "timings": {
+            "duration": 2000.3912,
+            "blocked": 0,
+            "looking_up": 0,
+            "connecting": 0,
+            "tls_handshaking": 0,
+            "sending": 0,
+            "waiting": 2000.3912,
+            "receiving": 0
+          },
+          "cfRay": null,
+          "serverClassification": "degraded",
+          "serverReason": "provider_error"
+        },
+        "attribution": "unresolved",
+        "nextEvidence": "Comparar ingreso, final del handler y transporte; una respuesta registrada no demuestra entrega al cliente."
+      },
+      {
+        "id": "quote/quote-28390",
+        "phase": "measured",
+        "at": 1789429872176,
+        "category": "client_failure_with_api_record",
+        "observed": {
+          "status": 0,
+          "errorCode": 1050,
+          "timings": {
+            "duration": 2000.2826,
+            "blocked": 0,
+            "looking_up": 0,
+            "connecting": 0,
+            "tls_handshaking": 0,
+            "sending": 0,
+            "waiting": 479.015,
+            "receiving": 1521.2676
+          },
+          "cfRay": null,
+          "serverClassification": "degraded",
+          "serverReason": "provider_error"
+        },
+        "attribution": "unresolved",
+        "nextEvidence": "Comparar ingreso, final del handler y transporte; una respuesta registrada no demuestra entrega al cliente."
+      },
+      {
+        "id": "quote/quote-28391",
+        "phase": "measured",
+        "at": 1789429872191,
+        "category": "client_failure_with_api_record",
+        "observed": {
+          "status": 0,
+          "errorCode": 1050,
+          "timings": {
+            "duration": 2000.4602,
+            "blocked": 0,
+            "looking_up": 0,
+            "connecting": 0,
+            "tls_handshaking": 0,
+            "sending": 0,
+            "waiting": 2000.4602,
+            "receiving": 0
+          },
+          "cfRay": null,
+          "serverClassification": "degraded",
+          "serverReason": "provider_error"
+        },
+        "attribution": "unresolved",
+        "nextEvidence": "Comparar ingreso, final del handler y transporte; una respuesta registrada no demuestra entrega al cliente."
+      },
+      {
+        "id": "quote/quote-28392",
+        "phase": "measured",
+        "at": 1789429872219,
+        "category": "client_failure_with_api_record",
+        "observed": {
+          "status": 0,
+          "errorCode": 1050,
+          "timings": {
+            "duration": 1244.6365,
+            "blocked": 755.9245,
+            "looking_up": 0,
+            "connecting": 430.089,
+            "tls_handshaking": 325.8355,
+            "sending": 0,
+            "waiting": 1244.6365,
+            "receiving": 0
+          },
+          "cfRay": null,
+          "serverClassification": "degraded",
+          "serverReason": "provider_error"
+        },
+        "attribution": "unresolved",
+        "nextEvidence": "Comparar ingreso, final del handler y transporte; una respuesta registrada no demuestra entrega al cliente."
+      },
+      {
+        "id": "profile/profile-12174",
+        "phase": "measured",
+        "at": 1789429872233,
+        "category": "client_failure_with_api_record",
+        "observed": {
+          "status": 0,
+          "errorCode": 1050,
+          "timings": {
+            "duration": 1258.5361,
+            "blocked": 741.5424,
+            "looking_up": 0,
+            "connecting": 416.2351,
+            "tls_handshaking": 325.3073,
+            "sending": 0,
+            "waiting": 1258.5361,
+            "receiving": 0
+          },
+          "cfRay": null,
+          "serverClassification": "degraded",
+          "serverReason": "provider_error"
+        },
+        "attribution": "unresolved",
+        "nextEvidence": "Comparar ingreso, final del handler y transporte; una respuesta registrada no demuestra entrega al cliente."
+      },
+      {
+        "id": "quote/quote-28394",
+        "phase": "measured",
+        "at": 1789429872276,
+        "category": "client_failure_with_api_record",
+        "observed": {
+          "status": 0,
+          "errorCode": 1050,
+          "timings": {
+            "duration": 1301.8217,
+            "blocked": 698.631,
+            "looking_up": 0,
+            "connecting": 373.3237,
+            "tls_handshaking": 325.3073,
+            "sending": 0,
+            "waiting": 1301.8217,
+            "receiving": 0
+          },
+          "cfRay": null,
+          "serverClassification": "degraded",
+          "serverReason": "provider_error"
+        },
+        "attribution": "unresolved",
+        "nextEvidence": "Comparar ingreso, final del handler y transporte; una respuesta registrada no demuestra entrega al cliente."
+      },
+      {
+        "id": "quote/quote-28395",
+        "phase": "measured",
+        "at": 1789429872305,
+        "category": "client_failure_with_api_record",
+        "observed": {
+          "status": 0,
+          "errorCode": 1050,
+          "timings": {
+            "duration": 1329.4555,
+            "blocked": 670.9696,
+            "looking_up": 0,
+            "connecting": 345.0659,
+            "tls_handshaking": 325.9037,
+            "sending": 0.5114,
+            "waiting": 1328.9441,
+            "receiving": 0
+          },
+          "cfRay": null,
+          "serverClassification": "degraded",
+          "serverReason": "provider_error"
+        },
+        "attribution": "unresolved",
+        "nextEvidence": "Comparar ingreso, final del handler y transporte; una respuesta registrada no demuestra entrega al cliente."
+      },
+      {
+        "id": "quote/quote-28396",
+        "phase": "measured",
+        "at": 1789429872333,
+        "category": "client_failure_with_api_record",
+        "observed": {
+          "status": 0,
+          "errorCode": 1050,
+          "timings": {
+            "duration": 1358.7678,
+            "blocked": 641.3018,
+            "looking_up": 0,
+            "connecting": 316.5022,
+            "tls_handshaking": 324.7996,
+            "sending": 0,
+            "waiting": 1358.7678,
+            "receiving": 0
+          },
+          "cfRay": null,
+          "serverClassification": "degraded",
+          "serverReason": "provider_error"
+        },
+        "attribution": "unresolved",
+        "nextEvidence": "Comparar ingreso, final del handler y transporte; una respuesta registrada no demuestra entrega al cliente."
+      },
+      {
+        "id": "quote/quote-28397",
+        "phase": "measured",
+        "at": 1789429872362,
+        "category": "missing_api_record",
+        "observed": {
+          "status": 0,
+          "errorCode": 1050,
+          "timings": {
+            "duration": 138.8759,
+            "blocked": 1861.5208,
+            "looking_up": 0,
+            "connecting": 1522.5418,
+            "tls_handshaking": 338.979,
+            "sending": 0,
+            "waiting": 138.8759,
+            "receiving": 0
+          },
+          "cfRay": null,
+          "serverClassification": null,
+          "serverReason": null
+        },
+        "attribution": "unresolved",
+        "nextEvidence": "Correlacionar ingress y handler_end de acquisition con CF-Ray y registros del host. Ausencia de API no prueba ausencia de ejecución."
+      },
+      {
+        "id": "quote/quote-28401",
+        "phase": "measured",
+        "at": 1789429872419,
+        "category": "client_failure_with_api_record",
+        "observed": {
+          "status": 0,
+          "errorCode": 1050,
+          "timings": {
+            "duration": 2000.2334,
+            "blocked": 0,
+            "looking_up": 0,
+            "connecting": 0,
+            "tls_handshaking": 0,
+            "sending": 0,
+            "waiting": 1764.8588,
+            "receiving": 235.3746
+          },
+          "cfRay": null,
+          "serverClassification": "degraded",
+          "serverReason": "provider_error"
+        },
+        "attribution": "unresolved",
+        "nextEvidence": "Comparar ingreso, final del handler y transporte; una respuesta registrada no demuestra entrega al cliente."
+      },
+      {
+        "id": "quote/quote-28402",
+        "phase": "measured",
+        "at": 1789429872433,
+        "category": "client_failure_with_api_record",
+        "observed": {
+          "status": 0,
+          "errorCode": 1050,
+          "timings": {
+            "duration": 2000.0506,
+            "blocked": 0,
+            "looking_up": 0,
+            "connecting": 0,
+            "tls_handshaking": 0,
+            "sending": 0,
+            "waiting": 2000.0506,
+            "receiving": 0
+          },
+          "cfRay": null,
+          "serverClassification": "degraded",
+          "serverReason": "provider_error"
+        },
+        "attribution": "unresolved",
+        "nextEvidence": "Comparar ingreso, final del handler y transporte; una respuesta registrada no demuestra entrega al cliente."
+      },
+      {
+        "id": "quote/quote-28403",
+        "phase": "measured",
+        "at": 1789429872449,
+        "category": "client_failure_with_api_record",
+        "observed": {
+          "status": 0,
+          "errorCode": 1050,
+          "timings": {
+            "duration": 2000.5155,
+            "blocked": 0,
+            "looking_up": 0,
+            "connecting": 0,
+            "tls_handshaking": 0,
+            "sending": 0,
+            "waiting": 2000.5155,
+            "receiving": 0
+          },
+          "cfRay": null,
+          "serverClassification": "degraded",
+          "serverReason": "provider_error"
+        },
+        "attribution": "unresolved",
+        "nextEvidence": "Comparar ingreso, final del handler y transporte; una respuesta registrada no demuestra entrega al cliente."
+      },
+      {
+        "id": "quote/quote-28404",
+        "phase": "measured",
+        "at": 1789429872462,
+        "category": "client_failure_with_api_record",
+        "observed": {
+          "status": 0,
+          "errorCode": 1050,
+          "timings": {
+            "duration": 2000.3979,
+            "blocked": 0,
+            "looking_up": 0,
+            "connecting": 0,
+            "tls_handshaking": 0,
+            "sending": 0,
+            "waiting": 2000.3979,
+            "receiving": 0
+          },
+          "cfRay": null,
+          "serverClassification": "degraded",
+          "serverReason": "provider_error"
+        },
+        "attribution": "unresolved",
+        "nextEvidence": "Comparar ingreso, final del handler y transporte; una respuesta registrada no demuestra entrega al cliente."
+      },
+      {
+        "id": "profile/profile-12178",
+        "phase": "measured",
+        "at": 1789429872467,
+        "category": "client_failure_with_api_record",
+        "observed": {
+          "status": 0,
+          "errorCode": 1050,
+          "timings": {
+            "duration": 1195.1983,
+            "blocked": 805.3418,
+            "looking_up": 0,
+            "connecting": 498.4532,
+            "tls_handshaking": 306.8886,
+            "sending": 0,
+            "waiting": 1195.1983,
+            "receiving": 0
+          },
+          "cfRay": null,
+          "serverClassification": "degraded",
+          "serverReason": "provider_error"
+        },
+        "attribution": "unresolved",
+        "nextEvidence": "Comparar ingreso, final del handler y transporte; una respuesta registrada no demuestra entrega al cliente."
+      },
+      {
+        "id": "quote/quote-28405",
+        "phase": "measured",
+        "at": 1789429872491,
+        "category": "client_failure_with_api_record",
+        "observed": {
+          "status": 0,
+          "errorCode": 1050,
+          "timings": {
+            "duration": 1219.3915,
+            "blocked": 781.0355,
+            "looking_up": 0,
+            "connecting": 474.6641,
+            "tls_handshaking": 306.3714,
+            "sending": 0,
+            "waiting": 1219.3915,
+            "receiving": 0
+          },
+          "cfRay": null,
+          "serverClassification": "degraded",
+          "serverReason": "provider_error"
+        },
+        "attribution": "unresolved",
+        "nextEvidence": "Comparar ingreso, final del handler y transporte; una respuesta registrada no demuestra entrega al cliente."
+      },
+      {
+        "id": "quote/quote-28406",
+        "phase": "measured",
+        "at": 1789429872505,
+        "category": "client_failure_with_api_record",
+        "observed": {
+          "status": 0,
+          "errorCode": 1050,
+          "timings": {
+            "duration": 2000.1167,
+            "blocked": 0,
+            "looking_up": 0,
+            "connecting": 0,
+            "tls_handshaking": 0,
+            "sending": 0,
+            "waiting": 2000.1167,
+            "receiving": 0
+          },
+          "cfRay": null,
+          "serverClassification": "degraded",
+          "serverReason": "provider_error"
+        },
+        "attribution": "unresolved",
+        "nextEvidence": "Comparar ingreso, final del handler y transporte; una respuesta registrada no demuestra entrega al cliente."
+      },
+      {
+        "id": "quote/quote-28407",
+        "phase": "measured",
+        "at": 1789429872533,
+        "category": "client_failure_with_api_record",
+        "observed": {
+          "status": 0,
+          "errorCode": 1050,
+          "timings": {
+            "duration": 1261.4011,
+            "blocked": 738.6689,
+            "looking_up": 0,
+            "connecting": 432.8058,
+            "tls_handshaking": 305.8631,
+            "sending": 0,
+            "waiting": 1261.4011,
+            "receiving": 0
+          },
+          "cfRay": null,
+          "serverClassification": "degraded",
+          "serverReason": "provider_error"
+        },
+        "attribution": "unresolved",
+        "nextEvidence": "Comparar ingreso, final del handler y transporte; una respuesta registrada no demuestra entrega al cliente."
+      },
+      {
+        "id": "profile/profile-12179",
+        "phase": "measured",
+        "at": 1789429872533,
+        "category": "client_failure_with_api_record",
+        "observed": {
+          "status": 0,
+          "errorCode": 1050,
+          "timings": {
+            "duration": 1260.8839,
+            "blocked": 739.1861,
+            "looking_up": 0,
+            "connecting": 432.8058,
+            "tls_handshaking": 306.3803,
+            "sending": 0,
+            "waiting": 1260.8839,
+            "receiving": 0
+          },
+          "cfRay": null,
+          "serverClassification": "degraded",
+          "serverReason": "provider_error"
+        },
+        "attribution": "unresolved",
+        "nextEvidence": "Comparar ingreso, final del handler y transporte; una respuesta registrada no demuestra entrega al cliente."
+      },
+      {
+        "id": "quote/quote-28408",
+        "phase": "measured",
+        "at": 1789429872562,
+        "category": "client_failure_with_api_record",
+        "observed": {
+          "status": 0,
+          "errorCode": 1050,
+          "timings": {
+            "duration": 1296.6671,
+            "blocked": 703.6111,
+            "looking_up": 0,
+            "connecting": 404.1047,
+            "tls_handshaking": 299.5064,
+            "sending": 0,
+            "waiting": 1296.6671,
+            "receiving": 0
+          },
+          "cfRay": null,
+          "serverClassification": "degraded",
+          "serverReason": "provider_error"
+        },
+        "attribution": "unresolved",
+        "nextEvidence": "Comparar ingreso, final del handler y transporte; una respuesta registrada no demuestra entrega al cliente."
+      },
+      {
+        "id": "quote/quote-28409",
+        "phase": "measured",
+        "at": 1789429872590,
+        "category": "client_failure_with_api_record",
+        "observed": {
+          "status": 0,
+          "errorCode": 1050,
+          "timings": {
+            "duration": 1318.4993,
+            "blocked": 681.632,
+            "looking_up": 0,
+            "connecting": 375.7804,
+            "tls_handshaking": 305.8516,
+            "sending": 0,
+            "waiting": 1318.4993,
+            "receiving": 0
+          },
+          "cfRay": null,
+          "serverClassification": "degraded",
+          "serverReason": "provider_error"
+        },
+        "attribution": "unresolved",
+        "nextEvidence": "Comparar ingreso, final del handler y transporte; una respuesta registrada no demuestra entrega al cliente."
+      },
+      {
+        "id": "profile/profile-12180",
+        "phase": "measured",
+        "at": 1789429872600,
+        "category": "client_failure_with_api_record",
+        "observed": {
+          "status": 0,
+          "errorCode": 1050,
+          "timings": {
+            "duration": 1327.7381,
+            "blocked": 672.3956,
+            "looking_up": 0,
+            "connecting": 365.7026,
+            "tls_handshaking": 306.1643,
+            "sending": 0,
+            "waiting": 1327.7381,
+            "receiving": 0
+          },
+          "cfRay": null,
+          "serverClassification": "degraded",
+          "serverReason": "provider_error"
+        },
+        "attribution": "unresolved",
+        "nextEvidence": "Comparar ingreso, final del handler y transporte; una respuesta registrada no demuestra entrega al cliente."
+      },
+      {
+        "id": "quote/quote-28410",
+        "phase": "measured",
+        "at": 1789429872619,
+        "category": "missing_api_record",
+        "observed": {
+          "status": 0,
+          "errorCode": 1050,
+          "timings": {
+            "duration": 0,
+            "blocked": 0,
+            "looking_up": 0,
+            "connecting": 346.217,
+            "tls_handshaking": 0,
+            "sending": 0,
+            "waiting": 0,
+            "receiving": 0
+          },
+          "cfRay": null,
+          "serverClassification": null,
+          "serverReason": null
+        },
+        "attribution": "unresolved",
+        "nextEvidence": "Correlacionar ingress y handler_end de acquisition con CF-Ray y registros del host. Ausencia de API no prueba ausencia de ejecución."
+      },
+      {
+        "id": "quote/quote-28411",
+        "phase": "measured",
+        "at": 1789429872633,
+        "category": "client_failure_with_api_record",
+        "observed": {
+          "status": 0,
+          "errorCode": 1050,
+          "timings": {
+            "duration": 2000.4771,
+            "blocked": 0,
+            "looking_up": 0,
+            "connecting": 0,
+            "tls_handshaking": 0,
+            "sending": 0,
+            "waiting": 2000.4771,
+            "receiving": 0
+          },
+          "cfRay": null,
+          "serverClassification": "degraded",
+          "serverReason": "provider_error"
+        },
+        "attribution": "unresolved",
+        "nextEvidence": "Comparar ingreso, final del handler y transporte; una respuesta registrada no demuestra entrega al cliente."
+      },
+      {
+        "id": "quote/quote-28412",
+        "phase": "measured",
+        "at": 1789429872662,
+        "category": "missing_api_record",
+        "observed": {
+          "status": 0,
+          "errorCode": 1050,
+          "timings": {
+            "duration": 0,
+            "blocked": 0,
+            "looking_up": 0,
+            "connecting": 310.3998,
+            "tls_handshaking": 0,
+            "sending": 0,
+            "waiting": 0,
+            "receiving": 0
+          },
+          "cfRay": null,
+          "serverClassification": null,
+          "serverReason": null
+        },
+        "attribution": "unresolved",
+        "nextEvidence": "Correlacionar ingress y handler_end de acquisition con CF-Ray y registros del host. Ausencia de API no prueba ausencia de ejecución."
+      },
+      {
+        "id": "profile/profile-12181",
+        "phase": "measured",
+        "at": 1789429872667,
+        "category": "client_failure_with_api_record",
+        "observed": {
+          "status": 0,
+          "errorCode": 1050,
+          "timings": {
+            "duration": 1395.2772,
+            "blocked": 605.0329,
+            "looking_up": 0,
+            "connecting": 305.0784,
+            "tls_handshaking": 299.4299,
+            "sending": 0.5172,
+            "waiting": 1394.76,
+            "receiving": 0
+          },
+          "cfRay": null,
+          "serverClassification": "degraded",
+          "serverReason": "provider_error"
+        },
+        "attribution": "unresolved",
+        "nextEvidence": "Comparar ingreso, final del handler y transporte; una respuesta registrada no demuestra entrega al cliente."
+      },
+      {
+        "id": "quote/quote-28413",
+        "phase": "measured",
+        "at": 1789429872677,
+        "category": "client_failure_with_api_record",
+        "observed": {
+          "status": 0,
+          "errorCode": 1050,
+          "timings": {
+            "duration": 2000.4181,
+            "blocked": 0,
+            "looking_up": 0,
+            "connecting": 0,
+            "tls_handshaking": 0,
+            "sending": 0,
+            "waiting": 2000.4181,
+            "receiving": 0
+          },
+          "cfRay": null,
+          "serverClassification": "degraded",
+          "serverReason": "provider_error"
+        },
+        "attribution": "unresolved",
+        "nextEvidence": "Comparar ingreso, final del handler y transporte; una respuesta registrada no demuestra entrega al cliente."
+      },
+      {
+        "id": "quote/quote-28414",
+        "phase": "measured",
+        "at": 1789429872691,
+        "category": "client_failure_with_api_record",
+        "observed": {
+          "status": 0,
+          "errorCode": 1050,
+          "timings": {
+            "duration": 2000.2772,
+            "blocked": 0,
+            "looking_up": 0,
+            "connecting": 0,
+            "tls_handshaking": 0,
+            "sending": 0,
+            "waiting": 2000.2772,
+            "receiving": 0
+          },
+          "cfRay": null,
+          "serverClassification": "degraded",
+          "serverReason": "provider_error"
+        },
+        "attribution": "unresolved",
+        "nextEvidence": "Comparar ingreso, final del handler y transporte; una respuesta registrada no demuestra entrega al cliente."
+      },
+      {
+        "id": "profile/profile-12182",
+        "phase": "measured",
+        "at": 1789429872700,
+        "category": "client_failure_with_api_record",
+        "observed": {
+          "status": 0,
+          "errorCode": 1050,
+          "timings": {
+            "duration": 2000.703,
+            "blocked": 0,
+            "looking_up": 0,
+            "connecting": 0,
+            "tls_handshaking": 0,
+            "sending": 0,
+            "waiting": 2000.703,
+            "receiving": 0
+          },
+          "cfRay": null,
+          "serverClassification": "degraded",
+          "serverReason": "provider_error"
+        },
+        "attribution": "unresolved",
+        "nextEvidence": "Comparar ingreso, final del handler y transporte; una respuesta registrada no demuestra entrega al cliente."
+      },
+      {
+        "id": "quote/quote-28418",
+        "phase": "measured",
+        "at": 1789429872762,
+        "category": "client_failure_with_api_record",
+        "observed": {
+          "status": 0,
+          "errorCode": 1050,
+          "timings": {
+            "duration": 1177.4808,
+            "blocked": 822.6674,
+            "looking_up": 0,
+            "connecting": 497.6847,
+            "tls_handshaking": 324.9827,
+            "sending": 0,
+            "waiting": 1177.4808,
+            "receiving": 0
+          },
+          "cfRay": null,
+          "serverClassification": "degraded",
+          "serverReason": "provider_error"
+        },
+        "attribution": "unresolved",
+        "nextEvidence": "Comparar ingreso, final del handler y transporte; una respuesta registrada no demuestra entrega al cliente."
+      },
+      {
+        "id": "quote/quote-28419",
+        "phase": "measured",
+        "at": 1789429872776,
+        "category": "client_failure_with_api_record",
+        "observed": {
+          "status": 0,
+          "errorCode": 1050,
+          "timings": {
+            "duration": 2000.0887,
+            "blocked": 0,
+            "looking_up": 0,
+            "connecting": 0,
+            "tls_handshaking": 0,
+            "sending": 0,
+            "waiting": 2000.0887,
+            "receiving": 0
+          },
+          "cfRay": null,
+          "serverClassification": "degraded",
+          "serverReason": "provider_error"
+        },
+        "attribution": "unresolved",
+        "nextEvidence": "Comparar ingreso, final del handler y transporte; una respuesta registrada no demuestra entrega al cliente."
+      },
+      {
+        "id": "quote/quote-28420",
+        "phase": "measured",
+        "at": 1789429872805,
+        "category": "client_failure_with_api_record",
+        "observed": {
+          "status": 0,
+          "errorCode": 1050,
+          "timings": {
+            "duration": 2000.3222,
+            "blocked": 0,
+            "looking_up": 0,
+            "connecting": 0,
+            "tls_handshaking": 0,
+            "sending": 0,
+            "waiting": 2000.3222,
+            "receiving": 0
+          },
+          "cfRay": null,
+          "serverClassification": "degraded",
+          "serverReason": "provider_error"
+        },
+        "attribution": "unresolved",
+        "nextEvidence": "Comparar ingreso, final del handler y transporte; una respuesta registrada no demuestra entrega al cliente."
+      },
+      {
+        "id": "quote/quote-28421",
+        "phase": "measured",
+        "at": 1789429872819,
+        "category": "client_failure_with_api_record",
+        "observed": {
+          "status": 0,
+          "errorCode": 1050,
+          "timings": {
+            "duration": 87.2257,
+            "blocked": 1913.0704,
+            "looking_up": 0,
+            "connecting": 1152.939,
+            "tls_handshaking": 760.1314,
+            "sending": 0,
+            "waiting": 87.2257,
+            "receiving": 0
+          },
+          "cfRay": null,
+          "serverClassification": "degraded",
+          "serverReason": "provider_error"
+        },
+        "attribution": "unresolved",
+        "nextEvidence": "Comparar ingreso, final del handler y transporte; una respuesta registrada no demuestra entrega al cliente."
+      },
+      {
+        "id": "quote/quote-28422",
+        "phase": "measured",
+        "at": 1789429872833,
+        "category": "client_failure_with_api_record",
+        "observed": {
+          "status": 0,
+          "errorCode": 1050,
+          "timings": {
+            "duration": 1856.1765,
+            "blocked": 144.1482,
+            "looking_up": 0,
+            "connecting": 144.1482,
+            "tls_handshaking": 0,
+            "sending": 0,
+            "waiting": 1856.1765,
+            "receiving": 0
+          },
+          "cfRay": null,
+          "serverClassification": "degraded",
+          "serverReason": "provider_error"
+        },
+        "attribution": "unresolved",
+        "nextEvidence": "Comparar ingreso, final del handler y transporte; una respuesta registrada no demuestra entrega al cliente."
+      },
+      {
+        "id": "quote/quote-28423",
+        "phase": "measured",
+        "at": 1789429872862,
+        "category": "client_failure_with_api_record",
+        "observed": {
+          "status": 0,
+          "errorCode": 1050,
+          "timings": {
+            "duration": 2000.1862,
+            "blocked": 0,
+            "looking_up": 0,
+            "connecting": 0,
+            "tls_handshaking": 0,
+            "sending": 0,
+            "waiting": 2000.1862,
+            "receiving": 0
+          },
+          "cfRay": null,
+          "serverClassification": "degraded",
+          "serverReason": "provider_error"
+        },
+        "attribution": "unresolved",
+        "nextEvidence": "Comparar ingreso, final del handler y transporte; una respuesta registrada no demuestra entrega al cliente."
+      },
+      {
+        "id": "profile/profile-12187",
+        "phase": "measured",
+        "at": 1789429872868,
+        "category": "client_failure_with_api_record",
+        "observed": {
+          "status": 0,
+          "errorCode": 1050,
+          "timings": {
+            "duration": 2001.3358,
+            "blocked": 0,
+            "looking_up": 0,
+            "connecting": 0,
+            "tls_handshaking": 0,
+            "sending": 0,
+            "waiting": 2001.3358,
+            "receiving": 0
+          },
+          "cfRay": null,
+          "serverClassification": "degraded",
+          "serverReason": "provider_error"
+        },
+        "attribution": "unresolved",
+        "nextEvidence": "Comparar ingreso, final del handler y transporte; una respuesta registrada no demuestra entrega al cliente."
+      },
+      {
+        "id": "quote/quote-28424",
+        "phase": "measured",
+        "at": 1789429872876,
+        "category": "client_failure_with_api_record",
+        "observed": {
+          "status": 0,
+          "errorCode": 1050,
+          "timings": {
+            "duration": 1296.4299,
+            "blocked": 703.7055,
+            "looking_up": 0,
+            "connecting": 383.4473,
+            "tls_handshaking": 320.2582,
+            "sending": 0,
+            "waiting": 1296.4299,
+            "receiving": 0
+          },
+          "cfRay": null,
+          "serverClassification": "degraded",
+          "serverReason": "provider_error"
+        },
+        "attribution": "unresolved",
+        "nextEvidence": "Comparar ingreso, final del handler y transporte; una respuesta registrada no demuestra entrega al cliente."
+      },
+      {
+        "id": "profile/profile-12188",
+        "phase": "measured",
+        "at": 1789429872900,
+        "category": "client_failure_with_api_record",
+        "observed": {
+          "status": 0,
+          "errorCode": 1050,
+          "timings": {
+            "duration": 2000.2656,
+            "blocked": 0,
+            "looking_up": 0,
+            "connecting": 0,
+            "tls_handshaking": 0,
+            "sending": 0,
+            "waiting": 2000.2656,
+            "receiving": 0
+          },
+          "cfRay": null,
+          "serverClassification": "degraded",
+          "serverReason": "provider_error"
+        },
+        "attribution": "unresolved",
+        "nextEvidence": "Comparar ingreso, final del handler y transporte; una respuesta registrada no demuestra entrega al cliente."
+      },
+      {
+        "id": "quote/quote-28425",
+        "phase": "measured",
+        "at": 1789429872905,
+        "category": "client_failure_with_api_record",
+        "observed": {
+          "status": 0,
+          "errorCode": 1050,
+          "timings": {
+            "duration": 1320.8096,
+            "blocked": 679.6362,
+            "looking_up": 0,
+            "connecting": 354.1466,
+            "tls_handshaking": 325.4896,
+            "sending": 0,
+            "waiting": 1320.8096,
+            "receiving": 0
+          },
+          "cfRay": null,
+          "serverClassification": "degraded",
+          "serverReason": "provider_error"
+        },
+        "attribution": "unresolved",
+        "nextEvidence": "Comparar ingreso, final del handler y transporte; una respuesta registrada no demuestra entrega al cliente."
+      },
+      {
+        "id": "quote/quote-28426",
+        "phase": "measured",
+        "at": 1789429872919,
+        "category": "client_failure_with_api_record",
+        "observed": {
+          "status": 0,
+          "errorCode": 1050,
+          "timings": {
+            "duration": 2000.1011,
+            "blocked": 0,
+            "looking_up": 0,
+            "connecting": 0,
+            "tls_handshaking": 0,
+            "sending": 0,
+            "waiting": 2000.1011,
+            "receiving": 0
+          },
+          "cfRay": null,
+          "serverClassification": "degraded",
+          "serverReason": "provider_error"
+        },
+        "attribution": "unresolved",
+        "nextEvidence": "Comparar ingreso, final del handler y transporte; una respuesta registrada no demuestra entrega al cliente."
+      },
+      {
+        "id": "profile/profile-12189",
+        "phase": "measured",
+        "at": 1789429872966,
+        "category": "client_failure_with_api_record",
+        "observed": {
+          "status": 0,
+          "errorCode": 1050,
+          "timings": {
+            "duration": 1386.9122,
+            "blocked": 613.3264,
+            "looking_up": 0,
+            "connecting": 293.2188,
+            "tls_handshaking": 319.7235,
+            "sending": 0,
+            "waiting": 1386.9122,
+            "receiving": 0
+          },
+          "cfRay": null,
+          "serverClassification": "degraded",
+          "serverReason": "provider_error"
+        },
+        "attribution": "unresolved",
+        "nextEvidence": "Comparar ingreso, final del handler y transporte; una respuesta registrada no demuestra entrega al cliente."
+      },
+      {
+        "id": "quote/quote-28438",
+        "phase": "measured",
+        "at": 1789429873120,
+        "category": "client_failure_with_api_record",
+        "observed": {
+          "status": 0,
+          "errorCode": 1050,
+          "timings": {
+            "duration": 2000.5108,
+            "blocked": 0,
+            "looking_up": 0,
+            "connecting": 0,
+            "tls_handshaking": 0,
+            "sending": 0,
+            "waiting": 2000.5108,
+            "receiving": 0
+          },
+          "cfRay": null,
+          "serverClassification": "degraded",
+          "serverReason": "provider_error"
+        },
+        "attribution": "unresolved",
+        "nextEvidence": "Comparar ingreso, final del handler y transporte; una respuesta registrada no demuestra entrega al cliente."
+      },
+      {
+        "id": "profile/profile-12197",
+        "phase": "measured",
+        "at": 1789429873233,
+        "category": "client_failure_with_api_record",
+        "observed": {
+          "status": 0,
+          "errorCode": 1050,
+          "timings": {
+            "duration": 2000.3226,
+            "blocked": 0,
+            "looking_up": 0,
+            "connecting": 0,
+            "tls_handshaking": 0,
+            "sending": 0,
+            "waiting": 1242.6312,
+            "receiving": 757.6914
+          },
+          "cfRay": null,
+          "serverClassification": "degraded",
+          "serverReason": "provider_error"
+        },
+        "attribution": "unresolved",
+        "nextEvidence": "Comparar ingreso, final del handler y transporte; una respuesta registrada no demuestra entrega al cliente."
+      },
+      {
+        "id": "profile/profile-12198",
+        "phase": "measured",
+        "at": 1789429873267,
+        "category": "client_failure_with_api_record",
+        "observed": {
+          "status": 0,
+          "errorCode": 1050,
+          "timings": {
+            "duration": 2000.4465,
+            "blocked": 0,
+            "looking_up": 0,
+            "connecting": 0,
+            "tls_handshaking": 0,
+            "sending": 0,
+            "waiting": 2000.4465,
+            "receiving": 0
+          },
+          "cfRay": null,
+          "serverClassification": "degraded",
+          "serverReason": "provider_error"
+        },
+        "attribution": "unresolved",
+        "nextEvidence": "Comparar ingreso, final del handler y transporte; una respuesta registrada no demuestra entrega al cliente."
+      },
+      {
+        "id": "quote/quote-28454",
+        "phase": "measured",
+        "at": 1789429873347,
+        "category": "client_failure_with_api_record",
+        "observed": {
+          "status": 0,
+          "errorCode": 1050,
+          "timings": {
+            "duration": 2000.0023,
+            "blocked": 0,
+            "looking_up": 0,
+            "connecting": 0,
+            "tls_handshaking": 0,
+            "sending": 0,
+            "waiting": 1895.554,
+            "receiving": 104.4483
+          },
+          "cfRay": null,
+          "serverClassification": "degraded",
+          "serverReason": "provider_error"
+        },
+        "attribution": "unresolved",
+        "nextEvidence": "Comparar ingreso, final del handler y transporte; una respuesta registrada no demuestra entrega al cliente."
+      },
+      {
+        "id": "quote/quote-28457",
+        "phase": "measured",
+        "at": 1789429873390,
+        "category": "client_failure_with_api_record",
+        "observed": {
+          "status": 0,
+          "errorCode": 1050,
+          "timings": {
+            "duration": 2000.0238,
+            "blocked": 0,
+            "looking_up": 0,
+            "connecting": 0,
+            "tls_handshaking": 0,
+            "sending": 0,
+            "waiting": 2000.0238,
+            "receiving": 0
+          },
+          "cfRay": null,
+          "serverClassification": "degraded",
+          "serverReason": "provider_error"
+        },
+        "attribution": "unresolved",
+        "nextEvidence": "Comparar ingreso, final del handler y transporte; una respuesta registrada no demuestra entrega al cliente."
+      },
+      {
+        "id": "quote/quote-28458",
+        "phase": "measured",
+        "at": 1789429873405,
+        "category": "client_failure_with_api_record",
+        "observed": {
+          "status": 0,
+          "errorCode": 1050,
+          "timings": {
+            "duration": 2000.3502,
+            "blocked": 0,
+            "looking_up": 0,
+            "connecting": 0,
+            "tls_handshaking": 0,
+            "sending": 0,
+            "waiting": 2000.3502,
+            "receiving": 0
+          },
+          "cfRay": null,
+          "serverClassification": "degraded",
+          "serverReason": "provider_error"
+        },
+        "attribution": "unresolved",
+        "nextEvidence": "Comparar ingreso, final del handler y transporte; una respuesta registrada no demuestra entrega al cliente."
+      },
+      {
+        "id": "quote/quote-28459",
+        "phase": "measured",
+        "at": 1789429873419,
+        "category": "client_failure_with_api_record",
+        "observed": {
+          "status": 0,
+          "errorCode": 1050,
+          "timings": {
+            "duration": 2000.3294,
+            "blocked": 0,
+            "looking_up": 0,
+            "connecting": 0,
+            "tls_handshaking": 0,
+            "sending": 0,
+            "waiting": 2000.3294,
+            "receiving": 0
+          },
+          "cfRay": null,
+          "serverClassification": "degraded",
+          "serverReason": "provider_error"
+        },
+        "attribution": "unresolved",
+        "nextEvidence": "Comparar ingreso, final del handler y transporte; una respuesta registrada no demuestra entrega al cliente."
+      },
+      {
+        "id": "quote/quote-28461",
+        "phase": "measured",
+        "at": 1789429873462,
+        "category": "client_failure_with_api_record",
+        "observed": {
+          "status": 0,
+          "errorCode": 1050,
+          "timings": {
+            "duration": 2000.2963,
+            "blocked": 0,
+            "looking_up": 0,
+            "connecting": 0,
+            "tls_handshaking": 0,
+            "sending": 0,
+            "waiting": 2000.2963,
+            "receiving": 0
+          },
+          "cfRay": null,
+          "serverClassification": "degraded",
+          "serverReason": "provider_error"
+        },
+        "attribution": "unresolved",
+        "nextEvidence": "Comparar ingreso, final del handler y transporte; una respuesta registrada no demuestra entrega al cliente."
+      },
+      {
+        "id": "quote/quote-28462",
+        "phase": "measured",
+        "at": 1789429873477,
+        "category": "client_failure_with_api_record",
+        "observed": {
+          "status": 0,
+          "errorCode": 1050,
+          "timings": {
+            "duration": 2000.29,
+            "blocked": 0,
+            "looking_up": 0,
+            "connecting": 0,
+            "tls_handshaking": 0,
+            "sending": 0,
+            "waiting": 1943.0847,
+            "receiving": 57.2053
+          },
+          "cfRay": null,
+          "serverClassification": "degraded",
+          "serverReason": "provider_error"
+        },
+        "attribution": "unresolved",
+        "nextEvidence": "Comparar ingreso, final del handler y transporte; una respuesta registrada no demuestra entrega al cliente."
+      },
+      {
+        "id": "quote/quote-28489",
+        "phase": "measured",
+        "at": 1789429873991,
+        "category": "client_failure_with_api_record",
+        "observed": {
+          "status": 0,
+          "errorCode": 1050,
+          "timings": {
+            "duration": 2000.5242,
+            "blocked": 0,
+            "looking_up": 0,
+            "connecting": 0,
+            "tls_handshaking": 0,
+            "sending": 0,
+            "waiting": 2000.5242,
+            "receiving": 0
+          },
+          "cfRay": null,
+          "serverClassification": "degraded",
+          "serverReason": "provider_error"
+        },
+        "attribution": "unresolved",
+        "nextEvidence": "Comparar ingreso, final del handler y transporte; una respuesta registrada no demuestra entrega al cliente."
+      },
+      {
+        "id": "quote/quote-28510",
+        "phase": "measured",
+        "at": 1789429874291,
+        "category": "client_failure_with_api_record",
+        "observed": {
+          "status": 0,
+          "errorCode": 1050,
+          "timings": {
+            "duration": 2000.346,
+            "blocked": 0,
+            "looking_up": 0,
+            "connecting": 0,
+            "tls_handshaking": 0,
+            "sending": 0,
+            "waiting": 2000.346,
+            "receiving": 0
+          },
+          "cfRay": null,
+          "serverClassification": "degraded",
+          "serverReason": "provider_error"
+        },
+        "attribution": "unresolved",
+        "nextEvidence": "Comparar ingreso, final del handler y transporte; una respuesta registrada no demuestra entrega al cliente."
+      },
+      {
+        "id": "quote/quote-28532",
+        "phase": "measured",
+        "at": 1789429874605,
+        "category": "client_failure_with_api_record",
+        "observed": {
+          "status": 0,
+          "errorCode": 1050,
+          "timings": {
+            "duration": 2000.0252,
+            "blocked": 0,
+            "looking_up": 0,
+            "connecting": 0,
+            "tls_handshaking": 0,
+            "sending": 0,
+            "waiting": 2000.0252,
+            "receiving": 0
+          },
+          "cfRay": null,
+          "serverClassification": "degraded",
+          "serverReason": "provider_error"
+        },
+        "attribution": "unresolved",
+        "nextEvidence": "Comparar ingreso, final del handler y transporte; una respuesta registrada no demuestra entrega al cliente."
+      },
+      {
+        "id": "quote/quote-28565",
+        "phase": "measured",
+        "at": 1789429875076,
+        "category": "client_failure_with_api_record",
+        "observed": {
+          "status": 0,
+          "errorCode": 1050,
+          "timings": {
+            "duration": 2000.216,
+            "blocked": 0,
+            "looking_up": 0,
+            "connecting": 0,
+            "tls_handshaking": 0,
+            "sending": 0,
+            "waiting": 2000.216,
+            "receiving": 0
+          },
+          "cfRay": null,
+          "serverClassification": "degraded",
+          "serverReason": "provider_error"
+        },
+        "attribution": "unresolved",
+        "nextEvidence": "Comparar ingreso, final del handler y transporte; una respuesta registrada no demuestra entrega al cliente."
+      },
+      {
+        "id": "profile/profile-12270",
+        "phase": "measured",
+        "at": 1789429875733,
+        "category": "client_failure_with_api_record",
+        "observed": {
+          "status": 0,
+          "errorCode": 1050,
+          "timings": {
+            "duration": 2000.4216,
+            "blocked": 0,
+            "looking_up": 0,
+            "connecting": 0,
+            "tls_handshaking": 0,
+            "sending": 0,
+            "waiting": 2000.4216,
+            "receiving": 0
+          },
+          "cfRay": null,
+          "serverClassification": "degraded",
+          "serverReason": "provider_error"
+        },
+        "attribution": "unresolved",
+        "nextEvidence": "Comparar ingreso, final del handler y transporte; una respuesta registrada no demuestra entrega al cliente."
+      },
+      {
+        "id": "quote/quote-3546",
+        "phase": "warmup",
+        "category": "missing_provider_receipt",
+        "observed": {
+          "dispatchAt": 1789429514970,
+          "abortAt": 1789429515090,
+          "abortCause": "deadline",
+          "classification": "degraded",
+          "reason": "deadline"
+        },
+        "attribution": "unresolved",
+        "nextEvidence": "Cruzar provider_dispatch, ingress del simulador, provider y evidence_error. Un despacho es intención de fetch, no recepción confirmada."
+      },
+      {
+        "id": "quote/quote-10212",
+        "phase": "measured",
+        "category": "missing_provider_receipt",
+        "observed": {
+          "dispatchAt": 1789429610177,
+          "abortAt": 1789429610297,
+          "abortCause": "deadline",
+          "classification": "degraded",
+          "reason": "deadline"
+        },
+        "attribution": "unresolved",
+        "nextEvidence": "Cruzar provider_dispatch, ingress del simulador, provider y evidence_error. Un despacho es intención de fetch, no recepción confirmada."
+      }
+    ],
+    "limitations": [
+      "Categorías pueden solaparse por solicitud; no sumar como solicitudes únicas.",
+      "Logs Cloudflare complementarios no se descargan automáticamente en este informe.",
+      "Ausencia de evidencia no identifica al responsable. Los resultados históricos no contienen los nuevos ingress.",
+      "Instrumentación de consola agrega volumen y puede perderse; no equivale a un recibo durable."
+    ],
+    "mitigations": {
+      "client_transport": "Registrar CPU, DNS y salud del runner; contrastar con runner independiente en diagnóstico separado.",
+      "provider": "Conservar deadline, breaker y fallback seguro; probar cambios por separado sin ocultar errores.",
+      "sql": "Correlacionar connect/query/close y pool; evaluar reintento acotado solo de lectura bajo deadline y presupuesto.",
+      "evidence": "Reexportar por lectura; conservar huecos e INCONCLUSO; investigar errores de persistencia."
+    }
+  },
+  "mitigatedDependencyFailures": [],
+  "providerReceipts": 41918,
+  "providerCompletions": 41918,
+  "providerReconciliation": {
+    "reconciled": false,
+    "attempts": 41920,
+    "dispatches": 41920,
+    "cancelledBeforeDispatch": [],
+    "unexplainedNonDispatch": [],
+    "missingReceipts": [
+      "quote/quote-3546",
+      "quote/quote-10212"
+    ],
+    "unexpectedReceipts": [],
+    "duplicateApi": [],
+    "duplicateReceipts": [],
+    "completionReconciled": true,
+    "missingEnds": [],
+    "unexpectedEnds": [],
+    "duplicateEnds": []
+  },
+  "providerCompletionReconciled": true,
+  "serverWindowCalls": 6001,
+  "probeViolations": 0,
+  "valid": false,
+  "status": "INCONCLUSO",
+  "pending": [
+    "E05/E09: comparación emparejada y apertura por isolate",
+    "E06: cronología de cinco éxitos, dos minutos sin reapertura y pico de recuperación",
+    "Revisión humana de privacidad, trazas y limitaciones; E11 completo antes de aceptar"
+  ],
+  "note": "El resumen automático no declara aceptación de EXP-S5-01. Conserva evidencias y aplica las reglas completas del protocolo."
+}

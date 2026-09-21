@@ -1,0 +1,18 @@
+name: solventa-experimentos
+services:
+  cockroach:
+    image: cockroachdb/cockroach:v26.2.0
+    entrypoint: ["/cockroach/cockroach"]
+    command: start-single-node --insecure --listen-addr=0.0.0.0:26257 --http-addr=0.0.0.0:8080
+    ports:
+      - "127.0.0.1:26257:26257"
+      - "127.0.0.1:8081:8080"
+    volumes:
+      - cockroach-data:/cockroach/cockroach-data
+    healthcheck:
+      test: ["CMD", "cockroach", "sql", "--insecure", "--execute", "SELECT 1"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+volumes:
+  cockroach-data:

@@ -1,0 +1,23 @@
+%%{init: {"theme": "base", "themeVariables": {"primaryColor": "#ffffff", "primaryTextColor": "#000000", "primaryBorderColor": "#000000", "lineColor": "#000000", "secondaryColor": "#ffffff", "tertiaryColor": "#ffffff", "clusterBkg": "#ffffff", "clusterBorder": "#000000", "edgeLabelBackground": "#ffffff", "fontFamily": "Arial", "actorBkg": "#ffffff", "actorBorder": "#000000", "actorTextColor": "#000000", "noteBkgColor": "#ffffff", "noteTextColor": "#000000", "noteBorderColor": "#000000", "labelBoxBkgColor": "#ffffff", "labelBoxBorderColor": "#000000", "signalColor": "#000000", "signalTextColor": "#000000"}}}%%
+flowchart TB
+    A["Acquisition & Risk: oferta aceptada"] --> O["Transacción del propietario: agregado y outbox"]
+    O --> P["Publisher: reclamar, publicar y confirmar"]
+    P --> Q["Queues: eventos versionados y entrega al menos una vez"]
+    Q --> I["PCP: inbox y efecto local en la misma transacción"]
+    I --> W["Workflows: procesos con espera, callbacks y pasos idempotentes"]
+    W --> F["Firma y emisión de póliza"]
+    W --> C["Pago de prima y conciliación"]
+    W --> S["Siniestro, evidencias e indemnización"]
+    F --> X["Adaptadores: firma, pagos y ACORD"]
+    C --> X
+    S --> X
+    S --> R["R2: evidencia; SQL: estado y checksum"]
+    X --> U{"¿Resultado externo confirmado?"}
+    U -->|"Sí"| D["PCP: registrar estado, auditoría y outbox"]
+    U -->|"Incierto"| K["Conciliar con clave idempotente antes de repetir"]
+    K --> X
+    D --> Q
+    Q --> L["Reintento acotado, DLQ y rezago"]
+    D --> SQL["CockroachDB: esquemas y roles por propietario"]
+    SQL --- REPL["Objetivo de producción: tres regiones<br/>RTO/RPO se comprueban con ejercicios propios"]
+    N["Se conserva el alcance S6 de pólizas, pagos y siniestros<br/>EXP-S5-01 evaluó cotización y perfilamiento"] -.-> W

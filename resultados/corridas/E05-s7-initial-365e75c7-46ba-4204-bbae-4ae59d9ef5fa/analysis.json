@@ -1,0 +1,611 @@
+{
+  "runId": "E05-s7-initial-365e75c7-46ba-4204-bbae-4ae59d9ef5fa",
+  "evidenceDirectory": "C:\\Users\\aleja\\Documents\\proyecto-final\\experiment\\experimentos\\resultados-crudos\\E05-s7-initial-365e75c7-46ba-4204-bbae-4ae59d9ef5fa",
+  "caseId": "E05",
+  "phase": "initial",
+  "diagnostic": false,
+  "results": {
+    "quote": {
+      "emitted": 21000,
+      "complete": 20994,
+      "classifications": {
+        "normal": 0,
+        "degraded": 20994,
+        "denied": 0,
+        "technical_error": 6
+      },
+      "p50": 141,
+      "p95": 177,
+      "p99": 197,
+      "wilsonLower": 0.9993767260700798,
+      "fallbackRatio": 0.9997142857142857,
+      "providerAttempts": 977,
+      "serverResponses": 21000,
+      "reconciled": true,
+      "loadComplete": true,
+      "latencyPass": true,
+      "completenessPass": true
+    },
+    "profile": {
+      "emitted": 9000,
+      "complete": 8997,
+      "classifications": {
+        "normal": 0,
+        "degraded": 8997,
+        "denied": 0,
+        "technical_error": 3
+      },
+      "p50": 141,
+      "p95": 180,
+      "p99": 194,
+      "wilsonLower": 0.9990203231406085,
+      "fallbackRatio": 0.9996666666666667,
+      "providerAttempts": 556,
+      "serverResponses": 9000,
+      "reconciled": true,
+      "loadComplete": true,
+      "latencyPass": true,
+      "completenessPass": true
+    }
+  },
+  "dropped": 0,
+  "droppedByPhase": {
+    "warmup": 0,
+    "conditioning": 0,
+    "measured": 0,
+    "pending": 0,
+    "finished": 0
+  },
+  "clientReconciliation": {
+    "available": true,
+    "phases": {
+      "warmup": {
+        "emitted": 12002,
+        "responses": 12002,
+        "api": 12002,
+        "missingResponses": [],
+        "missingApi": [],
+        "unexpectedResponses": [],
+        "unexpectedApi": [],
+        "differences": [],
+        "duplicateIds": {
+          "emitted": [],
+          "responses": [],
+          "api": []
+        },
+        "reconciled": true
+      },
+      "conditioning": {
+        "emitted": 0,
+        "responses": 0,
+        "api": 0,
+        "missingResponses": [],
+        "missingApi": [],
+        "unexpectedResponses": [],
+        "unexpectedApi": [],
+        "differences": [],
+        "duplicateIds": {
+          "emitted": [],
+          "responses": [],
+          "api": []
+        },
+        "reconciled": true
+      },
+      "measured": {
+        "emitted": 30000,
+        "responses": 30000,
+        "api": 30000,
+        "missingResponses": [],
+        "missingApi": [],
+        "unexpectedResponses": [],
+        "unexpectedApi": [],
+        "differences": [],
+        "duplicateIds": {
+          "emitted": [],
+          "responses": [],
+          "api": []
+        },
+        "reconciled": true
+      }
+    },
+    "skipped": 0,
+    "reconciled": true
+  },
+  "privacyViolations": 0,
+  "receiptReconciled": true,
+  "incidents": {
+    "version": 1,
+    "scope": "all_phases",
+    "counts": {
+      "client_failure_with_api_record": 9,
+      "server_dependency_or_application_failure": 9
+    },
+    "incidents": [
+      {
+        "id": "profile/profile-4063",
+        "phase": "measured",
+        "at": 1789420125588,
+        "category": "client_failure_with_api_record",
+        "observed": {
+          "status": 503,
+          "errorCode": 1503,
+          "timings": {
+            "duration": 754.3676,
+            "blocked": 0,
+            "looking_up": 0,
+            "connecting": 0,
+            "tls_handshaking": 0,
+            "sending": 0,
+            "waiting": 754.3676,
+            "receiving": 0
+          },
+          "cfRay": "a3b25e63e9167ea1-MIA",
+          "serverClassification": "technical_error",
+          "serverReason": "hard_deadline"
+        },
+        "attribution": "unresolved",
+        "nextEvidence": "Comparar ingreso, final del handler y transporte; una respuesta registrada no demuestra entrega al cliente."
+      },
+      {
+        "id": "quote/quote-9658",
+        "phase": "measured",
+        "at": 1789420128134,
+        "category": "client_failure_with_api_record",
+        "observed": {
+          "status": 503,
+          "errorCode": 1503,
+          "timings": {
+            "duration": 762.4453,
+            "blocked": 0,
+            "looking_up": 0,
+            "connecting": 0,
+            "tls_handshaking": 0,
+            "sending": 0,
+            "waiting": 762.4453,
+            "receiving": 0
+          },
+          "cfRay": "a3b25e73c99c5c6b-MIA",
+          "serverClassification": "technical_error",
+          "serverReason": "hard_deadline"
+        },
+        "attribution": "unresolved",
+        "nextEvidence": "Comparar ingreso, final del handler y transporte; una respuesta registrada no demuestra entrega al cliente."
+      },
+      {
+        "id": "profile/profile-4153",
+        "phase": "measured",
+        "at": 1789420128588,
+        "category": "client_failure_with_api_record",
+        "observed": {
+          "status": 503,
+          "errorCode": 1503,
+          "timings": {
+            "duration": 753.9514,
+            "blocked": 0,
+            "looking_up": 0,
+            "connecting": 0,
+            "tls_handshaking": 0,
+            "sending": 0,
+            "waiting": 753.9514,
+            "receiving": 0
+          },
+          "cfRay": "a3b25e76a8946e24-MIA",
+          "serverClassification": "technical_error",
+          "serverReason": "hard_deadline"
+        },
+        "attribution": "unresolved",
+        "nextEvidence": "Comparar ingreso, final del handler y transporte; una respuesta registrada no demuestra entrega al cliente."
+      },
+      {
+        "id": "quote/quote-9852",
+        "phase": "measured",
+        "at": 1789420130899,
+        "category": "client_failure_with_api_record",
+        "observed": {
+          "status": 503,
+          "errorCode": 1503,
+          "timings": {
+            "duration": 755.803,
+            "blocked": 0,
+            "looking_up": 0,
+            "connecting": 0,
+            "tls_handshaking": 0,
+            "sending": 0,
+            "waiting": 755.3035,
+            "receiving": 0.4995
+          },
+          "cfRay": "a3b25e851d0b5c6b-MIA",
+          "serverClassification": "technical_error",
+          "serverReason": "hard_deadline"
+        },
+        "attribution": "unresolved",
+        "nextEvidence": "Comparar ingreso, final del handler y transporte; una respuesta registrada no demuestra entrega al cliente."
+      },
+      {
+        "id": "quote/quote-9860",
+        "phase": "measured",
+        "at": 1789420131011,
+        "category": "client_failure_with_api_record",
+        "observed": {
+          "status": 503,
+          "errorCode": 1503,
+          "timings": {
+            "duration": 753.9187,
+            "blocked": 0,
+            "looking_up": 0,
+            "connecting": 0,
+            "tls_handshaking": 0,
+            "sending": 0,
+            "waiting": 753.9187,
+            "receiving": 0
+          },
+          "cfRay": "a3b25e85cb34c53a-MIA",
+          "serverClassification": "technical_error",
+          "serverReason": "hard_deadline"
+        },
+        "attribution": "unresolved",
+        "nextEvidence": "Comparar ingreso, final del handler y transporte; una respuesta registrada no demuestra entrega al cliente."
+      },
+      {
+        "id": "quote/quote-9893",
+        "phase": "measured",
+        "at": 1789420131483,
+        "category": "client_failure_with_api_record",
+        "observed": {
+          "status": 503,
+          "errorCode": 1503,
+          "timings": {
+            "duration": 754.0592,
+            "blocked": 0,
+            "looking_up": 0,
+            "connecting": 0,
+            "tls_handshaking": 0,
+            "sending": 0,
+            "waiting": 754.0592,
+            "receiving": 0
+          },
+          "cfRay": "a3b25e88b82c845f-MIA",
+          "serverClassification": "technical_error",
+          "serverReason": "hard_deadline"
+        },
+        "attribution": "unresolved",
+        "nextEvidence": "Comparar ingreso, final del handler y transporte; una respuesta registrada no demuestra entrega al cliente."
+      },
+      {
+        "id": "profile/profile-4371",
+        "phase": "measured",
+        "at": 1789420135853,
+        "category": "client_failure_with_api_record",
+        "observed": {
+          "status": 503,
+          "errorCode": 1503,
+          "timings": {
+            "duration": 753.1451,
+            "blocked": 0,
+            "looking_up": 0,
+            "connecting": 0,
+            "tls_handshaking": 0,
+            "sending": 0,
+            "waiting": 752.5302,
+            "receiving": 0.6149
+          },
+          "cfRay": "a3b25ea41e5058cf-MIA",
+          "serverClassification": "technical_error",
+          "serverReason": "hard_deadline"
+        },
+        "attribution": "unresolved",
+        "nextEvidence": "Comparar ingreso, final del handler y transporte; una respuesta registrada no demuestra entrega al cliente."
+      },
+      {
+        "id": "quote/quote-14797",
+        "phase": "measured",
+        "at": 1789420201535,
+        "category": "client_failure_with_api_record",
+        "observed": {
+          "status": 503,
+          "errorCode": 1503,
+          "timings": {
+            "duration": 751.0519,
+            "blocked": 0,
+            "looking_up": 0,
+            "connecting": 0,
+            "tls_handshaking": 0,
+            "sending": 0,
+            "waiting": 751.0519,
+            "receiving": 0
+          },
+          "cfRay": "a3b2603e9b2a7529-MIA",
+          "serverClassification": "technical_error",
+          "serverReason": "hard_deadline"
+        },
+        "attribution": "unresolved",
+        "nextEvidence": "Comparar ingreso, final del handler y transporte; una respuesta registrada no demuestra entrega al cliente."
+      },
+      {
+        "id": "quote/quote-15820",
+        "phase": "measured",
+        "at": 1789420216152,
+        "category": "client_failure_with_api_record",
+        "observed": {
+          "status": 503,
+          "errorCode": 1503,
+          "timings": {
+            "duration": 752.441,
+            "blocked": 0,
+            "looking_up": 0,
+            "connecting": 0,
+            "tls_handshaking": 0,
+            "sending": 0,
+            "waiting": 752.441,
+            "receiving": 0
+          },
+          "cfRay": "a3b26099ea7dde19-MIA",
+          "serverClassification": "technical_error",
+          "serverReason": "hard_deadline"
+        },
+        "attribution": "unresolved",
+        "nextEvidence": "Comparar ingreso, final del handler y transporte; una respuesta registrada no demuestra entrega al cliente."
+      },
+      {
+        "id": "profile/profile-4063",
+        "phase": "measured",
+        "category": "server_dependency_or_application_failure",
+        "observed": {
+          "reason": "hard_deadline",
+          "activeStage": "snapshot",
+          "consentSql": {
+            "stage": "completed",
+            "startedAt": 1789420124788,
+            "connectMs": 3,
+            "queryMs": 34,
+            "closeMs": 1,
+            "finishedAt": 1789420124826
+          },
+          "snapshotSql": {
+            "stage": "query",
+            "startedAt": 1789420124826,
+            "connectMs": 2,
+            "cancelledAt": 1789420125488,
+            "cancelledStage": "query"
+          }
+        },
+        "attribution": "unresolved",
+        "nextEvidence": "Revisar etapa y código SQL, cancelación y métricas de pool en el intervalo; no atribuir SQL únicamente a Cloudflare."
+      },
+      {
+        "id": "quote/quote-9658",
+        "phase": "measured",
+        "category": "server_dependency_or_application_failure",
+        "observed": {
+          "reason": "hard_deadline",
+          "activeStage": "snapshot",
+          "consentSql": {
+            "stage": "completed",
+            "startedAt": 1789420127327,
+            "connectMs": 9,
+            "queryMs": 40,
+            "closeMs": 0,
+            "finishedAt": 1789420127376
+          },
+          "snapshotSql": {
+            "stage": "query",
+            "startedAt": 1789420127376,
+            "connectMs": 6,
+            "cancelledAt": 1789420128027,
+            "cancelledStage": "query"
+          }
+        },
+        "attribution": "unresolved",
+        "nextEvidence": "Revisar etapa y código SQL, cancelación y métricas de pool en el intervalo; no atribuir SQL únicamente a Cloudflare."
+      },
+      {
+        "id": "profile/profile-4153",
+        "phase": "measured",
+        "category": "server_dependency_or_application_failure",
+        "observed": {
+          "reason": "hard_deadline",
+          "activeStage": "snapshot",
+          "consentSql": {
+            "stage": "completed",
+            "startedAt": 1789420127787,
+            "connectMs": 3,
+            "queryMs": 36,
+            "closeMs": 0,
+            "finishedAt": 1789420127826
+          },
+          "snapshotSql": {
+            "stage": "query",
+            "startedAt": 1789420127826,
+            "connectMs": 2,
+            "cancelledAt": 1789420128487,
+            "cancelledStage": "query"
+          }
+        },
+        "attribution": "unresolved",
+        "nextEvidence": "Revisar etapa y código SQL, cancelación y métricas de pool en el intervalo; no atribuir SQL únicamente a Cloudflare."
+      },
+      {
+        "id": "quote/quote-9852",
+        "phase": "measured",
+        "category": "server_dependency_or_application_failure",
+        "observed": {
+          "reason": "hard_deadline",
+          "activeStage": "snapshot",
+          "consentSql": {
+            "stage": "completed",
+            "startedAt": 1789420130096,
+            "connectMs": 4,
+            "queryMs": 40,
+            "closeMs": 1,
+            "finishedAt": 1789420130141
+          },
+          "snapshotSql": {
+            "stage": "query",
+            "startedAt": 1789420130141,
+            "connectMs": 14,
+            "cancelledAt": 1789420130796,
+            "cancelledStage": "query"
+          }
+        },
+        "attribution": "unresolved",
+        "nextEvidence": "Revisar etapa y código SQL, cancelación y métricas de pool en el intervalo; no atribuir SQL únicamente a Cloudflare."
+      },
+      {
+        "id": "quote/quote-9860",
+        "phase": "measured",
+        "category": "server_dependency_or_application_failure",
+        "observed": {
+          "reason": "hard_deadline",
+          "activeStage": "snapshot",
+          "consentSql": {
+            "stage": "completed",
+            "startedAt": 1789420130211,
+            "connectMs": 3,
+            "queryMs": 40,
+            "closeMs": 1,
+            "finishedAt": 1789420130255
+          },
+          "snapshotSql": {
+            "stage": "query",
+            "startedAt": 1789420130255,
+            "connectMs": 3,
+            "cancelledAt": 1789420130911,
+            "cancelledStage": "query"
+          }
+        },
+        "attribution": "unresolved",
+        "nextEvidence": "Revisar etapa y código SQL, cancelación y métricas de pool en el intervalo; no atribuir SQL únicamente a Cloudflare."
+      },
+      {
+        "id": "quote/quote-9893",
+        "phase": "measured",
+        "category": "server_dependency_or_application_failure",
+        "observed": {
+          "reason": "hard_deadline",
+          "activeStage": "snapshot",
+          "consentSql": {
+            "stage": "completed",
+            "startedAt": 1789420130685,
+            "connectMs": 4,
+            "queryMs": 39,
+            "closeMs": 0,
+            "finishedAt": 1789420130728
+          },
+          "snapshotSql": {
+            "stage": "query",
+            "startedAt": 1789420130733,
+            "connectMs": 2,
+            "cancelledAt": 1789420131382,
+            "cancelledStage": "query"
+          }
+        },
+        "attribution": "unresolved",
+        "nextEvidence": "Revisar etapa y código SQL, cancelación y métricas de pool en el intervalo; no atribuir SQL únicamente a Cloudflare."
+      },
+      {
+        "id": "profile/profile-4371",
+        "phase": "measured",
+        "category": "server_dependency_or_application_failure",
+        "observed": {
+          "reason": "hard_deadline",
+          "activeStage": "snapshot",
+          "consentSql": {
+            "stage": "completed",
+            "startedAt": 1789420135053,
+            "connectMs": 3,
+            "queryMs": 36,
+            "closeMs": 0,
+            "finishedAt": 1789420135092
+          },
+          "snapshotSql": {
+            "stage": "query",
+            "startedAt": 1789420135092,
+            "connectMs": 3,
+            "cancelledAt": 1789420135753,
+            "cancelledStage": "query"
+          }
+        },
+        "attribution": "unresolved",
+        "nextEvidence": "Revisar etapa y código SQL, cancelación y métricas de pool en el intervalo; no atribuir SQL únicamente a Cloudflare."
+      },
+      {
+        "id": "quote/quote-14797",
+        "phase": "measured",
+        "category": "server_dependency_or_application_failure",
+        "observed": {
+          "reason": "hard_deadline",
+          "activeStage": "consent"
+        },
+        "attribution": "unresolved",
+        "nextEvidence": "Revisar etapa y código SQL, cancelación y métricas de pool en el intervalo; no atribuir SQL únicamente a Cloudflare."
+      },
+      {
+        "id": "quote/quote-15820",
+        "phase": "measured",
+        "category": "server_dependency_or_application_failure",
+        "observed": {
+          "reason": "hard_deadline",
+          "activeStage": "snapshot",
+          "consentSql": {
+            "stage": "completed",
+            "startedAt": 1789420215349,
+            "connectMs": 4,
+            "queryMs": 36,
+            "closeMs": 0,
+            "finishedAt": 1789420215389
+          },
+          "snapshotSql": {
+            "stage": "query",
+            "startedAt": 1789420215389,
+            "connectMs": 3,
+            "cancelledAt": 1789420216049,
+            "cancelledStage": "query"
+          }
+        },
+        "attribution": "unresolved",
+        "nextEvidence": "Revisar etapa y código SQL, cancelación y métricas de pool en el intervalo; no atribuir SQL únicamente a Cloudflare."
+      }
+    ],
+    "limitations": [
+      "Categorías pueden solaparse por solicitud; no sumar como solicitudes únicas.",
+      "Logs Cloudflare complementarios no se descargan automáticamente en este informe.",
+      "Ausencia de evidencia no identifica al responsable. Los resultados históricos no contienen los nuevos ingress.",
+      "Instrumentación de consola agrega volumen y puede perderse; no equivale a un recibo durable."
+    ],
+    "mitigations": {
+      "client_transport": "Registrar CPU, DNS y salud del runner; contrastar con runner independiente en diagnóstico separado.",
+      "provider": "Conservar deadline, breaker y fallback seguro; probar cambios por separado sin ocultar errores.",
+      "sql": "Correlacionar connect/query/close y pool; evaluar reintento acotado solo de lectura bajo deadline y presupuesto.",
+      "evidence": "Reexportar por lectura; conservar huecos e INCONCLUSO; investigar errores de persistencia."
+    }
+  },
+  "mitigatedDependencyFailures": [],
+  "providerReceipts": 13535,
+  "providerCompletions": 13535,
+  "providerReconciliation": {
+    "reconciled": true,
+    "attempts": 13535,
+    "dispatches": 13535,
+    "cancelledBeforeDispatch": [],
+    "unexplainedNonDispatch": [],
+    "missingReceipts": [],
+    "unexpectedReceipts": [],
+    "duplicateApi": [],
+    "duplicateReceipts": [],
+    "completionReconciled": true,
+    "missingEnds": [],
+    "unexpectedEnds": [],
+    "duplicateEnds": []
+  },
+  "providerCompletionReconciled": true,
+  "serverWindowCalls": 203,
+  "probeViolations": 0,
+  "valid": true,
+  "status": "CRITERIOS_BASICOS_CUMPLIDOS",
+  "pending": [
+    "E05/E09: comparación emparejada y apertura por isolate",
+    "E06: cronología de cinco éxitos, dos minutos sin reapertura y pico de recuperación",
+    "Revisión humana de privacidad, trazas y limitaciones; E11 completo antes de aceptar"
+  ],
+  "note": "El resumen automático no declara aceptación de EXP-S5-01. Conserva evidencias y aplica las reglas completas del protocolo."
+}

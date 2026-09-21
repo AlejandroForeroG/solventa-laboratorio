@@ -1,0 +1,203 @@
+{
+  "runId": "E07-s7-initial-f9876597-457e-40da-9f2e-7055eca4c9b7",
+  "evidenceDirectory": "C:\\Users\\aleja\\Documents\\proyecto-final\\experiment\\experimentos\\resultados-crudos\\E07-s7-initial-f9876597-457e-40da-9f2e-7055eca4c9b7",
+  "caseId": "E07",
+  "phase": "initial",
+  "diagnostic": false,
+  "results": {
+    "quote": {
+      "emitted": 21001,
+      "complete": 21000,
+      "classifications": {
+        "normal": 0,
+        "degraded": 21000,
+        "denied": 0,
+        "technical_error": 1
+      },
+      "p50": 141,
+      "p95": 165,
+      "p99": 191,
+      "wilsonLower": 0.999730298053894,
+      "fallbackRatio": 0.9999523832198467,
+      "providerAttempts": 482,
+      "serverResponses": 21001,
+      "reconciled": true,
+      "loadComplete": true,
+      "latencyPass": true,
+      "completenessPass": true
+    },
+    "profile": {
+      "emitted": 9001,
+      "complete": 9001,
+      "classifications": {
+        "normal": 0,
+        "degraded": 9001,
+        "denied": 0,
+        "technical_error": 0
+      },
+      "p50": 141,
+      "p95": 165,
+      "p99": 191,
+      "wilsonLower": 0.9995733850554349,
+      "fallbackRatio": 1,
+      "providerAttempts": 304,
+      "serverResponses": 9001,
+      "reconciled": true,
+      "loadComplete": true,
+      "latencyPass": true,
+      "completenessPass": true
+    }
+  },
+  "dropped": 0,
+  "droppedByPhase": {
+    "warmup": 0,
+    "conditioning": 0,
+    "measured": 0,
+    "pending": 0,
+    "finished": 0
+  },
+  "clientReconciliation": {
+    "available": true,
+    "phases": {
+      "warmup": {
+        "emitted": 12000,
+        "responses": 12000,
+        "api": 12000,
+        "missingResponses": [],
+        "missingApi": [],
+        "unexpectedResponses": [],
+        "unexpectedApi": [],
+        "differences": [],
+        "duplicateIds": {
+          "emitted": [],
+          "responses": [],
+          "api": []
+        },
+        "reconciled": true
+      },
+      "conditioning": {
+        "emitted": 0,
+        "responses": 0,
+        "api": 0,
+        "missingResponses": [],
+        "missingApi": [],
+        "unexpectedResponses": [],
+        "unexpectedApi": [],
+        "differences": [],
+        "duplicateIds": {
+          "emitted": [],
+          "responses": [],
+          "api": []
+        },
+        "reconciled": true
+      },
+      "measured": {
+        "emitted": 30002,
+        "responses": 30002,
+        "api": 30002,
+        "missingResponses": [],
+        "missingApi": [],
+        "unexpectedResponses": [],
+        "unexpectedApi": [],
+        "differences": [],
+        "duplicateIds": {
+          "emitted": [],
+          "responses": [],
+          "api": []
+        },
+        "reconciled": true
+      }
+    },
+    "skipped": 0,
+    "reconciled": true
+  },
+  "privacyViolations": 0,
+  "receiptReconciled": true,
+  "incidents": {
+    "version": 1,
+    "scope": "all_phases",
+    "counts": {
+      "client_failure_with_api_record": 1,
+      "server_dependency_or_application_failure": 1
+    },
+    "incidents": [
+      {
+        "id": "quote/quote-29236",
+        "phase": "measured",
+        "at": 1789407876608,
+        "category": "client_failure_with_api_record",
+        "observed": {
+          "status": 503,
+          "errorCode": 1503,
+          "timings": {
+            "duration": 748.5172,
+            "blocked": 0,
+            "looking_up": 0,
+            "connecting": 0,
+            "tls_handshaking": 0,
+            "sending": 0,
+            "waiting": 748.5172,
+            "receiving": 0
+          },
+          "cfRay": "a3b13358082ca4b9-MIA",
+          "serverClassification": "technical_error",
+          "serverReason": "hard_deadline"
+        },
+        "attribution": "unresolved",
+        "nextEvidence": "Comparar ingreso, final del handler y transporte; una respuesta registrada no demuestra entrega al cliente."
+      },
+      {
+        "id": "quote/quote-29236",
+        "phase": "measured",
+        "category": "server_dependency_or_application_failure",
+        "observed": {
+          "reason": "hard_deadline",
+          "activeStage": "consent"
+        },
+        "attribution": "unresolved",
+        "nextEvidence": "Revisar etapa y código SQL, cancelación y métricas de pool en el intervalo; no atribuir SQL únicamente a Cloudflare."
+      }
+    ],
+    "limitations": [
+      "Categorías pueden solaparse por solicitud; no sumar como solicitudes únicas.",
+      "Logs Cloudflare complementarios no se descargan automáticamente en este informe.",
+      "Ausencia de evidencia no identifica al responsable. Los resultados históricos no contienen los nuevos ingress.",
+      "Instrumentación de consola agrega volumen y puede perderse; no equivale a un recibo durable."
+    ],
+    "mitigations": {
+      "client_transport": "Registrar CPU, DNS y salud del runner; contrastar con runner independiente en diagnóstico separado.",
+      "provider": "Conservar deadline, breaker y fallback seguro; probar cambios por separado sin ocultar errores.",
+      "sql": "Correlacionar connect/query/close y pool; evaluar reintento acotado solo de lectura bajo deadline y presupuesto.",
+      "evidence": "Reexportar por lectura; conservar huecos e INCONCLUSO; investigar errores de persistencia."
+    }
+  },
+  "mitigatedDependencyFailures": [],
+  "providerReceipts": 1761,
+  "providerCompletions": 1761,
+  "providerReconciliation": {
+    "reconciled": true,
+    "attempts": 1761,
+    "dispatches": 1761,
+    "cancelledBeforeDispatch": [],
+    "unexplainedNonDispatch": [],
+    "missingReceipts": [],
+    "unexpectedReceipts": [],
+    "duplicateApi": [],
+    "duplicateReceipts": [],
+    "completionReconciled": true,
+    "missingEnds": [],
+    "unexpectedEnds": [],
+    "duplicateEnds": []
+  },
+  "providerCompletionReconciled": true,
+  "serverWindowCalls": 157,
+  "probeViolations": 0,
+  "valid": true,
+  "status": "CRITERIOS_BASICOS_CUMPLIDOS",
+  "pending": [
+    "E05/E09: comparación emparejada y apertura por isolate",
+    "E06: cronología de cinco éxitos, dos minutos sin reapertura y pico de recuperación",
+    "Revisión humana de privacidad, trazas y limitaciones; E11 completo antes de aceptar"
+  ],
+  "note": "El resumen automático no declara aceptación de EXP-S5-01. Conserva evidencias y aplica las reglas completas del protocolo."
+}

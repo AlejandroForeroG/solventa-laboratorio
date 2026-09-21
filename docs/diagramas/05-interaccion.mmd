@@ -1,0 +1,71 @@
+%%{init: {"theme": "base", "themeVariables": {"primaryColor": "#ffffff", "primaryTextColor": "#000000", "primaryBorderColor": "#000000", "lineColor": "#000000", "secondaryColor": "#ffffff", "tertiaryColor": "#ffffff", "clusterBkg": "#ffffff", "clusterBorder": "#000000", "edgeLabelBackground": "#ffffff", "fontFamily": "Arial", "actorBkg": "#ffffff", "actorBorder": "#000000", "actorTextColor": "#000000", "noteBkgColor": "#ffffff", "noteTextColor": "#000000", "noteBorderColor": "#000000", "labelBoxBkgColor": "#ffffff", "labelBoxBorderColor": "#000000", "signalColor": "#000000", "signalTextColor": "#000000"}}}%%
+sequenceDiagram
+    autonumber
+    actor C as Cliente o socio
+    participant E as Edge
+    participant A as Acquisition & Risk
+    participant I as Identity / Consent
+    participant O as Adapter / ACL
+    participant P as Open Finance
+    participant D as SQL propietario vía Hyperdrive
+    participant U as Publisher propietario
+    participant Q as Queue / consumidor
+    C->>E: Cotizar o perfilar, idempotency-key
+    E->>A: Contrato, scopes y correlation-id
+    A->>I: Consentimiento vigente por Service Binding
+    I->>D: Lectura fresca en esquema Identity
+    Note over I,D: Propuesta S7: recuperación de SELECT transitorio<br/>primer intento hasta 200 ms, cerrar conexión<br/>máximo un reintento si queda presupuesto total
+    D-->>I: Estado o error técnico
+    I-->>A: Decisión y versión, o consentimiento no verificable
+    alt No autorizado, revocado o no verificable
+        A->>D: Registrar denegación o error y auditoría con outbox
+        A-->>E: Denegación o error explícito, cero uso de señales
+        E-->>C: Restricción y acción disponible
+    else Autorizado
+        A->>O: Señales con plazo de 120 ms
+        alt Circuito permite intento o sondeo y hay cupo
+            O->>P: HTTPS, sin reintento síncrono al proveedor
+            alt Respuesta válida dentro del plazo
+                P-->>O: Señales consentidas
+                O->>O: Validar esquema y traducir al dominio
+                O-->>A: Señales, fuente y fecha
+            else Error, demora o respuesta inválida
+                O->>O: Cancelar, clasificar y actualizar circuito local
+                O-->>A: Causa de degradación
+            end
+        else Circuito abierto o sin cupo
+            O-->>A: Degradación inmediata
+        end
+        alt Señales válidas del proveedor
+            A->>A: Calcular perfil y oferta con reglas vigentes
+        else Sin señales válidas
+            A->>D: Consultar respaldo del esquema Acquisition
+            D-->>A: Copia con vigencia y versión, ausencia o error
+            alt Copia vigente y autorizada
+                A->>A: Calcular respuesta con respaldo identificado
+            else Copia vencida o ausente
+                A->>A: Preliminar sin datos no elegibles ni oferta definitiva
+            else Error SQL persistente con consentimiento verificado
+                A->>A: Propuesta S7: preliminar sin datos ni oferta y causa técnica
+            end
+            Note over A,D: Propuesta S7: registrar solicitud de actualización<br/>solo para un propósito permitido y procesar después de responder
+        end
+        A->>D: Transacción: resultado permitido, auditoría y outbox
+        alt Commit confirmado
+            D-->>A: Resultado idempotente confirmado
+            A-->>E: Resultado, fuente, antigüedad y clasificación
+            E-->>C: Definitiva, preliminar, denegada o error
+        else Persistencia no confirmada
+            D-->>A: Error o resultado incierto
+            A-->>C: Error técnico, reconciliar por idempotency-key
+        end
+    end
+    Note over A,D: Solo se publica desde registros confirmados<br/>Una falla SQL no permite prometer auditoría persistida
+    U->>D: Reclamar evento pendiente del propietario
+    D-->>U: eventId e intento
+    U->>Q: Publicar evento versionado
+    Q-->>U: Confirmación o resultado incierto
+    U->>D: Marcar publicado o reconciliar
+    Q->>Q: Deduplicar eventId y confirmar efecto local antes de ACK
+    Note over O,P: Circuito local por instancia y operación<br/>20 muestras / 30 s, mínimo 10, apertura al 50 %<br/>30 s abierto, dos sondeos / 30 s, cierre con cinco éxitos
+    Note over C,A: Acciones irreversibles requieren confirmación<br/>La interfaz no sustituye autorización ni idempotencia

@@ -1,0 +1,25 @@
+{
+  "theme": "base",
+  "themeVariables": {
+    "primaryColor": "#ffffff",
+    "primaryTextColor": "#000000",
+    "primaryBorderColor": "#000000",
+    "lineColor": "#000000",
+    "secondaryColor": "#ffffff",
+    "tertiaryColor": "#ffffff",
+    "clusterBkg": "#ffffff",
+    "clusterBorder": "#000000",
+    "edgeLabelBackground": "#ffffff",
+    "fontFamily": "Arial",
+    "actorBkg": "#ffffff",
+    "actorBorder": "#000000",
+    "actorTextColor": "#000000",
+    "noteBkgColor": "#ffffff",
+    "noteTextColor": "#000000",
+    "noteBorderColor": "#000000",
+    "labelBoxBkgColor": "#ffffff",
+    "labelBoxBorderColor": "#000000",
+    "signalColor": "#000000",
+    "signalTextColor": "#000000"
+  }
+}

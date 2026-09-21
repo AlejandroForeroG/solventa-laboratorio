@@ -1,0 +1,11 @@
+{
+  "runId": "E04-s7-initial-87c004a6-7d82-48ff-84ba-0588a03c2629",
+  "originalSha256": "5dad6d1477b72e1a27b38197bb8591e2c82cb16981d26d507b393cd52a70c738",
+  "originalStatus": "AJUSTAR",
+  "derivedStatus": "CRITERIOS_BASICOS_CUMPLIDOS",
+  "originalProbeViolations": 10,
+  "correctedProbeViolations": 0,
+  "allPhaseCorrectedViolations": 0,
+  "method": "breakerEvents event=probe at, grouped by isolate/operation; original validity and other criteria preserved",
+  "notExperimentAcceptance": true
+}

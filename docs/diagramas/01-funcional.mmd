@@ -1,0 +1,81 @@
+%%{init: {"theme": "base", "themeVariables": {"primaryColor": "#ffffff", "primaryTextColor": "#000000", "primaryBorderColor": "#000000", "lineColor": "#000000", "secondaryColor": "#ffffff", "tertiaryColor": "#ffffff", "clusterBkg": "#ffffff", "clusterBorder": "#000000", "edgeLabelBackground": "#ffffff", "fontFamily": "Arial", "actorBkg": "#ffffff", "actorBorder": "#000000", "actorTextColor": "#000000", "noteBkgColor": "#ffffff", "noteTextColor": "#000000", "noteBorderColor": "#000000", "labelBoxBkgColor": "#ffffff", "labelBoxBorderColor": "#000000", "signalColor": "#000000", "signalTextColor": "#000000"}}}%%
+flowchart TB
+  N4["Cloudflare Edge<br/>TLS, WAF, cuotas, routing, correlation-id"]
+  N17["Open Finance / Open Data"]
+  N18["IdP OIDC/OAuth, KYC, socios, notificaciones"]
+  N19["Pagos, firma, reaseguro/ACORD"]
+  N20["Queues - eventos / jobs / paramétricos / notificaciones<br/>at-least-once, retry, DLQ - métrica de rezago"]
+  N21["Workflows<br/>Process Manager - pasos durables e idempotentes"]
+  N22["R2 - documentos y evidencias<br/>checksum, retención, reconciliación"]
+  N23["Hyperdrive - pooling / SQL"]
+  N24[("CockroachDB Cloud<br/>esquemas y roles por propietario")]
+  N25["ASR: QM-01/02, QI-01/02, QS-01/02<br/>Hexagonal + Adapter/ACL + contratos<br/>Sin acceso cruzado a tablas"]
+  subgraph G26["Identity, Consent &amp; Ecosystem Worker"]
+    N14["Identidad, consentimiento vigente<br/>clientes, socios, autorización"]
+    N15["Repositorio y outbox ICE"]
+    N16["Scheduled Outbox Publisher ICE"]
+  end
+  subgraph G27["Policy, Claims &amp; Payments Worker"]
+    N11["Puertos / casos de uso<br/>emisión, pólizas, pagos<br/>siniestros, indemnización"]
+    N12["Repositorio y outbox PCP"]
+    N13["Scheduled Outbox Publisher PCP"]
+  end
+  subgraph G28["Acquisition &amp; Risk Worker"]
+    N5["Inbound adapters<br/>HTTP, RPC, Queue"]
+    N6["Cotizador / perfilador<br/>pricing, risk, underwriting, oferta"]
+    N7["Puertos de dominio<br/>RiskSignals, Consent, Repository"]
+    N8["Open Finance Adapter/ACL<br/>validación y modelo canónico"]
+    N9["Repositorio AR<br/>transacción agregado + outbox"]
+    N10["Scheduled Outbox Publisher AR"]
+  end
+  subgraph G29["Canales"]
+    N1["Web - React/Vite"]
+    N2["Mobile - React Native/Expo<br/>biometría, cámara, push<br/>caché cifrada y outbox local"]
+    N3["Socios - API pública versionada"]
+  end
+  N1 -->|"HTTPS/JSON"| N4
+  N2 -->|"HTTPS, sync idempotente"| N4
+  N3 -->|"OAuth 2.0, scopes"| N4
+  N5 --> N6
+  N6 --> N7
+  N7 --> N8
+  N7 --> N9
+  N9 --> N10
+  N11 --> N12
+  N12 --> N13
+  N14 --> N15
+  N15 --> N16
+  N4 --> N5
+  N4 --> N11
+  N4 --> N14
+  N7 -->|"Service Binding:<br/>consentimiento<br/>máximo 1 dependencia<br/>interna remota en hot<br/>path"| N14
+  N11 <-->|"RPC tipado: contratos<br/>internos"| N14
+  N6 -.->|"OfertaAceptada: evento"| N11
+  N8 -->|"HTTPS, deadline, breaker<br/>local<br/>sin retry síncrono"| N17
+  N14 -->|"Adapter/ACL,<br/>HTTPS/webhook"| N18
+  N11 -->|"Adapter/ACL, idempotencia"| N19
+  N10 --> N20
+  N13 --> N20
+  N16 --> N20
+  N20 -->|"inbox: deduplicar eventId"| N5
+  N20 -->|"consumidor idempotente"| N11
+  N20 -->|"consumidor idempotente"| N14
+  N11 --> N21
+  N11 -->|"autorizar y verificar<br/>metadata"| N22
+  N1 -.->|"carga directa autorizada"| N22
+  N2 -.->|"carga directa autorizada"| N22
+  N9 --> N23
+  N12 --> N23
+  N15 --> N23
+  N23 -->|"PostgreSQL/TLS"| N24
+  N25 -.-> N7
+  REFRESH["Propuesta S7: actualizar señales<br/>Consumidor dentro de Acquisition &amp; Risk<br/>deduplicación, consentimiento y vigencia"]
+  N20 -->|"Trabajo autorizado"| REFRESH
+  REFRESH -->|"Verificar antes de consultar"| N14
+  REFRESH --> N8
+  REFRESH -->|"Guardar fuente, vencimiento y versión de consentimiento"| N9
+  SQLPOL["Propuesta S7: recuperación de lectura SQL<br/>SELECT transitorio, máximo un reintento<br/>consentimiento no verificable: bloquear"]
+  SQLPOL -.-> N9
+  SQLPOL -.-> N15
+  AUDIT["Propuesta S7: resultado y auditoría<br/>en transacción del propietario con outbox<br/>despacho y recibo se concilian por separado"]
+  AUDIT -.-> N9

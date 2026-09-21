@@ -1,0 +1,29 @@
+{
+  "$schema": "../../node_modules/wrangler/config-schema.json",
+  "name": "solventa-exp-identity",
+  "main": "index.ts",
+  "compatibility_date": "2026-09-09",
+  "compatibility_flags": [
+    "nodejs_compat"
+  ],
+  "secrets": {
+    "required": [
+      "BANK_TOKEN"
+    ]
+  },
+  "vars": {
+    "BANK_MODE": "local-memory"
+  },
+  "hyperdrive": [
+    {
+      "binding": "CONSENT_DB",
+      "id": "00000000000000000000000000000000",
+      "localConnectionString": "postgresql://root:local-only@127.0.0.1:26257/solventa_exp?sslmode=disable"
+    }
+  ],
+  "observability": {
+    "enabled": true,
+    "head_sampling_rate": 1
+  },
+  "workers_dev": false
+}

@@ -1,0 +1,11 @@
+{
+  "runId": "E01-trace-formal-83ddaca1-619b-4f47-a1b8-ee4d1ba756b4",
+  "originalSha256": "af7a829d2670ad74efbaffd0579fa18b281df9ab558af85f6b06775d0e528cfb",
+  "originalStatus": "INCONCLUSO",
+  "derivedStatus": "INCONCLUSO",
+  "originalProbeViolations": 0,
+  "correctedProbeViolations": 0,
+  "allPhaseCorrectedViolations": 0,
+  "method": "breakerEvents event=probe at, grouped by isolate/operation; original validity and other criteria preserved",
+  "notExperimentAcceptance": true
+}

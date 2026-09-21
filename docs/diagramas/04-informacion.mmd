@@ -1,0 +1,84 @@
+%%{init: {"theme": "base", "themeVariables": {"primaryColor": "#ffffff", "primaryTextColor": "#000000", "primaryBorderColor": "#000000", "lineColor": "#000000", "secondaryColor": "#ffffff", "tertiaryColor": "#ffffff", "clusterBkg": "#ffffff", "clusterBorder": "#000000", "edgeLabelBackground": "#ffffff", "fontFamily": "Arial", "actorBkg": "#ffffff", "actorBorder": "#000000", "actorTextColor": "#000000", "noteBkgColor": "#ffffff", "noteTextColor": "#000000", "noteBorderColor": "#000000", "labelBoxBkgColor": "#ffffff", "labelBoxBorderColor": "#000000", "signalColor": "#000000", "signalTextColor": "#000000"}}}%%
+flowchart TB
+  N18["Publisher por propietario<br/>claim → publicar → confirmar<br/>reconciliar registros detenidos"]
+  N19["Queues - contrato versionado<br/>entrega al menos una vez"]
+  N20["Retry acotado, DLQ<br/>rezago observable"]
+  N21["Consumidor externo futuro<br/>analítica, fraude, auditoría"]
+  N22["Web / Mobile"]
+  N23[("R2 - objeto binario<br/>checksum, retención")]
+  N24["Regla de caché<br/>snapshot vigente Y consentimiento autorizado<br/>no usar vencidos, ausentes o revocados<br/>dinero y estado contractual: fuente SQL"]
+  N25["R2 API consistente ≠ caché de dominio<br/>purgar si se exige visibilidad inmediata"]
+  N26["Efecto externo incierto<br/>clave idempotente estable + reconciliación<br/>antes de repetir"]
+  subgraph G29["Ownership: Identity, Consent &amp; Ecosystem"]
+    N14[("Cliente tokenizado")]
+    N15[("Consentimiento<br/>propósito, alcance, fuente<br/>grantedAt, expiresAt, revokedAt")]
+    N16[("Outbox ICE")]
+    N17[("Inbox ICE<br/>eventId + efecto local atómicos")]
+    N27[("Socio y credenciales")]
+    N28[("Auditoría<br/>actor, acción, recurso, correlation-id<br/>sin payload sensible")]
+  end
+  subgraph G30["Ownership: Policy, Claims &amp; Payments"]
+    N7[("Póliza")]
+    N8[("Pago<br/>idempotencia, conciliación")]
+    N9[("Siniestro")]
+    N10[("EvidenciaMetadata<br/>objectKey, checksum, retención<br/>PENDIENTE / CARGADA / VERIFICADA")]
+    N11[("Indemnización")]
+    N12[("Outbox PCP")]
+    N13[("Inbox PCP<br/>eventId + efecto local atómicos")]
+  end
+  subgraph G31["Ownership: Acquisition &amp; Risk"]
+    N1[("Cotización<br/>idempotency-key, versión regla")]
+    N2[("PerfilRiesgo / snapshot<br/>capturedAt, calidad, consentimientoRef")]
+    N3[("DecisiónSuscripción<br/>regla, explicación")]
+    N4[("Oferta<br/>prima, coberturas, vigencia")]
+    N5[("Outbox AR<br/>eventId, agregado, versión, intentos")]
+    N6[("Inbox AR<br/>eventId + efecto local atómicos")]
+  end
+  N1 --> N2
+  N2 --> N3
+  N3 --> N4
+  N1 -->|"misma transacción local"| N5
+  N3 -->|"misma transacción local"| N5
+  N7 --> N8
+  N7 --> N9
+  N9 --> N10
+  N9 --> N11
+  N11 --> N8
+  N8 -->|"misma transacción"| N12
+  N9 -->|"misma transacción"| N12
+  N14 --> N15
+  N15 -->|"misma transacción"| N16
+  N5 --> N18
+  N12 --> N18
+  N16 --> N18
+  N18 --> N19
+  N19 --> N6
+  N6 --> N1
+  N19 --> N13
+  N13 --> N7
+  N19 --> N17
+  N17 --> N15
+  N19 --> N20
+  N19 --> N21
+  N15 -.->|"contrato de autorización<br/>nunca consulta cruzada a<br/>tablas"| N1
+  N4 -.->|"OfertaAceptada vía Queue"| N7
+  N10 -->|"1. autoriza URL de corta<br/>vida"| N22
+  N22 -->|"2. carga directa"| N23
+  N22 -->|"3. confirma objectKey /<br/>checksum"| N10
+  N10 <-->|"reconciliación: no<br/>transacción distribuida"| N23
+  N24 -.-> N2
+  N25 -.-> N23
+  N8 -.-> N26
+  N27 --> N28
+  META["Propuesta S7: metadatos del respaldo<br/>source, capturedAt, expiresAt<br/>consentVersion, propósito y alcance"]
+  META --- N2
+  JOB["Propuesta S7: solicitud de actualización<br/>eventId, sujeto tokenizado, propósito<br/>referencia de consentimiento, estado e intentos"]
+  JOB --> N5
+  JOB --> N6
+  ARLOG["Propuesta S7: auditoría del resultado en AR<br/>correlationId, clasificación, causa, fuente<br/>fase, despacho, recibo y cierre conocidos"]
+  N1 -->|"Misma transacción local"| ARLOG
+  ARLOG --> N5
+  ICELOG["Propuesta S7: auditoría de consentimiento en ICE<br/>decisión y versión verificadas<br/>sin copiar datos financieros"]
+  ICELOG --- N28
+  CONS["Identity verifica autorización al ejecutar<br/>La referencia del mensaje no autoriza por sí sola"]
+  CONS -.-> JOB
