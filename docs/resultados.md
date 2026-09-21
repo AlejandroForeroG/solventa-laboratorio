@@ -419,7 +419,7 @@ El informe y el registro de evidencias están en Drive. Los archivos originales 
 
 ## 6. Observabilidad complementaria en Cloudflare
 
-Las siguientes capturas reales corresponden al intervalo histórico visible de la campaña s7-inicial-20260914-122029, de 12:00 a 21:00 (GMT-5). La consulta selecciona eventos kind=api del servicio solventa-exp-acquisition-staging, sin restringir runId ni fase. Incluye calentamiento y todo evento coincidente; sus conteos no son el denominador de las 899.835 solicitudes medidas. No se ejecutaron cargas nuevas para obtener estas figuras.
+Las capturas de las figuras 15–17 corresponden al intervalo histórico visible de la campaña s7-inicial-20260914-122029, de 12:00 a 21:00 (GMT-5). La consulta selecciona eventos kind=api del servicio solventa-exp-acquisition-staging, sin restringir runId ni fase. Incluye calentamiento y todo evento coincidente; sus conteos no son el denominador de las 899.835 solicitudes medidas. No se ejecutaron cargas nuevas para obtener estas figuras.
 
 ### Figura 15. Latencia interna del proveedor: p99 y p95
 
@@ -438,6 +438,13 @@ La distribución temporal permite reconocer períodos con actividad y contrastar
 ![Figura 17. Respuestas normales, degradadas, denegadas y errores técnicos](../resultados/cloudflare-observabilidad/respuestas.png)
 
 La separación por operation y classification muestra cómo varía el tipo de respuesta. degraded representa continuidad mediante una respuesta alternativa; denied es una denegación controlada y technical_error un fallo técnico. La gráfica permite explorar el comportamiento, pero no atribuye causalidad ni reemplaza la comparación E05/E09 o los controles de consentimiento de E07/E08. Los dictámenes se conservan por corrida y fase medida.
+
+### Figura 18. Vista general del volumen de eventos
+
+![Vista general del volumen de eventos](../resultados/cloudflare-observabilidad/volumen-general.png)
+
+Captura aportada por el equipo para mostrar el volumen agregado de la vista de Cloudflare y su distribución temporal. El total corresponde al count mostrado por esa consulta; no representa usuarios únicos ni solicitudes medidas de la campaña. El recorte no muestra los filtros, los servicios incluidos ni el selector completo del intervalo, por lo que no permite atribuir la totalidad a las 30 corridas. Se conserva como contexto visual, sin modificar los resultados experimentales.
+
 
 Consultas de origen (requieren acceso a la cuenta): [Volumen y latencia del proveedor](https://dash.cloudflare.com/803fd559877aae8f638140610f106857/observability/queries/mbxzs9awhzzczyn02w3hrl0i) y [Respuestas y errores por operación](https://dash.cloudflare.com/803fd559877aae8f638140610f106857/observability/queries/o3982zddrxm0usvo4erbg3ze).
 
