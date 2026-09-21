@@ -19,7 +19,13 @@ sequenceDiagram
     I-->>A: Decisión y versión, o consentimiento no verificable
     alt No autorizado, revocado o no verificable
         A->>D: Registrar denegación o error y auditoría con outbox
-        A-->>E: Denegación o error explícito, cero uso de señales
+        alt Commit confirmado
+            D-->>A: Decisión y auditoría persistidas
+            A-->>E: Denegación o error explícito, cero uso de señales
+        else Persistencia no confirmada
+            D-->>A: Error o resultado incierto
+            A-->>E: Error técnico, sin prometer auditoría durable
+        end
         E-->>C: Restricción y acción disponible
     else Autorizado
         A->>O: Señales con plazo de 120 ms
@@ -57,7 +63,8 @@ sequenceDiagram
             E-->>C: Definitiva, preliminar, denegada o error
         else Persistencia no confirmada
             D-->>A: Error o resultado incierto
-            A-->>C: Error técnico, reconciliar por idempotency-key
+            A-->>E: Error técnico, reconciliar por idempotency-key
+            E-->>C: Error técnico explícito
         end
     end
     Note over A,D: Solo se publica desde registros confirmados<br/>Una falla SQL no permite prometer auditoría persistida

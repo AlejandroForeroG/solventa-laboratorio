@@ -10,7 +10,8 @@ sequenceDiagram
     participant P as Adapter Open Finance
     participant L as DLQ
     A->>D: Transacción: resultado, auditoría y actualización pendiente
-    D-->>A: Commit
+    D-->>A: Commit confirmado
+    Note over A,D: Si falla el commit, no declarar trabajo aceptado ni publicar
     A-->>A: Responder sin esperar el trabajo de actualización
     U->>D: Reclamar outbox con eventId y versión
     U->>Q: Publicar trabajo
@@ -46,4 +47,5 @@ sequenceDiagram
     end
     Q->>L: Agotados los intentos o mensaje no procesable
     Note over W,I: La referencia del mensaje no concede autorización<br/>Cada uso posterior del respaldo también valida consentimiento
+    Note over W,D: Todo error de lectura o commit conserva causa técnica<br/>Sin persistencia confirmada no hay ACK, aplicar reentrega y DLQ<br/>La validación en Identity no forma una transacción distribuida con AR
     Note over D,L: Propuesta S7: métricas de rezago, antigüedad y errores<br/>Despacho sin recibo queda identificado, no se supone éxito
