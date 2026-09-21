@@ -1,4 +1,6 @@
-# Arquitectura de Solventa ajustada con los resultados de Semana 7
+# Catálogo de modelos y decisiones de arquitectura
+
+La [arquitectura final de Semana 7](arquitectura-s7.md) conserva las 11 secciones, nueve tablas y nueve figuras del documento de entrega. También está disponible como [Google Doc](https://docs.google.com/document/d/1BFg3RyFkN_HhRrEfmrd5rTXi0I6fseI1gssDeygQ1Rw/edit). Este catálogo reúne las fuentes editables y vistas complementarias.
 
 Fecha: 20 de septiembre de 2026. Base: arquitectura de Semana 6 y modelos de Lucidchart; evidencia: 30 corridas de EXP-S5-01. Se mantienen los tres servicios del producto, los canales web y móvil y los flujos de pólizas, pagos y siniestros.
 

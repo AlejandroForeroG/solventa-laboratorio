@@ -1,0 +1,2391 @@
+{
+  "state": "completed",
+  "completed": [
+    {
+      "caseId": "E01",
+      "fixture": "valid",
+      "repetition": 1,
+      "runId": "E01-trace-formal-83ddaca1-619b-4f47-a1b8-ee4d1ba756b4",
+      "purpose": "Existing persistence-v2 E01 repetition 1 retained as INCONCLUSO, never rerun under this ID.",
+      "status": "INCONCLUSO",
+      "valid": false,
+      "privacyViolations": 0,
+      "results": {
+        "quote": {
+          "emitted": 21000,
+          "complete": 21000,
+          "classifications": {
+            "normal": 20987,
+            "degraded": 13,
+            "denied": 0,
+            "technical_error": 0
+          },
+          "p50": 141,
+          "p95": 155,
+          "p99": 172,
+          "wilsonLower": 0.9998171001251503,
+          "fallbackRatio": 0.000619047619047619,
+          "providerAttempts": 21000,
+          "serverResponses": 21000,
+          "reconciled": true,
+          "loadComplete": true,
+          "latencyPass": true,
+          "completenessPass": true
+        },
+        "profile": {
+          "emitted": 9000,
+          "complete": 9000,
+          "classifications": {
+            "normal": 8994,
+            "degraded": 6,
+            "denied": 0,
+            "technical_error": 0
+          },
+          "p50": 141,
+          "p95": 155,
+          "p99": 171,
+          "wilsonLower": 0.9995733376739991,
+          "fallbackRatio": 0.0006666666666666666,
+          "providerAttempts": 9000,
+          "serverResponses": 9000,
+          "reconciled": true,
+          "loadComplete": true,
+          "latencyPass": true,
+          "completenessPass": true
+        }
+      },
+      "existingEvidence": true
+    },
+    {
+      "caseId": "E01",
+      "fixture": "valid",
+      "repetition": 2,
+      "runId": "E01-s7-initial-e10e1416-e8fb-437a-84a1-bca9da4f99b5",
+      "purpose": "corrected-version repetition",
+      "finishedAt": "2026-09-14T17:29:01.220468+00:00",
+      "runnerExitCode": 0,
+      "status": "AJUSTAR",
+      "valid": true,
+      "privacyViolations": 0,
+      "results": {
+        "quote": {
+          "emitted": 21000,
+          "complete": 20999,
+          "classifications": {
+            "normal": 20997,
+            "degraded": 2,
+            "denied": 0,
+            "technical_error": 1
+          },
+          "p50": 139,
+          "p95": 153,
+          "p99": 163,
+          "wilsonLower": 0.9997302852133687,
+          "fallbackRatio": 9.523809523809524e-05,
+          "providerAttempts": 20999,
+          "serverResponses": 21000,
+          "reconciled": true,
+          "loadComplete": true,
+          "latencyPass": true,
+          "completenessPass": true
+        },
+        "profile": {
+          "emitted": 9000,
+          "complete": 9000,
+          "classifications": {
+            "normal": 8998,
+            "degraded": 2,
+            "denied": 0,
+            "technical_error": 0
+          },
+          "p50": 140,
+          "p95": 153,
+          "p99": 164,
+          "wilsonLower": 0.9995733376739991,
+          "fallbackRatio": 0.00022222222222222223,
+          "providerAttempts": 9000,
+          "serverResponses": 9000,
+          "reconciled": true,
+          "loadComplete": true,
+          "latencyPass": true,
+          "completenessPass": true
+        }
+      },
+      "operationalReview": {
+        "at": "2026-09-14T17:29:02.102575+00:00",
+        "continue": true,
+        "reason": "valid_measurement",
+        "verdictUnchanged": "AJUSTAR"
+      }
+    },
+    {
+      "caseId": "E01",
+      "fixture": "valid",
+      "repetition": 3,
+      "runId": "E01-s7-initial-4934b38a-7858-4263-a30e-ee41f2a8020e",
+      "purpose": "corrected-version repetition",
+      "finishedAt": "2026-09-14T17:37:16.789037+00:00",
+      "runnerExitCode": 1,
+      "status": "INCONCLUSO",
+      "valid": false,
+      "privacyViolations": 0,
+      "results": {
+        "quote": {
+          "emitted": 21000,
+          "complete": 21000,
+          "classifications": {
+            "normal": 20998,
+            "degraded": 2,
+            "denied": 0,
+            "technical_error": 0
+          },
+          "p50": 138,
+          "p95": 153,
+          "p99": 172,
+          "wilsonLower": 0.9998171001251503,
+          "fallbackRatio": 9.523809523809524e-05,
+          "providerAttempts": 21000,
+          "serverResponses": 21000,
+          "reconciled": true,
+          "loadComplete": true,
+          "latencyPass": true,
+          "completenessPass": true
+        },
+        "profile": {
+          "emitted": 9000,
+          "complete": 9000,
+          "classifications": {
+            "normal": 9000,
+            "degraded": 0,
+            "denied": 0,
+            "technical_error": 0
+          },
+          "p50": 139,
+          "p95": 154,
+          "p99": 166,
+          "wilsonLower": 0.9995733376739991,
+          "fallbackRatio": 0,
+          "providerAttempts": 9000,
+          "serverResponses": 9000,
+          "reconciled": true,
+          "loadComplete": true,
+          "latencyPass": true,
+          "completenessPass": true
+        }
+      },
+      "reviewAnalysis": "C:\\Users\\aleja\\Documents\\proyecto-final\\experiment\\experimentos\\resultados-crudos\\E01-s7-initial-4934b38a-7858-4263-a30e-ee41f2a8020e\\analysis-continuation-20260914T173713607524Z.json",
+      "reviewStatus": "INCONCLUSO",
+      "operationalReview": {
+        "at": "2026-09-14T17:37:17.763318+00:00",
+        "continue": true,
+        "reason": "recorded_deadline_with_unconfirmed_provider_receipt",
+        "missingReceipts": [
+          "profile/profile-1347"
+        ],
+        "details": [
+          {
+            "traceId": "profile-1347",
+            "operation": "profile",
+            "phase": "warmup",
+            "classification": "degraded",
+            "reason": "deadline",
+            "providerAbortAt": 1789407007624,
+            "providerDispatchedAt": 1789407007504
+          }
+        ],
+        "verdictUnchanged": "INCONCLUSO",
+        "limitation": "No proof of provider receipt; do not count as accepted or repair historical records."
+      }
+    },
+    {
+      "caseId": "E07",
+      "fixture": "absent",
+      "repetition": 1,
+      "runId": "E07-s7-initial-f9876597-457e-40da-9f2e-7055eca4c9b7",
+      "purpose": "corrected-version repetition",
+      "finishedAt": "2026-09-14T17:44:51.619848+00:00",
+      "runnerExitCode": 0,
+      "status": "CRITERIOS_BASICOS_CUMPLIDOS",
+      "valid": true,
+      "privacyViolations": 0,
+      "results": {
+        "quote": {
+          "emitted": 21001,
+          "complete": 21000,
+          "classifications": {
+            "normal": 0,
+            "degraded": 21000,
+            "denied": 0,
+            "technical_error": 1
+          },
+          "p50": 141,
+          "p95": 165,
+          "p99": 191,
+          "wilsonLower": 0.999730298053894,
+          "fallbackRatio": 0.9999523832198467,
+          "providerAttempts": 482,
+          "serverResponses": 21001,
+          "reconciled": true,
+          "loadComplete": true,
+          "latencyPass": true,
+          "completenessPass": true
+        },
+        "profile": {
+          "emitted": 9001,
+          "complete": 9001,
+          "classifications": {
+            "normal": 0,
+            "degraded": 9001,
+            "denied": 0,
+            "technical_error": 0
+          },
+          "p50": 141,
+          "p95": 165,
+          "p99": 191,
+          "wilsonLower": 0.9995733850554349,
+          "fallbackRatio": 1,
+          "providerAttempts": 304,
+          "serverResponses": 9001,
+          "reconciled": true,
+          "loadComplete": true,
+          "latencyPass": true,
+          "completenessPass": true
+        }
+      },
+      "operationalReview": {
+        "at": "2026-09-14T17:44:52.238165+00:00",
+        "continue": true,
+        "reason": "valid_measurement",
+        "verdictUnchanged": "CRITERIOS_BASICOS_CUMPLIDOS"
+      }
+    },
+    {
+      "caseId": "E03",
+      "fixture": "valid",
+      "repetition": 1,
+      "runId": "E03-s7-initial-e3107ea3-23d3-45c5-ad8e-9dfdcbffd908",
+      "purpose": "corrected-version repetition",
+      "finishedAt": "2026-09-14T17:52:25.595284+00:00",
+      "runnerExitCode": 0,
+      "status": "CRITERIOS_BASICOS_CUMPLIDOS",
+      "valid": true,
+      "privacyViolations": 0,
+      "results": {
+        "quote": {
+          "emitted": 21000,
+          "complete": 20999,
+          "classifications": {
+            "normal": 0,
+            "degraded": 20999,
+            "denied": 0,
+            "technical_error": 1
+          },
+          "p50": 140,
+          "p95": 165,
+          "p99": 264,
+          "wilsonLower": 0.9997302852133687,
+          "fallbackRatio": 0.9999523809523809,
+          "providerAttempts": 458,
+          "serverResponses": 21000,
+          "reconciled": true,
+          "loadComplete": true,
+          "latencyPass": true,
+          "completenessPass": true
+        },
+        "profile": {
+          "emitted": 9000,
+          "complete": 8999,
+          "classifications": {
+            "normal": 0,
+            "degraded": 8999,
+            "denied": 0,
+            "technical_error": 1
+          },
+          "p50": 141,
+          "p95": 165,
+          "p99": 267,
+          "wilsonLower": 0.9993708238698057,
+          "fallbackRatio": 0.9998888888888889,
+          "providerAttempts": 275,
+          "serverResponses": 9000,
+          "reconciled": true,
+          "loadComplete": true,
+          "latencyPass": true,
+          "completenessPass": true
+        }
+      },
+      "operationalReview": {
+        "at": "2026-09-14T17:52:26.278032+00:00",
+        "continue": true,
+        "reason": "valid_measurement",
+        "verdictUnchanged": "CRITERIOS_BASICOS_CUMPLIDOS"
+      }
+    },
+    {
+      "caseId": "E04",
+      "fixture": "valid",
+      "repetition": 2,
+      "runId": "E04-s7-initial-7011d0cd-2b3f-4dff-bede-dd61ddb547e8",
+      "purpose": "previously pending case",
+      "finishedAt": "2026-09-14T18:00:21.392069+00:00",
+      "runnerExitCode": 1,
+      "status": "INCONCLUSO",
+      "valid": false,
+      "privacyViolations": 0,
+      "results": {
+        "quote": {
+          "emitted": 21001,
+          "complete": 21000,
+          "classifications": {
+            "normal": 2683,
+            "degraded": 18317,
+            "denied": 0,
+            "technical_error": 1
+          },
+          "p50": 141,
+          "p95": 184,
+          "p99": 216,
+          "wilsonLower": 0.999730298053894,
+          "fallbackRatio": 0.872196562068473,
+          "providerAttempts": 3933,
+          "serverResponses": 21001,
+          "reconciled": true,
+          "loadComplete": true,
+          "latencyPass": true,
+          "completenessPass": true
+        },
+        "profile": {
+          "emitted": 9001,
+          "complete": 9001,
+          "classifications": {
+            "normal": 935,
+            "degraded": 8066,
+            "denied": 0,
+            "technical_error": 0
+          },
+          "p50": 143,
+          "p95": 183,
+          "p99": 219,
+          "wilsonLower": 0.9995733850554349,
+          "fallbackRatio": 0.8961226530385513,
+          "providerAttempts": 1398,
+          "serverResponses": 9001,
+          "reconciled": true,
+          "loadComplete": true,
+          "latencyPass": true,
+          "completenessPass": true
+        }
+      },
+      "reviewAnalysis": "C:\\Users\\aleja\\Documents\\proyecto-final\\experiment\\experimentos\\resultados-crudos\\E04-s7-initial-7011d0cd-2b3f-4dff-bede-dd61ddb547e8\\analysis-continuation-20260914T180018182803Z.json",
+      "reviewStatus": "INCONCLUSO",
+      "operationalReview": {
+        "at": "2026-09-14T18:00:22.048246+00:00",
+        "continue": true,
+        "reason": "recorded_deadline_with_unconfirmed_provider_receipt",
+        "missingReceipts": [
+          "quote/quote-143"
+        ],
+        "details": [
+          {
+            "traceId": "quote-143",
+            "operation": "quote",
+            "phase": "warmup",
+            "classification": "degraded",
+            "reason": "deadline",
+            "providerAbortAt": 1789408368873,
+            "providerDispatchedAt": 1789408368753
+          }
+        ],
+        "verdictUnchanged": "INCONCLUSO",
+        "limitation": "No proof of provider receipt; do not count as accepted or repair historical records."
+      }
+    },
+    {
+      "caseId": "E02",
+      "fixture": "valid",
+      "repetition": 2,
+      "runId": "E02-s7-initial-3e90f19d-82b1-4bd2-9510-97168c271f60",
+      "purpose": "previously pending case",
+      "finishedAt": "2026-09-14T18:08:20.259901+00:00",
+      "runnerExitCode": 1,
+      "status": "INCONCLUSO",
+      "valid": false,
+      "privacyViolations": 0,
+      "results": {
+        "quote": {
+          "emitted": 21000,
+          "complete": 21000,
+          "classifications": {
+            "normal": 20990,
+            "degraded": 10,
+            "denied": 0,
+            "technical_error": 0
+          },
+          "p50": 199,
+          "p95": 219,
+          "p99": 241,
+          "wilsonLower": 0.9998171001251503,
+          "fallbackRatio": 0.0004761904761904762,
+          "providerAttempts": 21000,
+          "serverResponses": 21000,
+          "reconciled": true,
+          "loadComplete": true,
+          "latencyPass": true,
+          "completenessPass": true
+        },
+        "profile": {
+          "emitted": 9000,
+          "complete": 9000,
+          "classifications": {
+            "normal": 8998,
+            "degraded": 2,
+            "denied": 0,
+            "technical_error": 0
+          },
+          "p50": 199,
+          "p95": 214,
+          "p99": 232,
+          "wilsonLower": 0.9995733376739991,
+          "fallbackRatio": 0.00022222222222222223,
+          "providerAttempts": 9000,
+          "serverResponses": 9000,
+          "reconciled": true,
+          "loadComplete": true,
+          "latencyPass": true,
+          "completenessPass": true
+        }
+      },
+      "reviewAnalysis": "C:\\Users\\aleja\\Documents\\proyecto-final\\experiment\\experimentos\\resultados-crudos\\E02-s7-initial-3e90f19d-82b1-4bd2-9510-97168c271f60\\analysis-continuation-20260914T180817540103Z.json",
+      "reviewStatus": "INCONCLUSO",
+      "operationalReview": {
+        "at": "2026-09-14T18:08:21.003187+00:00",
+        "continue": true,
+        "reason": "recorded_deadline_with_unconfirmed_provider_receipt",
+        "missingReceipts": [
+          "profile/profile-880"
+        ],
+        "details": [
+          {
+            "traceId": "profile-880",
+            "operation": "profile",
+            "phase": "warmup",
+            "classification": "degraded",
+            "reason": "deadline",
+            "providerAbortAt": 1789408871976,
+            "providerDispatchedAt": 1789408871856
+          }
+        ],
+        "verdictUnchanged": "INCONCLUSO",
+        "limitation": "No proof of provider receipt; do not count as accepted or repair historical records."
+      }
+    },
+    {
+      "caseId": "E03",
+      "fixture": "valid",
+      "repetition": 2,
+      "runId": "E03-s7-initial-a17bc42f-5905-4b43-bce2-cba0b2f89a12",
+      "purpose": "corrected-version repetition",
+      "finishedAt": "2026-09-14T18:15:55.126768+00:00",
+      "runnerExitCode": 0,
+      "status": "CRITERIOS_BASICOS_CUMPLIDOS",
+      "valid": true,
+      "privacyViolations": 0,
+      "results": {
+        "quote": {
+          "emitted": 21000,
+          "complete": 20999,
+          "classifications": {
+            "normal": 0,
+            "degraded": 20999,
+            "denied": 0,
+            "technical_error": 1
+          },
+          "p50": 144,
+          "p95": 171,
+          "p99": 267,
+          "wilsonLower": 0.9997302852133687,
+          "fallbackRatio": 0.9999523809523809,
+          "providerAttempts": 507,
+          "serverResponses": 21000,
+          "reconciled": true,
+          "loadComplete": true,
+          "latencyPass": true,
+          "completenessPass": true
+        },
+        "profile": {
+          "emitted": 9000,
+          "complete": 9000,
+          "classifications": {
+            "normal": 0,
+            "degraded": 9000,
+            "denied": 0,
+            "technical_error": 0
+          },
+          "p50": 144,
+          "p95": 178,
+          "p99": 272,
+          "wilsonLower": 0.9995733376739991,
+          "fallbackRatio": 1,
+          "providerAttempts": 307,
+          "serverResponses": 9000,
+          "reconciled": true,
+          "loadComplete": true,
+          "latencyPass": true,
+          "completenessPass": true
+        }
+      },
+      "operationalReview": {
+        "at": "2026-09-14T18:15:55.985732+00:00",
+        "continue": true,
+        "reason": "valid_measurement",
+        "verdictUnchanged": "CRITERIOS_BASICOS_CUMPLIDOS"
+      }
+    },
+    {
+      "caseId": "E07",
+      "fixture": "expired",
+      "repetition": 1,
+      "runId": "E07-s7-initial-3cadfecb-4eab-435f-b54b-7e186f16671d",
+      "purpose": "corrected-version repetition",
+      "finishedAt": "2026-09-14T18:23:30.142549+00:00",
+      "runnerExitCode": 0,
+      "status": "CRITERIOS_BASICOS_CUMPLIDOS",
+      "valid": true,
+      "privacyViolations": 0,
+      "results": {
+        "quote": {
+          "emitted": 21000,
+          "complete": 21000,
+          "classifications": {
+            "normal": 0,
+            "degraded": 21000,
+            "denied": 0,
+            "technical_error": 0
+          },
+          "p50": 142,
+          "p95": 165,
+          "p99": 192,
+          "wilsonLower": 0.9998171001251503,
+          "fallbackRatio": 1,
+          "providerAttempts": 476,
+          "serverResponses": 21000,
+          "reconciled": true,
+          "loadComplete": true,
+          "latencyPass": true,
+          "completenessPass": true
+        },
+        "profile": {
+          "emitted": 9000,
+          "complete": 9000,
+          "classifications": {
+            "normal": 0,
+            "degraded": 9000,
+            "denied": 0,
+            "technical_error": 0
+          },
+          "p50": 143,
+          "p95": 174,
+          "p99": 197,
+          "wilsonLower": 0.9995733376739991,
+          "fallbackRatio": 1,
+          "providerAttempts": 276,
+          "serverResponses": 9000,
+          "reconciled": true,
+          "loadComplete": true,
+          "latencyPass": true,
+          "completenessPass": true
+        }
+      },
+      "operationalReview": {
+        "at": "2026-09-14T18:23:30.765660+00:00",
+        "continue": true,
+        "reason": "valid_measurement",
+        "verdictUnchanged": "CRITERIOS_BASICOS_CUMPLIDOS"
+      }
+    },
+    {
+      "caseId": "E07",
+      "fixture": "expired",
+      "repetition": 3,
+      "runId": "E07-s7-initial-9729c51a-b891-414f-97ae-786f7c866da4",
+      "purpose": "corrected-version repetition",
+      "finishedAt": "2026-09-14T18:31:06.487134+00:00",
+      "runnerExitCode": 0,
+      "status": "CRITERIOS_BASICOS_CUMPLIDOS",
+      "valid": true,
+      "privacyViolations": 0,
+      "results": {
+        "quote": {
+          "emitted": 21000,
+          "complete": 20999,
+          "classifications": {
+            "normal": 0,
+            "degraded": 20999,
+            "denied": 0,
+            "technical_error": 1
+          },
+          "p50": 142,
+          "p95": 163.04999999999927,
+          "p99": 188,
+          "wilsonLower": 0.9997302852133687,
+          "fallbackRatio": 0.9999523809523809,
+          "providerAttempts": 449,
+          "serverResponses": 21000,
+          "reconciled": true,
+          "loadComplete": true,
+          "latencyPass": true,
+          "completenessPass": true
+        },
+        "profile": {
+          "emitted": 8999,
+          "complete": 8999,
+          "classifications": {
+            "normal": 0,
+            "degraded": 8999,
+            "denied": 0,
+            "technical_error": 0
+          },
+          "p50": 144,
+          "p95": 169,
+          "p99": 191,
+          "wilsonLower": 0.999573290282037,
+          "fallbackRatio": 1,
+          "providerAttempts": 254,
+          "serverResponses": 8999,
+          "reconciled": true,
+          "loadComplete": true,
+          "latencyPass": true,
+          "completenessPass": true
+        }
+      },
+      "operationalReview": {
+        "at": "2026-09-14T18:31:07.152363+00:00",
+        "continue": true,
+        "reason": "valid_measurement",
+        "verdictUnchanged": "CRITERIOS_BASICOS_CUMPLIDOS"
+      }
+    },
+    {
+      "caseId": "E04",
+      "fixture": "valid",
+      "repetition": 1,
+      "runId": "E04-s7-initial-87c004a6-7d82-48ff-84ba-0588a03c2629",
+      "purpose": "previously pending case",
+      "finishedAt": "2026-09-14T18:43:53.007302+00:00",
+      "runnerExitCode": 0,
+      "status": "AJUSTAR",
+      "valid": true,
+      "privacyViolations": 0,
+      "results": {
+        "quote": {
+          "emitted": 21000,
+          "complete": 20996,
+          "classifications": {
+            "normal": 2848,
+            "degraded": 18148,
+            "denied": 0,
+            "technical_error": 4
+          },
+          "p50": 142,
+          "p95": 181,
+          "p99": 199,
+          "wilsonLower": 0.9995102911075314,
+          "fallbackRatio": 0.8641904761904762,
+          "providerAttempts": 4125,
+          "serverResponses": 21000,
+          "reconciled": true,
+          "loadComplete": true,
+          "latencyPass": true,
+          "completenessPass": true
+        },
+        "profile": {
+          "emitted": 9000,
+          "complete": 8999,
+          "classifications": {
+            "normal": 991,
+            "degraded": 8008,
+            "denied": 0,
+            "technical_error": 1
+          },
+          "p50": 144,
+          "p95": 178,
+          "p99": 198,
+          "wilsonLower": 0.9993708238698057,
+          "fallbackRatio": 0.8897777777777778,
+          "providerAttempts": 1448,
+          "serverResponses": 9000,
+          "reconciled": true,
+          "loadComplete": true,
+          "latencyPass": true,
+          "completenessPass": true
+        }
+      },
+      "operationalReview": {
+        "at": "2026-09-14T18:43:53.765648+00:00",
+        "continue": true,
+        "reason": "valid_measurement",
+        "verdictUnchanged": "AJUSTAR"
+      }
+    },
+    {
+      "caseId": "E08",
+      "fixture": "revoked",
+      "repetition": 2,
+      "runId": "E08-s7-initial-984e8fcb-a22f-4f5b-939c-b2f85ad09001",
+      "purpose": "corrected-version repetition",
+      "finishedAt": "2026-09-14T18:51:31.332168+00:00",
+      "runnerExitCode": 0,
+      "status": "CRITERIOS_BASICOS_CUMPLIDOS",
+      "valid": true,
+      "privacyViolations": 0,
+      "results": {
+        "quote": {
+          "emitted": 21000,
+          "complete": 20998,
+          "classifications": {
+            "normal": 0,
+            "degraded": 0,
+            "denied": 20998,
+            "technical_error": 2
+          },
+          "p50": 97,
+          "p95": 110,
+          "p99": 120,
+          "wilsonLower": 0.999652776335442,
+          "fallbackRatio": 0,
+          "providerAttempts": 0,
+          "serverResponses": 21000,
+          "reconciled": true,
+          "loadComplete": true,
+          "latencyPass": true,
+          "completenessPass": true
+        },
+        "profile": {
+          "emitted": 9000,
+          "complete": 9000,
+          "classifications": {
+            "normal": 0,
+            "degraded": 0,
+            "denied": 9000,
+            "technical_error": 0
+          },
+          "p50": 98,
+          "p95": 111,
+          "p99": 122,
+          "wilsonLower": 0.9995733376739991,
+          "fallbackRatio": 0,
+          "providerAttempts": 0,
+          "serverResponses": 9000,
+          "reconciled": true,
+          "loadComplete": true,
+          "latencyPass": true,
+          "completenessPass": true
+        }
+      },
+      "operationalReview": {
+        "at": "2026-09-14T18:51:32.005972+00:00",
+        "continue": true,
+        "reason": "valid_measurement",
+        "verdictUnchanged": "CRITERIOS_BASICOS_CUMPLIDOS"
+      }
+    },
+    {
+      "caseId": "E02",
+      "fixture": "valid",
+      "repetition": 1,
+      "runId": "E02-s7-initial-93efbd85-ba07-4f15-ad77-f35f48fe115d",
+      "purpose": "previously pending case",
+      "finishedAt": "2026-09-14T18:59:29.168070+00:00",
+      "runnerExitCode": 1,
+      "status": "INCONCLUSO",
+      "valid": false,
+      "privacyViolations": 0,
+      "results": {
+        "quote": {
+          "emitted": 20999,
+          "complete": 20998,
+          "classifications": {
+            "normal": 20985,
+            "degraded": 13,
+            "denied": 0,
+            "technical_error": 1
+          },
+          "p50": 198,
+          "p95": 212,
+          "p99": 223,
+          "wilsonLower": 0.9997302723716206,
+          "fallbackRatio": 0.0006190770989094719,
+          "providerAttempts": 20998,
+          "serverResponses": 20999,
+          "reconciled": true,
+          "loadComplete": true,
+          "latencyPass": true,
+          "completenessPass": true
+        },
+        "profile": {
+          "emitted": 9000,
+          "complete": 8999,
+          "classifications": {
+            "normal": 8993,
+            "degraded": 6,
+            "denied": 0,
+            "technical_error": 1
+          },
+          "p50": 198,
+          "p95": 212,
+          "p99": 222,
+          "wilsonLower": 0.9993708238698057,
+          "fallbackRatio": 0.0006666666666666666,
+          "providerAttempts": 8999,
+          "serverResponses": 9000,
+          "reconciled": true,
+          "loadComplete": true,
+          "latencyPass": true,
+          "completenessPass": true
+        }
+      },
+      "reviewAnalysis": "C:\\Users\\aleja\\Documents\\proyecto-final\\experiment\\experimentos\\resultados-crudos\\E02-s7-initial-93efbd85-ba07-4f15-ad77-f35f48fe115d\\analysis-continuation-20260914T185926280503Z.json",
+      "reviewStatus": "INCONCLUSO",
+      "operationalReview": {
+        "at": "2026-09-14T18:59:29.921660+00:00",
+        "continue": true,
+        "reason": "recorded_deadline_with_unconfirmed_provider_receipt",
+        "missingReceipts": [
+          "profile/profile-8990"
+        ],
+        "details": [
+          {
+            "traceId": "profile-8990",
+            "operation": "profile",
+            "phase": "measured",
+            "classification": "degraded",
+            "reason": "deadline",
+            "providerAbortAt": 1789412212355,
+            "providerDispatchedAt": 1789412212235
+          }
+        ],
+        "verdictUnchanged": "INCONCLUSO",
+        "limitation": "No proof of provider receipt; do not count as accepted or repair historical records."
+      }
+    },
+    {
+      "caseId": "E08",
+      "fixture": "revoked",
+      "repetition": 3,
+      "runId": "E08-s7-initial-25ccb11e-021d-4a31-b025-aa9947582770",
+      "purpose": "corrected-version repetition",
+      "finishedAt": "2026-09-14T19:07:02.269437+00:00",
+      "runnerExitCode": 0,
+      "status": "CRITERIOS_BASICOS_CUMPLIDOS",
+      "valid": true,
+      "privacyViolations": 0,
+      "results": {
+        "quote": {
+          "emitted": 21001,
+          "complete": 21001,
+          "classifications": {
+            "normal": 0,
+            "degraded": 0,
+            "denied": 21001,
+            "technical_error": 0
+          },
+          "p50": 97,
+          "p95": 111,
+          "p99": 125,
+          "wilsonLower": 0.9998171088326606,
+          "fallbackRatio": 0,
+          "providerAttempts": 0,
+          "serverResponses": 21001,
+          "reconciled": true,
+          "loadComplete": true,
+          "latencyPass": true,
+          "completenessPass": true
+        },
+        "profile": {
+          "emitted": 9001,
+          "complete": 9000,
+          "classifications": {
+            "normal": 0,
+            "degraded": 0,
+            "denied": 9000,
+            "technical_error": 1
+          },
+          "p50": 97,
+          "p95": 108,
+          "p99": 117,
+          "wilsonLower": 0.9993708937397175,
+          "fallbackRatio": 0,
+          "providerAttempts": 0,
+          "serverResponses": 9001,
+          "reconciled": true,
+          "loadComplete": true,
+          "latencyPass": true,
+          "completenessPass": true
+        }
+      },
+      "operationalReview": {
+        "at": "2026-09-14T19:07:02.891769+00:00",
+        "continue": true,
+        "reason": "valid_measurement",
+        "verdictUnchanged": "CRITERIOS_BASICOS_CUMPLIDOS"
+      }
+    },
+    {
+      "caseId": "E07",
+      "fixture": "expired",
+      "repetition": 2,
+      "runId": "E07-s7-initial-0323826e-20d0-4a86-811e-065902815d3e",
+      "purpose": "corrected-version repetition",
+      "finishedAt": "2026-09-14T19:14:37.313030+00:00",
+      "runnerExitCode": 0,
+      "status": "CRITERIOS_BASICOS_CUMPLIDOS",
+      "valid": true,
+      "privacyViolations": 0,
+      "results": {
+        "quote": {
+          "emitted": 21001,
+          "complete": 21000,
+          "classifications": {
+            "normal": 0,
+            "degraded": 21000,
+            "denied": 0,
+            "technical_error": 1
+          },
+          "p50": 142,
+          "p95": 179,
+          "p99": 359,
+          "wilsonLower": 0.999730298053894,
+          "fallbackRatio": 0.9999523832198467,
+          "providerAttempts": 492,
+          "serverResponses": 21001,
+          "reconciled": true,
+          "loadComplete": true,
+          "latencyPass": true,
+          "completenessPass": true
+        },
+        "profile": {
+          "emitted": 9000,
+          "complete": 9000,
+          "classifications": {
+            "normal": 0,
+            "degraded": 9000,
+            "denied": 0,
+            "technical_error": 0
+          },
+          "p50": 143,
+          "p95": 181,
+          "p99": 358.0100000000002,
+          "wilsonLower": 0.9995733376739991,
+          "fallbackRatio": 1,
+          "providerAttempts": 296,
+          "serverResponses": 9000,
+          "reconciled": true,
+          "loadComplete": true,
+          "latencyPass": true,
+          "completenessPass": true
+        }
+      },
+      "operationalReview": {
+        "at": "2026-09-14T19:14:37.957167+00:00",
+        "continue": true,
+        "reason": "valid_measurement",
+        "verdictUnchanged": "CRITERIOS_BASICOS_CUMPLIDOS"
+      }
+    },
+    {
+      "caseId": "E07",
+      "fixture": "absent",
+      "repetition": 2,
+      "runId": "E07-s7-initial-d6ee825c-243a-43e9-825a-129dd1470d21",
+      "purpose": "corrected-version repetition",
+      "finishedAt": "2026-09-14T19:22:11.449400+00:00",
+      "runnerExitCode": 0,
+      "status": "CRITERIOS_BASICOS_CUMPLIDOS",
+      "valid": true,
+      "privacyViolations": 0,
+      "results": {
+        "quote": {
+          "emitted": 21000,
+          "complete": 21000,
+          "classifications": {
+            "normal": 0,
+            "degraded": 21000,
+            "denied": 0,
+            "technical_error": 0
+          },
+          "p50": 141,
+          "p95": 162,
+          "p99": 189,
+          "wilsonLower": 0.9998171001251503,
+          "fallbackRatio": 1,
+          "providerAttempts": 494,
+          "serverResponses": 21000,
+          "reconciled": true,
+          "loadComplete": true,
+          "latencyPass": true,
+          "completenessPass": true
+        },
+        "profile": {
+          "emitted": 8999,
+          "complete": 8997,
+          "classifications": {
+            "normal": 0,
+            "degraded": 8997,
+            "denied": 0,
+            "technical_error": 2
+          },
+          "p50": 140,
+          "p95": 166,
+          "p99": 191,
+          "wilsonLower": 0.9991899350800195,
+          "fallbackRatio": 0.999777753083676,
+          "providerAttempts": 273,
+          "serverResponses": 8999,
+          "reconciled": true,
+          "loadComplete": true,
+          "latencyPass": true,
+          "completenessPass": true
+        }
+      },
+      "operationalReview": {
+        "at": "2026-09-14T19:22:12.103755+00:00",
+        "continue": true,
+        "reason": "valid_measurement",
+        "verdictUnchanged": "CRITERIOS_BASICOS_CUMPLIDOS"
+      }
+    },
+    {
+      "caseId": "E03",
+      "fixture": "valid",
+      "repetition": 3,
+      "runId": "E03-s7-initial-be88a536-2e69-4ef7-aaf7-098d325644f9",
+      "purpose": "corrected-version repetition",
+      "finishedAt": "2026-09-14T19:29:44.642645+00:00",
+      "runnerExitCode": 0,
+      "status": "CRITERIOS_BASICOS_CUMPLIDOS",
+      "valid": true,
+      "privacyViolations": 0,
+      "results": {
+        "quote": {
+          "emitted": 21000,
+          "complete": 21000,
+          "classifications": {
+            "normal": 0,
+            "degraded": 21000,
+            "denied": 0,
+            "technical_error": 0
+          },
+          "p50": 142,
+          "p95": 166,
+          "p99": 266,
+          "wilsonLower": 0.9998171001251503,
+          "fallbackRatio": 1,
+          "providerAttempts": 486,
+          "serverResponses": 21000,
+          "reconciled": true,
+          "loadComplete": true,
+          "latencyPass": true,
+          "completenessPass": true
+        },
+        "profile": {
+          "emitted": 8999,
+          "complete": 8999,
+          "classifications": {
+            "normal": 0,
+            "degraded": 8999,
+            "denied": 0,
+            "technical_error": 0
+          },
+          "p50": 142,
+          "p95": 169.10000000000036,
+          "p99": 268.02000000000044,
+          "wilsonLower": 0.999573290282037,
+          "fallbackRatio": 1,
+          "providerAttempts": 310,
+          "serverResponses": 8999,
+          "reconciled": true,
+          "loadComplete": true,
+          "latencyPass": true,
+          "completenessPass": true
+        }
+      },
+      "operationalReview": {
+        "at": "2026-09-14T19:29:45.287554+00:00",
+        "continue": true,
+        "reason": "valid_measurement",
+        "verdictUnchanged": "CRITERIOS_BASICOS_CUMPLIDOS"
+      }
+    },
+    {
+      "caseId": "E06",
+      "fixture": "valid",
+      "repetition": 1,
+      "runId": "E06-s7-initial-0d4dc61c-1752-41da-b36f-737af44c615d",
+      "purpose": "previously pending case",
+      "finishedAt": "2026-09-14T19:38:48.894325+00:00",
+      "runnerExitCode": 1,
+      "status": "INCONCLUSO",
+      "valid": false,
+      "privacyViolations": 0,
+      "results": {
+        "quote": {
+          "emitted": 21000,
+          "complete": 21000,
+          "classifications": {
+            "normal": 16428,
+            "degraded": 4572,
+            "denied": 0,
+            "technical_error": 0
+          },
+          "p50": 139,
+          "p95": 154,
+          "p99": 167,
+          "wilsonLower": 0.9998171001251503,
+          "fallbackRatio": 0.21771428571428572,
+          "providerAttempts": 16428,
+          "serverResponses": 21000,
+          "reconciled": true,
+          "loadComplete": true,
+          "latencyPass": true,
+          "completenessPass": true
+        },
+        "profile": {
+          "emitted": 9000,
+          "complete": 9000,
+          "classifications": {
+            "normal": 7087,
+            "degraded": 1913,
+            "denied": 0,
+            "technical_error": 0
+          },
+          "p50": 139,
+          "p95": 154,
+          "p99": 166,
+          "wilsonLower": 0.9995733376739991,
+          "fallbackRatio": 0.21255555555555555,
+          "providerAttempts": 7089,
+          "serverResponses": 9000,
+          "reconciled": true,
+          "loadComplete": true,
+          "latencyPass": true,
+          "completenessPass": true
+        }
+      },
+      "reviewAnalysis": "C:\\Users\\aleja\\Documents\\proyecto-final\\experiment\\experimentos\\resultados-crudos\\E06-s7-initial-0d4dc61c-1752-41da-b36f-737af44c615d\\analysis-continuation-20260914T193845415029Z.json",
+      "reviewStatus": "INCONCLUSO",
+      "operationalReview": {
+        "at": "2026-09-14T19:38:49.906242+00:00",
+        "continue": true,
+        "reason": "recorded_deadline_with_unconfirmed_provider_receipt",
+        "missingReceipts": [
+          "profile/profile-7109"
+        ],
+        "details": [
+          {
+            "traceId": "profile-7109",
+            "operation": "profile",
+            "phase": "measured",
+            "classification": "degraded",
+            "reason": "deadline",
+            "providerAbortAt": 1789414442758,
+            "providerDispatchedAt": 1789414442638
+          }
+        ],
+        "verdictUnchanged": "INCONCLUSO",
+        "limitation": "No proof of provider receipt; do not count as accepted or repair historical records."
+      }
+    },
+    {
+      "caseId": "E04",
+      "fixture": "valid",
+      "repetition": 3,
+      "runId": "E04-s7-initial-38fc9da2-7803-4965-bf73-c771adef8732",
+      "purpose": "previously pending case",
+      "finishedAt": "2026-09-14T20:32:41.656680+00:00",
+      "runnerExitCode": 1,
+      "status": "INCONCLUSO",
+      "valid": false,
+      "privacyViolations": 0,
+      "results": {
+        "quote": {
+          "emitted": 21000,
+          "complete": 20999,
+          "classifications": {
+            "normal": 2965,
+            "degraded": 18034,
+            "denied": 0,
+            "technical_error": 1
+          },
+          "p50": 145,
+          "p95": 184,
+          "p99": 204,
+          "wilsonLower": 0.9997302852133687,
+          "fallbackRatio": 0.8587619047619047,
+          "providerAttempts": 4274,
+          "serverResponses": 21000,
+          "reconciled": true,
+          "loadComplete": true,
+          "latencyPass": true,
+          "completenessPass": true
+        },
+        "profile": {
+          "emitted": 9000,
+          "complete": 9000,
+          "classifications": {
+            "normal": 866,
+            "degraded": 8134,
+            "denied": 0,
+            "technical_error": 0
+          },
+          "p50": 144,
+          "p95": 179,
+          "p99": 202,
+          "wilsonLower": 0.9995733376739991,
+          "fallbackRatio": 0.9037777777777778,
+          "providerAttempts": 1244,
+          "serverResponses": 9000,
+          "reconciled": true,
+          "loadComplete": true,
+          "latencyPass": true,
+          "completenessPass": true
+        }
+      },
+      "reviewAnalysis": "C:\\Users\\aleja\\Documents\\proyecto-final\\experiment\\experimentos\\resultados-crudos\\E04-s7-initial-38fc9da2-7803-4965-bf73-c771adef8732\\analysis-continuation-20260914T203238666929Z.json",
+      "reviewStatus": "INCONCLUSO",
+      "operationalReview": {
+        "at": "2026-09-14T20:32:42.300379+00:00",
+        "continue": true,
+        "reason": "recorded_deadline_with_unconfirmed_provider_receipt",
+        "missingReceipts": [
+          "quote/quote-21",
+          "quote/quote-6",
+          "quote/quote-4423"
+        ],
+        "details": [
+          {
+            "traceId": "quote-21",
+            "operation": "quote",
+            "phase": "warmup",
+            "classification": "degraded",
+            "reason": "deadline",
+            "providerAbortAt": 1789417514725,
+            "providerDispatchedAt": 1789417514605
+          },
+          {
+            "traceId": "quote-6",
+            "operation": "quote",
+            "phase": "warmup",
+            "classification": "degraded",
+            "reason": "deadline",
+            "providerAbortAt": 1789417514713,
+            "providerDispatchedAt": 1789417514593
+          },
+          {
+            "traceId": "quote-4423",
+            "operation": "quote",
+            "phase": "warmup",
+            "classification": "degraded",
+            "reason": "deadline",
+            "providerAbortAt": 1789417577421,
+            "providerDispatchedAt": 1789417577301
+          }
+        ],
+        "verdictUnchanged": "INCONCLUSO",
+        "limitation": "No proof of provider receipt; do not count as accepted or repair historical records."
+      }
+    },
+    {
+      "caseId": "E02",
+      "fixture": "valid",
+      "repetition": 3,
+      "runId": "E02-s7-initial-2cd679cc-bd46-4060-abcf-cc023178a89c",
+      "purpose": "previously pending case",
+      "finishedAt": "2026-09-14T20:40:53.226118+00:00",
+      "runnerExitCode": 1,
+      "status": "INCONCLUSO",
+      "valid": false,
+      "privacyViolations": 0,
+      "results": {
+        "quote": {
+          "emitted": 21000,
+          "complete": 21000,
+          "classifications": {
+            "normal": 20988,
+            "degraded": 12,
+            "denied": 0,
+            "technical_error": 0
+          },
+          "p50": 200,
+          "p95": 214,
+          "p99": 238.0099999999984,
+          "wilsonLower": 0.9998171001251503,
+          "fallbackRatio": 0.0005714285714285715,
+          "providerAttempts": 21000,
+          "serverResponses": 21000,
+          "reconciled": true,
+          "loadComplete": true,
+          "latencyPass": true,
+          "completenessPass": true
+        },
+        "profile": {
+          "emitted": 9000,
+          "complete": 9000,
+          "classifications": {
+            "normal": 8995,
+            "degraded": 5,
+            "denied": 0,
+            "technical_error": 0
+          },
+          "p50": 200,
+          "p95": 214,
+          "p99": 228,
+          "wilsonLower": 0.9995733376739991,
+          "fallbackRatio": 0.0005555555555555556,
+          "providerAttempts": 9000,
+          "serverResponses": 9000,
+          "reconciled": true,
+          "loadComplete": true,
+          "latencyPass": true,
+          "completenessPass": true
+        }
+      },
+      "reviewAnalysis": "C:\\Users\\aleja\\Documents\\proyecto-final\\experiment\\experimentos\\resultados-crudos\\E02-s7-initial-2cd679cc-bd46-4060-abcf-cc023178a89c\\analysis-continuation-20260914T204049916537Z.json",
+      "reviewStatus": "INCONCLUSO",
+      "operationalReview": {
+        "at": "2026-09-14T20:40:53.949756+00:00",
+        "continue": true,
+        "reason": "recorded_deadline_with_unconfirmed_provider_receipt",
+        "missingReceipts": [
+          "profile/profile-1607",
+          "quote/quote-4031"
+        ],
+        "details": [
+          {
+            "traceId": "profile-1607",
+            "operation": "profile",
+            "phase": "warmup",
+            "classification": "degraded",
+            "reason": "deadline",
+            "providerAbortAt": 1789418036449,
+            "providerDispatchedAt": 1789418036329
+          },
+          {
+            "traceId": "quote-4031",
+            "operation": "quote",
+            "phase": "warmup",
+            "classification": "degraded",
+            "reason": "deadline",
+            "providerAbortAt": 1789418040462,
+            "providerDispatchedAt": 1789418040342
+          }
+        ],
+        "verdictUnchanged": "INCONCLUSO",
+        "limitation": "No proof of provider receipt; do not count as accepted or repair historical records."
+      }
+    },
+    {
+      "caseId": "E06",
+      "fixture": "valid",
+      "repetition": 3,
+      "runId": "E06-s7-initial-4dcf11b4-30f9-431e-8de0-7f5929313940",
+      "purpose": "previously pending case",
+      "finishedAt": "2026-09-14T20:49:34.880361+00:00",
+      "runnerExitCode": 0,
+      "status": "AJUSTAR",
+      "valid": true,
+      "privacyViolations": 0,
+      "results": {
+        "quote": {
+          "emitted": 21000,
+          "complete": 21000,
+          "classifications": {
+            "normal": 16331,
+            "degraded": 4669,
+            "denied": 0,
+            "technical_error": 0
+          },
+          "p50": 140,
+          "p95": 155,
+          "p99": 169,
+          "wilsonLower": 0.9998171001251503,
+          "fallbackRatio": 0.22233333333333333,
+          "providerAttempts": 16332,
+          "serverResponses": 21000,
+          "reconciled": true,
+          "loadComplete": true,
+          "latencyPass": true,
+          "completenessPass": true
+        },
+        "profile": {
+          "emitted": 9000,
+          "complete": 9000,
+          "classifications": {
+            "normal": 6962,
+            "degraded": 2038,
+            "denied": 0,
+            "technical_error": 0
+          },
+          "p50": 140,
+          "p95": 156,
+          "p99": 171,
+          "wilsonLower": 0.9995733376739991,
+          "fallbackRatio": 0.22644444444444445,
+          "providerAttempts": 6963,
+          "serverResponses": 9000,
+          "reconciled": true,
+          "loadComplete": true,
+          "latencyPass": true,
+          "completenessPass": true
+        }
+      },
+      "operationalReview": {
+        "at": "2026-09-14T20:49:35.608285+00:00",
+        "continue": true,
+        "reason": "valid_measurement",
+        "verdictUnchanged": "AJUSTAR"
+      }
+    },
+    {
+      "caseId": "E08",
+      "fixture": "revoked",
+      "repetition": 1,
+      "runId": "E08-s7-initial-4fb8bfec-855d-44fe-965d-32802c675f24",
+      "purpose": "corrected-version repetition",
+      "finishedAt": "2026-09-14T20:57:06.944156+00:00",
+      "runnerExitCode": 0,
+      "status": "CRITERIOS_BASICOS_CUMPLIDOS",
+      "valid": true,
+      "privacyViolations": 0,
+      "results": {
+        "quote": {
+          "emitted": 21000,
+          "complete": 20999,
+          "classifications": {
+            "normal": 0,
+            "degraded": 0,
+            "denied": 20999,
+            "technical_error": 1
+          },
+          "p50": 98,
+          "p95": 109,
+          "p99": 119,
+          "wilsonLower": 0.9997302852133687,
+          "fallbackRatio": 0,
+          "providerAttempts": 0,
+          "serverResponses": 21000,
+          "reconciled": true,
+          "loadComplete": true,
+          "latencyPass": true,
+          "completenessPass": true
+        },
+        "profile": {
+          "emitted": 9000,
+          "complete": 9000,
+          "classifications": {
+            "normal": 0,
+            "degraded": 0,
+            "denied": 9000,
+            "technical_error": 0
+          },
+          "p50": 97,
+          "p95": 109,
+          "p99": 119,
+          "wilsonLower": 0.9995733376739991,
+          "fallbackRatio": 0,
+          "providerAttempts": 0,
+          "serverResponses": 9000,
+          "reconciled": true,
+          "loadComplete": true,
+          "latencyPass": true,
+          "completenessPass": true
+        }
+      },
+      "operationalReview": {
+        "at": "2026-09-14T20:57:07.480961+00:00",
+        "continue": true,
+        "reason": "valid_measurement",
+        "verdictUnchanged": "CRITERIOS_BASICOS_CUMPLIDOS"
+      }
+    },
+    {
+      "caseId": "E06",
+      "fixture": "valid",
+      "repetition": 2,
+      "runId": "E06-s7-initial-7018cf53-40c6-46a0-a182-d70c26e9f552",
+      "purpose": "previously pending case",
+      "finishedAt": "2026-09-14T21:06:08.176239+00:00",
+      "runnerExitCode": 1,
+      "status": "INCONCLUSO",
+      "valid": false,
+      "privacyViolations": 0,
+      "results": {
+        "quote": {
+          "emitted": 20999,
+          "complete": 20989,
+          "classifications": {
+            "normal": 16483,
+            "degraded": 4506,
+            "denied": 0,
+            "technical_error": 10
+          },
+          "p50": 141,
+          "p95": 158,
+          "p99": 172,
+          "wilsonLower": 0.9991235346376122,
+          "fallbackRatio": 0.2145816467450831,
+          "providerAttempts": 16485,
+          "serverResponses": 20999,
+          "reconciled": true,
+          "loadComplete": true,
+          "latencyPass": true,
+          "completenessPass": true
+        },
+        "profile": {
+          "emitted": 8999,
+          "complete": 8995,
+          "classifications": {
+            "normal": 6984,
+            "degraded": 2011,
+            "denied": 0,
+            "technical_error": 4
+          },
+          "p50": 141,
+          "p95": 157,
+          "p99": 171,
+          "wilsonLower": 0.9988575472811012,
+          "fallbackRatio": 0.2234692743638182,
+          "providerAttempts": 6987,
+          "serverResponses": 8999,
+          "reconciled": true,
+          "loadComplete": true,
+          "latencyPass": true,
+          "completenessPass": false
+        }
+      },
+      "reviewAnalysis": "C:\\Users\\aleja\\Documents\\proyecto-final\\experiment\\experimentos\\resultados-crudos\\E06-s7-initial-7018cf53-40c6-46a0-a182-d70c26e9f552\\analysis-continuation-20260914T210604673979Z.json",
+      "reviewStatus": "INCONCLUSO",
+      "operationalReview": {
+        "at": "2026-09-14T21:06:09.025751+00:00",
+        "continue": true,
+        "reason": "recorded_deadline_with_unconfirmed_provider_receipt",
+        "missingReceipts": [
+          "quote/quote-26567"
+        ],
+        "details": [
+          {
+            "traceId": "quote-26567",
+            "operation": "quote",
+            "phase": "measured",
+            "classification": "degraded",
+            "reason": "deadline",
+            "providerAbortAt": 1789419827522,
+            "providerDispatchedAt": 1789419827402
+          }
+        ],
+        "verdictUnchanged": "INCONCLUSO",
+        "limitation": "No proof of provider receipt; do not count as accepted or repair historical records."
+      }
+    },
+    {
+      "caseId": "E05",
+      "fixture": "valid",
+      "repetition": 1,
+      "runId": "E05-s7-initial-365e75c7-46ba-4204-bbae-4ae59d9ef5fa",
+      "purpose": "previously pending case",
+      "finishedAt": "2026-09-14T21:13:46.012226+00:00",
+      "runnerExitCode": 0,
+      "status": "CRITERIOS_BASICOS_CUMPLIDOS",
+      "valid": true,
+      "privacyViolations": 0,
+      "results": {
+        "quote": {
+          "emitted": 21000,
+          "complete": 20994,
+          "classifications": {
+            "normal": 0,
+            "degraded": 20994,
+            "denied": 0,
+            "technical_error": 6
+          },
+          "p50": 141,
+          "p95": 177,
+          "p99": 197,
+          "wilsonLower": 0.9993767260700798,
+          "fallbackRatio": 0.9997142857142857,
+          "providerAttempts": 977,
+          "serverResponses": 21000,
+          "reconciled": true,
+          "loadComplete": true,
+          "latencyPass": true,
+          "completenessPass": true
+        },
+        "profile": {
+          "emitted": 9000,
+          "complete": 8997,
+          "classifications": {
+            "normal": 0,
+            "degraded": 8997,
+            "denied": 0,
+            "technical_error": 3
+          },
+          "p50": 141,
+          "p95": 180,
+          "p99": 194,
+          "wilsonLower": 0.9990203231406085,
+          "fallbackRatio": 0.9996666666666667,
+          "providerAttempts": 556,
+          "serverResponses": 9000,
+          "reconciled": true,
+          "loadComplete": true,
+          "latencyPass": true,
+          "completenessPass": true
+        }
+      },
+      "operationalReview": {
+        "at": "2026-09-14T21:13:46.638263+00:00",
+        "continue": true,
+        "reason": "valid_measurement",
+        "verdictUnchanged": "CRITERIOS_BASICOS_CUMPLIDOS"
+      }
+    },
+    {
+      "caseId": "E09",
+      "fixture": "valid",
+      "repetition": 1,
+      "runId": "E09-s7-initial-3ac5e9c9-a9ae-4929-b535-fb8d4534a036",
+      "purpose": "previously pending case",
+      "finishedAt": "2026-09-14T21:21:46.740567+00:00",
+      "runnerExitCode": 1,
+      "status": "INCONCLUSO",
+      "valid": false,
+      "privacyViolations": 0,
+      "results": {
+        "quote": {
+          "emitted": 20927,
+          "complete": 20640,
+          "classifications": {
+            "normal": 1,
+            "degraded": 20639,
+            "denied": 0,
+            "technical_error": 287
+          },
+          "p50": 183,
+          "p95": 317,
+          "p99": 2000,
+          "wilsonLower": 0.9846182618340051,
+          "fallbackRatio": 0.9862378745161753,
+          "providerAttempts": 20640,
+          "serverResponses": 20912,
+          "reconciled": false,
+          "loadComplete": true,
+          "latencyPass": false,
+          "completenessPass": false
+        },
+        "profile": {
+          "emitted": 8976,
+          "complete": 8869,
+          "classifications": {
+            "normal": 0,
+            "degraded": 8869,
+            "denied": 0,
+            "technical_error": 107
+          },
+          "p50": 182,
+          "p95": 324,
+          "p99": 2000,
+          "wilsonLower": 0.9856160801517286,
+          "fallbackRatio": 0.9880793226381461,
+          "providerAttempts": 8869,
+          "serverResponses": 8972,
+          "reconciled": false,
+          "loadComplete": true,
+          "latencyPass": false,
+          "completenessPass": false
+        }
+      },
+      "reviewAnalysis": "C:\\Users\\aleja\\Documents\\proyecto-final\\experiment\\experimentos\\resultados-crudos\\E09-s7-initial-3ac5e9c9-a9ae-4929-b535-fb8d4534a036\\analysis-continuation-20260914T212142790540Z.json",
+      "reviewStatus": "INCONCLUSO"
+    },
+    {
+      "caseId": "E07",
+      "fixture": "absent",
+      "repetition": 3,
+      "runId": "E07-s7-initial-9f441662-e360-44ee-9faf-14a80afac612",
+      "purpose": "corrected-version repetition",
+      "finishedAt": "2026-09-14T22:30:31.020854+00:00",
+      "runnerExitCode": 1,
+      "status": "INCONCLUSO",
+      "valid": false,
+      "privacyViolations": 0,
+      "results": {
+        "quote": {
+          "emitted": 21000,
+          "complete": 21000,
+          "classifications": {
+            "normal": 0,
+            "degraded": 21000,
+            "denied": 0,
+            "technical_error": 0
+          },
+          "p50": 136,
+          "p95": 156,
+          "p99": 183,
+          "wilsonLower": 0.9998171001251503,
+          "fallbackRatio": 1,
+          "providerAttempts": 474,
+          "serverResponses": 21000,
+          "reconciled": true,
+          "loadComplete": true,
+          "latencyPass": true,
+          "completenessPass": true
+        },
+        "profile": {
+          "emitted": 9000,
+          "complete": 9000,
+          "classifications": {
+            "normal": 0,
+            "degraded": 9000,
+            "denied": 0,
+            "technical_error": 0
+          },
+          "p50": 137,
+          "p95": 165,
+          "p99": 190,
+          "wilsonLower": 0.9995733376739991,
+          "fallbackRatio": 1,
+          "providerAttempts": 288,
+          "serverResponses": 9000,
+          "reconciled": true,
+          "loadComplete": true,
+          "latencyPass": true,
+          "completenessPass": true
+        }
+      },
+      "reviewAnalysis": "C:\\Users\\aleja\\Documents\\proyecto-final\\experiment\\experimentos\\resultados-crudos\\E07-s7-initial-9f441662-e360-44ee-9faf-14a80afac612\\analysis-continuation-20260914T223028255001Z.json",
+      "reviewStatus": "INCONCLUSO"
+    },
+    {
+      "caseId": "E05",
+      "fixture": "valid",
+      "repetition": 2,
+      "runId": "E05-s7-initial-c12008c7-a879-49da-a571-53d3ab6db05c",
+      "purpose": "previously pending case",
+      "finishedAt": "2026-09-14T23:44:03.256476+00:00",
+      "runnerExitCode": 0,
+      "status": "AJUSTAR",
+      "valid": true,
+      "privacyViolations": 0,
+      "results": {
+        "quote": {
+          "emitted": 21000,
+          "complete": 21000,
+          "classifications": {
+            "normal": 0,
+            "degraded": 21000,
+            "denied": 0,
+            "technical_error": 0
+          },
+          "p50": 179,
+          "p95": 238,
+          "p99": 556,
+          "wilsonLower": 0.9998171001251503,
+          "fallbackRatio": 1,
+          "providerAttempts": 932,
+          "serverResponses": 21000,
+          "reconciled": true,
+          "loadComplete": true,
+          "latencyPass": false,
+          "completenessPass": true
+        },
+        "profile": {
+          "emitted": 9000,
+          "complete": 9000,
+          "classifications": {
+            "normal": 0,
+            "degraded": 9000,
+            "denied": 0,
+            "technical_error": 0
+          },
+          "p50": 178,
+          "p95": 232,
+          "p99": 531.0200000000004,
+          "wilsonLower": 0.9995733376739991,
+          "fallbackRatio": 1,
+          "providerAttempts": 498,
+          "serverResponses": 9000,
+          "reconciled": true,
+          "loadComplete": true,
+          "latencyPass": true,
+          "completenessPass": true
+        }
+      },
+      "operationalReview": {
+        "at": "2026-09-14T23:44:03.836697+00:00",
+        "continue": true,
+        "reason": "valid_measurement",
+        "verdictUnchanged": "AJUSTAR"
+      }
+    },
+    {
+      "caseId": "E09",
+      "fixture": "valid",
+      "repetition": 2,
+      "runId": "E09-s7-initial-3d00ce45-ef7c-4201-89ec-7722508474a9",
+      "purpose": "previously pending case",
+      "finishedAt": "2026-09-14T23:52:46.584188+00:00",
+      "runnerExitCode": 1,
+      "status": "INCONCLUSO",
+      "valid": false,
+      "privacyViolations": 0,
+      "results": {
+        "quote": {
+          "emitted": 20946,
+          "complete": 20860,
+          "classifications": {
+            "normal": 0,
+            "degraded": 20867,
+            "denied": 0,
+            "technical_error": 79
+          },
+          "p50": 258,
+          "p95": 369,
+          "p99": 926.0999999999985,
+          "wilsonLower": 0.9949326033748657,
+          "fallbackRatio": 0.9962283968299437,
+          "providerAttempts": 20867,
+          "serverResponses": 20935,
+          "reconciled": false,
+          "loadComplete": true,
+          "latencyPass": false,
+          "completenessPass": false
+        },
+        "profile": {
+          "emitted": 8985,
+          "complete": 8956,
+          "classifications": {
+            "normal": 0,
+            "degraded": 8958,
+            "denied": 0,
+            "technical_error": 27
+          },
+          "p50": 258,
+          "p95": 371.7999999999993,
+          "p99": 915.6399999999958,
+          "wilsonLower": 0.9953684462489163,
+          "fallbackRatio": 0.9969949916527546,
+          "providerAttempts": 8958,
+          "serverResponses": 8985,
+          "reconciled": true,
+          "loadComplete": true,
+          "latencyPass": false,
+          "completenessPass": false
+        }
+      },
+      "reviewAnalysis": "C:\\Users\\aleja\\Documents\\proyecto-final\\experiment\\experimentos\\resultados-crudos\\E09-s7-initial-3d00ce45-ef7c-4201-89ec-7722508474a9\\analysis-continuation-20260914T235243140073Z.json",
+      "reviewStatus": "INCONCLUSO"
+    },
+    {
+      "caseId": "E05",
+      "fixture": "valid",
+      "repetition": 3,
+      "runId": "E05-s7-initial-239f7732-5212-4d43-971d-fd2ba47a7709",
+      "purpose": "previously pending case",
+      "finishedAt": "2026-09-15T01:02:21.994466+00:00",
+      "runnerExitCode": 1,
+      "status": "INCONCLUSO",
+      "valid": false,
+      "privacyViolations": 0,
+      "results": {
+        "quote": {
+          "emitted": 21000,
+          "complete": 21000,
+          "classifications": {
+            "normal": 0,
+            "degraded": 21000,
+            "denied": 0,
+            "technical_error": 0
+          },
+          "p50": 178,
+          "p95": 218,
+          "p99": 248.0099999999984,
+          "wilsonLower": 0.9998171001251503,
+          "fallbackRatio": 1,
+          "providerAttempts": 1244,
+          "serverResponses": 21000,
+          "reconciled": true,
+          "loadComplete": true,
+          "latencyPass": true,
+          "completenessPass": true
+        },
+        "profile": {
+          "emitted": 9000,
+          "complete": 8999,
+          "classifications": {
+            "normal": 0,
+            "degraded": 8999,
+            "denied": 0,
+            "technical_error": 1
+          },
+          "p50": 177,
+          "p95": 221,
+          "p99": 278,
+          "wilsonLower": 0.9993708238698057,
+          "fallbackRatio": 0.9998888888888889,
+          "providerAttempts": 631,
+          "serverResponses": 9000,
+          "reconciled": true,
+          "loadComplete": true,
+          "latencyPass": true,
+          "completenessPass": true
+        }
+      },
+      "reviewAnalysis": "C:\\Users\\aleja\\Documents\\proyecto-final\\experiment\\experimentos\\resultados-crudos\\E05-s7-initial-239f7732-5212-4d43-971d-fd2ba47a7709\\analysis-continuation-20260915T010218860012Z.json",
+      "reviewStatus": "INCONCLUSO"
+    },
+    {
+      "caseId": "E09",
+      "fixture": "valid",
+      "repetition": 3,
+      "runId": "E09-s7-initial-d3741a37-33c6-4315-b958-62057e5c5dc9",
+      "purpose": "previously pending case",
+      "finishedAt": "2026-09-15T01:42:25.767400+00:00",
+      "runnerExitCode": 1,
+      "status": "INCONCLUSO",
+      "valid": false,
+      "privacyViolations": 0,
+      "results": {
+        "quote": {
+          "emitted": 21000,
+          "complete": 20822,
+          "classifications": {
+            "normal": 1,
+            "degraded": 20821,
+            "denied": 0,
+            "technical_error": 178
+          },
+          "p50": 202,
+          "p95": 235,
+          "p99": 716.049999999992,
+          "wilsonLower": 0.9901908348488718,
+          "fallbackRatio": 0.9914761904761905,
+          "providerAttempts": 20872,
+          "serverResponses": 21000,
+          "reconciled": true,
+          "loadComplete": true,
+          "latencyPass": false,
+          "completenessPass": false
+        },
+        "profile": {
+          "emitted": 9000,
+          "complete": 8931,
+          "classifications": {
+            "normal": 0,
+            "degraded": 8931,
+            "denied": 0,
+            "technical_error": 69
+          },
+          "p50": 202,
+          "p95": 237,
+          "p99": 673.0700000000015,
+          "wilsonLower": 0.9903094031291463,
+          "fallbackRatio": 0.9923333333333333,
+          "providerAttempts": 8947,
+          "serverResponses": 9000,
+          "reconciled": true,
+          "loadComplete": true,
+          "latencyPass": true,
+          "completenessPass": false
+        }
+      },
+      "reviewAnalysis": "C:\\Users\\aleja\\Documents\\proyecto-final\\experiment\\experimentos\\resultados-crudos\\E09-s7-initial-d3741a37-33c6-4315-b958-62057e5c5dc9\\analysis-continuation-20260915T014222580276Z.json",
+      "reviewStatus": "INCONCLUSO",
+      "operationalReview": {
+        "at": "2026-09-15T01:42:26.492822+00:00",
+        "continue": true,
+        "reason": "recorded_deadline_with_unconfirmed_provider_receipt",
+        "missingReceipts": [
+          "quote/quote-0",
+          "quote/quote-3",
+          "quote/quote-4582",
+          "quote/quote-4578",
+          "quote/quote-4624",
+          "quote/quote-4626",
+          "quote/quote-4623",
+          "quote/quote-15751",
+          "quote/quote-15936",
+          "quote/quote-16066",
+          "quote/quote-16148"
+        ],
+        "details": [
+          {
+            "traceId": "quote-0",
+            "operation": "quote",
+            "phase": "warmup",
+            "classification": "degraded",
+            "reason": "deadline",
+            "providerAbortCause": "deadline",
+            "providerAbortAt": 1789436087329,
+            "providerDispatchedAt": 1789436087209
+          },
+          {
+            "traceId": "quote-3",
+            "operation": "quote",
+            "phase": "warmup",
+            "classification": "degraded",
+            "reason": "deadline",
+            "providerAbortCause": "deadline",
+            "providerAbortAt": 1789436087339,
+            "providerDispatchedAt": 1789436087219
+          },
+          {
+            "traceId": "quote-4582",
+            "operation": "quote",
+            "phase": "warmup",
+            "classification": "degraded",
+            "reason": "deadline",
+            "providerAbortCause": "deadline",
+            "providerAbortAt": 1789436152313,
+            "providerDispatchedAt": 1789436152193
+          },
+          {
+            "traceId": "quote-4578",
+            "operation": "quote",
+            "phase": "warmup",
+            "classification": "degraded",
+            "reason": "deadline",
+            "providerAbortCause": "deadline",
+            "providerAbortAt": 1789436152254,
+            "providerDispatchedAt": 1789436152134
+          },
+          {
+            "traceId": "quote-4624",
+            "operation": "quote",
+            "phase": "warmup",
+            "classification": "degraded",
+            "reason": "deadline",
+            "providerAbortCause": "deadline",
+            "providerAbortAt": 1789436152946,
+            "providerDispatchedAt": 1789436152826
+          },
+          {
+            "traceId": "quote-4626",
+            "operation": "quote",
+            "phase": "warmup",
+            "classification": "degraded",
+            "reason": "deadline",
+            "providerAbortCause": "deadline",
+            "providerAbortAt": 1789436152944,
+            "providerDispatchedAt": 1789436152824
+          },
+          {
+            "traceId": "quote-4623",
+            "operation": "quote",
+            "phase": "warmup",
+            "classification": "degraded",
+            "reason": "deadline",
+            "providerAbortCause": "deadline",
+            "providerAbortAt": 1789436152897,
+            "providerDispatchedAt": 1789436152777
+          },
+          {
+            "traceId": "quote-15751",
+            "operation": "quote",
+            "phase": "measured",
+            "classification": "degraded",
+            "reason": "deadline",
+            "providerAbortCause": "deadline",
+            "providerAbortAt": 1789436311865,
+            "providerDispatchedAt": 1789436311745
+          },
+          {
+            "traceId": "quote-15936",
+            "operation": "quote",
+            "phase": "measured",
+            "classification": "degraded",
+            "reason": "deadline",
+            "providerAbortCause": "deadline",
+            "providerAbortAt": 1789436314506,
+            "providerDispatchedAt": 1789436314386
+          },
+          {
+            "traceId": "quote-16066",
+            "operation": "quote",
+            "phase": "measured",
+            "classification": "degraded",
+            "reason": "deadline",
+            "providerAbortCause": "deadline",
+            "providerAbortAt": 1789436316366,
+            "providerDispatchedAt": 1789436316246
+          },
+          {
+            "traceId": "quote-16148",
+            "operation": "quote",
+            "phase": "measured",
+            "classification": "degraded",
+            "reason": "deadline",
+            "providerAbortCause": "deadline",
+            "providerAbortAt": 1789436317531,
+            "providerDispatchedAt": 1789436317411
+          }
+        ],
+        "verdictUnchanged": "INCONCLUSO",
+        "limitation": "No proof of provider receipt; do not count as accepted or repair historical records."
+      }
+    }
+  ],
+  "current": null,
+  "childPid": null,
+  "pid": 53236,
+  "updatedAt": "2026-09-15T01:42:26.542731+00:00",
+  "continuations": [
+    {
+      "at": "2026-09-14T17:21:16.960428+00:00",
+      "sourceSha256": "1ae31ff8ff89c8129512ce471ee1efec3639cf7f8bf87f3dc9eee940dbede674",
+      "completedBefore": 1,
+      "remainingRunIds": [
+        "E01-s7-initial-e10e1416-e8fb-437a-84a1-bca9da4f99b5",
+        "E01-s7-initial-4934b38a-7858-4263-a30e-ee41f2a8020e",
+        "E07-s7-initial-f9876597-457e-40da-9f2e-7055eca4c9b7",
+        "E03-s7-initial-e3107ea3-23d3-45c5-ad8e-9dfdcbffd908",
+        "E04-s7-initial-7011d0cd-2b3f-4dff-bede-dd61ddb547e8",
+        "E02-s7-initial-3e90f19d-82b1-4bd2-9510-97168c271f60",
+        "E03-s7-initial-a17bc42f-5905-4b43-bce2-cba0b2f89a12",
+        "E07-s7-initial-3cadfecb-4eab-435f-b54b-7e186f16671d",
+        "E07-s7-initial-9729c51a-b891-414f-97ae-786f7c866da4",
+        "E04-s7-initial-87c004a6-7d82-48ff-84ba-0588a03c2629",
+        "E08-s7-initial-984e8fcb-a22f-4f5b-939c-b2f85ad09001",
+        "E02-s7-initial-93efbd85-ba07-4f15-ad77-f35f48fe115d",
+        "E08-s7-initial-25ccb11e-021d-4a31-b025-aa9947582770",
+        "E07-s7-initial-0323826e-20d0-4a86-811e-065902815d3e",
+        "E07-s7-initial-d6ee825c-243a-43e9-825a-129dd1470d21",
+        "E03-s7-initial-be88a536-2e69-4ef7-aaf7-098d325644f9",
+        "E06-s7-initial-0d4dc61c-1752-41da-b36f-737af44c615d",
+        "E04-s7-initial-38fc9da2-7803-4965-bf73-c771adef8732",
+        "E02-s7-initial-2cd679cc-bd46-4060-abcf-cc023178a89c",
+        "E06-s7-initial-4dcf11b4-30f9-431e-8de0-7f5929313940",
+        "E08-s7-initial-4fb8bfec-855d-44fe-965d-32802c675f24",
+        "E06-s7-initial-7018cf53-40c6-46a0-a182-d70c26e9f552",
+        "E05-s7-initial-365e75c7-46ba-4204-bbae-4ae59d9ef5fa",
+        "E09-s7-initial-3ac5e9c9-a9ae-4929-b535-fb8d4534a036",
+        "E07-s7-initial-9f441662-e360-44ee-9faf-14a80afac612",
+        "E05-s7-initial-c12008c7-a879-49da-a571-53d3ab6db05c",
+        "E09-s7-initial-3d00ce45-ef7c-4201-89ec-7722508474a9",
+        "E05-s7-initial-239f7732-5212-4d43-971d-fd2ba47a7709",
+        "E09-s7-initial-d3741a37-33c6-4315-b958-62057e5c5dc9"
+      ],
+      "authorization": "User reiterated performing the already authorized export review and continuing pending work, 2026-09-14.",
+      "change": "Continue reviewed deadline receipt gaps as INCONCLUSO; stop other integrity/security/export/clock failures.",
+      "bankAndAnalyzerUnchanged": true,
+      "noLoadRetry": true
+    },
+    {
+      "at": "2026-09-14T18:36:17.121359+00:00",
+      "sourceSha256": "1ae31ff8ff89c8129512ce471ee1efec3639cf7f8bf87f3dc9eee940dbede674",
+      "completedBefore": 10,
+      "remainingRunIds": [
+        "E04-s7-initial-87c004a6-7d82-48ff-84ba-0588a03c2629",
+        "E08-s7-initial-984e8fcb-a22f-4f5b-939c-b2f85ad09001",
+        "E02-s7-initial-93efbd85-ba07-4f15-ad77-f35f48fe115d",
+        "E08-s7-initial-25ccb11e-021d-4a31-b025-aa9947582770",
+        "E07-s7-initial-0323826e-20d0-4a86-811e-065902815d3e",
+        "E07-s7-initial-d6ee825c-243a-43e9-825a-129dd1470d21",
+        "E03-s7-initial-be88a536-2e69-4ef7-aaf7-098d325644f9",
+        "E06-s7-initial-0d4dc61c-1752-41da-b36f-737af44c615d",
+        "E04-s7-initial-38fc9da2-7803-4965-bf73-c771adef8732",
+        "E02-s7-initial-2cd679cc-bd46-4060-abcf-cc023178a89c",
+        "E06-s7-initial-4dcf11b4-30f9-431e-8de0-7f5929313940",
+        "E08-s7-initial-4fb8bfec-855d-44fe-965d-32802c675f24",
+        "E06-s7-initial-7018cf53-40c6-46a0-a182-d70c26e9f552",
+        "E05-s7-initial-365e75c7-46ba-4204-bbae-4ae59d9ef5fa",
+        "E09-s7-initial-3ac5e9c9-a9ae-4929-b535-fb8d4534a036",
+        "E07-s7-initial-9f441662-e360-44ee-9faf-14a80afac612",
+        "E05-s7-initial-c12008c7-a879-49da-a571-53d3ab6db05c",
+        "E09-s7-initial-3d00ce45-ef7c-4201-89ec-7722508474a9",
+        "E05-s7-initial-239f7732-5212-4d43-971d-fd2ba47a7709",
+        "E09-s7-initial-d3741a37-33c6-4315-b958-62057e5c5dc9"
+      ],
+      "authorization": "User reiterated performing the already authorized export review and continuing pending work, 2026-09-14.",
+      "change": "Continue reviewed deadline receipt gaps as INCONCLUSO; stop other integrity/security/export/clock failures.",
+      "bankAndAnalyzerUnchanged": true,
+      "noLoadRetry": true
+    },
+    {
+      "at": "2026-09-14T20:24:51.645051+00:00",
+      "sourceSha256": "1ae31ff8ff89c8129512ce471ee1efec3639cf7f8bf87f3dc9eee940dbede674",
+      "completedBefore": 18,
+      "remainingRunIds": [
+        "E04-s7-initial-38fc9da2-7803-4965-bf73-c771adef8732",
+        "E02-s7-initial-2cd679cc-bd46-4060-abcf-cc023178a89c",
+        "E06-s7-initial-4dcf11b4-30f9-431e-8de0-7f5929313940",
+        "E08-s7-initial-4fb8bfec-855d-44fe-965d-32802c675f24",
+        "E06-s7-initial-7018cf53-40c6-46a0-a182-d70c26e9f552",
+        "E05-s7-initial-365e75c7-46ba-4204-bbae-4ae59d9ef5fa",
+        "E09-s7-initial-3ac5e9c9-a9ae-4929-b535-fb8d4534a036",
+        "E07-s7-initial-9f441662-e360-44ee-9faf-14a80afac612",
+        "E05-s7-initial-c12008c7-a879-49da-a571-53d3ab6db05c",
+        "E09-s7-initial-3d00ce45-ef7c-4201-89ec-7722508474a9",
+        "E05-s7-initial-239f7732-5212-4d43-971d-fd2ba47a7709",
+        "E09-s7-initial-d3741a37-33c6-4315-b958-62057e5c5dc9"
+      ],
+      "authorization": "User reiterated performing the already authorized export review and continuing pending work, 2026-09-14.",
+      "change": "Continue reviewed deadline receipt gaps as INCONCLUSO; stop other integrity/security/export/clock failures.",
+      "bankAndAnalyzerUnchanged": true,
+      "noLoadRetry": true
+    },
+    {
+      "at": "2026-09-14T22:22:45.096452+00:00",
+      "sourceSha256": "857060524c743fff600e44578ad0abd77db5c465c16aa35a0230142ab9968dca",
+      "completedBefore": 25,
+      "remainingRunIds": [
+        "E07-s7-initial-9f441662-e360-44ee-9faf-14a80afac612",
+        "E05-s7-initial-c12008c7-a879-49da-a571-53d3ab6db05c",
+        "E09-s7-initial-3d00ce45-ef7c-4201-89ec-7722508474a9",
+        "E05-s7-initial-239f7732-5212-4d43-971d-fd2ba47a7709",
+        "E09-s7-initial-d3741a37-33c6-4315-b958-62057e5c5dc9"
+      ],
+      "authorization": "User reiterated performing the already authorized export review and continuing pending work, 2026-09-14.",
+      "change": "Continue reviewed deadline receipt gaps as INCONCLUSO; stop other integrity/security/export/clock failures.",
+      "bankAndAnalyzerUnchanged": true,
+      "noLoadRetry": true,
+      "historicalException": {
+        "runId": "E09-s7-initial-3ac5e9c9-a9ae-4929-b535-fb8d4534a036",
+        "analysisSha256": "1d0b87a1024e269eb1e93269b35d4486f5af828dbb7f2ef4e3b94b86e9dd1e07",
+        "verdictUnchanged": "INCONCLUSO",
+        "authorization": "User explicitly requested execution of the five remaining runs after academic review of E09, 2026-09-14.",
+        "scope": "Historical admission only. New runs retain all existing guards; no repeat of failed E09."
+      }
+    },
+    {
+      "at": "2026-09-14T23:28:24.851794+00:00",
+      "sourceSha256": "fdec0d44bfc3ca1e0db15ff94357e5d60dece29b714c9e860c5d7dd16e1f12e9",
+      "completedBefore": 26,
+      "remainingRunIds": [
+        "E05-s7-initial-c12008c7-a879-49da-a571-53d3ab6db05c",
+        "E09-s7-initial-3d00ce45-ef7c-4201-89ec-7722508474a9",
+        "E05-s7-initial-239f7732-5212-4d43-971d-fd2ba47a7709",
+        "E09-s7-initial-d3741a37-33c6-4315-b958-62057e5c5dc9"
+      ],
+      "authorization": "User reiterated performing the already authorized export review and continuing pending work, 2026-09-14.",
+      "change": "Continue reviewed deadline receipt gaps as INCONCLUSO, including E07 no_eligible_snapshot with separately recorded provider deadline; stop other integrity/security/export/clock failures.",
+      "bankAndAnalyzerUnchanged": true,
+      "noLoadRetry": true,
+      "historicalException": {
+        "runId": "E09-s7-initial-3ac5e9c9-a9ae-4929-b535-fb8d4534a036",
+        "analysisSha256": "1d0b87a1024e269eb1e93269b35d4486f5af828dbb7f2ef4e3b94b86e9dd1e07",
+        "verdictUnchanged": "INCONCLUSO",
+        "authorization": "User explicitly requested execution of the five remaining runs after academic review of E09, 2026-09-14.",
+        "scope": "Historical admission only. New runs retain all existing guards; no repeat of failed E09."
+      }
+    },
+    {
+      "at": "2026-09-14T23:36:16.227742+00:00",
+      "sourceSha256": "fdec0d44bfc3ca1e0db15ff94357e5d60dece29b714c9e860c5d7dd16e1f12e9",
+      "completedBefore": 26,
+      "remainingRunIds": [
+        "E05-s7-initial-c12008c7-a879-49da-a571-53d3ab6db05c",
+        "E09-s7-initial-3d00ce45-ef7c-4201-89ec-7722508474a9",
+        "E05-s7-initial-239f7732-5212-4d43-971d-fd2ba47a7709",
+        "E09-s7-initial-d3741a37-33c6-4315-b958-62057e5c5dc9"
+      ],
+      "authorization": "User reiterated performing the already authorized export review and continuing pending work, 2026-09-14.",
+      "change": "Continue reviewed deadline receipt gaps as INCONCLUSO, including E07 no_eligible_snapshot with separately recorded provider deadline; stop other integrity/security/export/clock failures.",
+      "bankAndAnalyzerUnchanged": true,
+      "noLoadRetry": true,
+      "historicalException": {
+        "runId": "E09-s7-initial-3ac5e9c9-a9ae-4929-b535-fb8d4534a036",
+        "analysisSha256": "1d0b87a1024e269eb1e93269b35d4486f5af828dbb7f2ef4e3b94b86e9dd1e07",
+        "verdictUnchanged": "INCONCLUSO",
+        "authorization": "User explicitly requested execution of the five remaining runs after academic review of E09, 2026-09-14.",
+        "scope": "Historical admission only. New runs retain all existing guards; no repeat of failed E09."
+      }
+    },
+    {
+      "at": "2026-09-15T00:40:38.873831+00:00",
+      "sourceSha256": "4ce21b96b4571b443200d2314f81e565ffe3b530a253146de060540602cf2c42",
+      "completedBefore": 28,
+      "remainingRunIds": [
+        "E05-s7-initial-239f7732-5212-4d43-971d-fd2ba47a7709",
+        "E09-s7-initial-d3741a37-33c6-4315-b958-62057e5c5dc9"
+      ],
+      "authorization": "User reiterated performing the already authorized export review and continuing pending work, 2026-09-14.",
+      "change": "Continue reviewed deadline receipt gaps as INCONCLUSO, including E07 no_eligible_snapshot with separately recorded provider deadline; stop other integrity/security/export/clock failures.",
+      "bankAndAnalyzerUnchanged": true,
+      "noLoadRetry": true,
+      "historicalException": {
+        "runId": "E09-s7-initial-3ac5e9c9-a9ae-4929-b535-fb8d4534a036",
+        "analysisSha256": "1d0b87a1024e269eb1e93269b35d4486f5af828dbb7f2ef4e3b94b86e9dd1e07",
+        "verdictUnchanged": "INCONCLUSO",
+        "authorization": "User explicitly requested execution of the five remaining runs after academic review of E09, 2026-09-14.",
+        "scope": "Historical admission only. New runs retain all existing guards; no repeat of failed E09."
+      },
+      "reviewedHistoricalFailures": {
+        "analyses": {
+          "E09-s7-initial-3ac5e9c9-a9ae-4929-b535-fb8d4534a036": "1d0b87a1024e269eb1e93269b35d4486f5af828dbb7f2ef4e3b94b86e9dd1e07",
+          "E09-s7-initial-3d00ce45-ef7c-4201-89ec-7722508474a9": "803cddba7cb3d32c6c1d52f84c10e03cb52ccb9e837814cca76b6fe1cb5cf1a8"
+        },
+        "authorization": "User authorized E05 r3 and E09 r3 once after reviewing E09 r2; 2026-09-14.",
+        "verdictsUnchanged": "INCONCLUSO",
+        "scope": "Historical admission only; no retries or relaxed new-run guards."
+      }
+    },
+    {
+      "at": "2026-09-15T00:54:20.050753+00:00",
+      "sourceSha256": "4ce21b96b4571b443200d2314f81e565ffe3b530a253146de060540602cf2c42",
+      "completedBefore": 28,
+      "remainingRunIds": [
+        "E05-s7-initial-239f7732-5212-4d43-971d-fd2ba47a7709",
+        "E09-s7-initial-d3741a37-33c6-4315-b958-62057e5c5dc9"
+      ],
+      "authorization": "User reiterated performing the already authorized export review and continuing pending work, 2026-09-14.",
+      "change": "Continue reviewed deadline receipt gaps as INCONCLUSO, including E07 no_eligible_snapshot with separately recorded provider deadline; stop other integrity/security/export/clock failures.",
+      "bankAndAnalyzerUnchanged": true,
+      "noLoadRetry": true,
+      "historicalException": {
+        "runId": "E09-s7-initial-3ac5e9c9-a9ae-4929-b535-fb8d4534a036",
+        "analysisSha256": "1d0b87a1024e269eb1e93269b35d4486f5af828dbb7f2ef4e3b94b86e9dd1e07",
+        "verdictUnchanged": "INCONCLUSO",
+        "authorization": "User explicitly requested execution of the five remaining runs after academic review of E09, 2026-09-14.",
+        "scope": "Historical admission only. New runs retain all existing guards; no repeat of failed E09."
+      },
+      "reviewedHistoricalFailures": {
+        "analyses": {
+          "E09-s7-initial-3ac5e9c9-a9ae-4929-b535-fb8d4534a036": "1d0b87a1024e269eb1e93269b35d4486f5af828dbb7f2ef4e3b94b86e9dd1e07",
+          "E09-s7-initial-3d00ce45-ef7c-4201-89ec-7722508474a9": "803cddba7cb3d32c6c1d52f84c10e03cb52ccb9e837814cca76b6fe1cb5cf1a8"
+        },
+        "authorization": "User authorized E05 r3 and E09 r3 once after reviewing E09 r2; 2026-09-14.",
+        "verdictsUnchanged": "INCONCLUSO",
+        "scope": "Historical admission only; no retries or relaxed new-run guards."
+      }
+    },
+    {
+      "at": "2026-09-15T01:34:26.350436+00:00",
+      "sourceSha256": "c0149d2a17b57f7e9c379aa9e9a5f00371b26d85e3383bfc45212313fd79499e",
+      "completedBefore": 29,
+      "remainingRunIds": [
+        "E09-s7-initial-d3741a37-33c6-4315-b958-62057e5c5dc9"
+      ],
+      "authorization": "User reiterated performing the already authorized export review and continuing pending work, 2026-09-14.",
+      "change": "Continue reviewed deadline receipt gaps as INCONCLUSO, including E07 no_eligible_snapshot with separately recorded provider deadline; stop other integrity/security/export/clock failures.",
+      "bankAndAnalyzerUnchanged": true,
+      "noLoadRetry": true,
+      "historicalException": {
+        "runId": "E09-s7-initial-3ac5e9c9-a9ae-4929-b535-fb8d4534a036",
+        "analysisSha256": "1d0b87a1024e269eb1e93269b35d4486f5af828dbb7f2ef4e3b94b86e9dd1e07",
+        "verdictUnchanged": "INCONCLUSO",
+        "authorization": "User explicitly requested execution of the five remaining runs after academic review of E09, 2026-09-14.",
+        "scope": "Historical admission only. New runs retain all existing guards; no repeat of failed E09."
+      },
+      "reviewedHistoricalFailures": {
+        "analyses": {
+          "E09-s7-initial-3ac5e9c9-a9ae-4929-b535-fb8d4534a036": "1d0b87a1024e269eb1e93269b35d4486f5af828dbb7f2ef4e3b94b86e9dd1e07",
+          "E09-s7-initial-3d00ce45-ef7c-4201-89ec-7722508474a9": "803cddba7cb3d32c6c1d52f84c10e03cb52ccb9e837814cca76b6fe1cb5cf1a8",
+          "E05-s7-initial-239f7732-5212-4d43-971d-fd2ba47a7709": "9bfa6cbebe05e6c573681972305c2193ff6e97f8d6760cfd8b406fbb2a95f008"
+        },
+        "authorization": "User authorized the final E09 r3 once after reviewing E05 r3; 2026-09-14.",
+        "verdictsUnchanged": "INCONCLUSO",
+        "scope": "Historical admission only; no retries or relaxed new-run guards."
+      }
+    }
+  ],
+  "finishedAt": "2026-09-15T01:42:26.542731+00:00"
+}

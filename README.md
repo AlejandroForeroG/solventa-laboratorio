@@ -29,7 +29,9 @@ La hipótesis conjunta no pasa. E01 incumple cero respaldo; E05 presenta p99 de 
 | [Resultados y análisis](docs/resultados.md) | Objetivos, dictámenes Pasa/No pasa, 14 figuras y glosario |
 | [Reproducción](docs/reproduccion.md) | Demostración local, descarga y recálculo de las 30 corridas |
 | [Guion del video](docs/video-laboratorio.md) | Qué mostrar, comandos y narración |
-| [Arquitectura ajustada](docs/arquitectura.md) | Modelos completos y decisiones vinculadas a resultados |
+| [Arquitectura final S7](docs/arquitectura-s7.md) | Documento completo: 11 secciones, nueve tablas y nueve figuras |
+| [Catálogo de diagramas](docs/arquitectura.md) | Fuentes Mermaid y vistas complementarias |
+| [Registro de evidencias](docs/registro-evidencias.md) | Enlaces a los 30 análisis originales y sus 30 derivados |
 | [Funcionamiento del banco](docs/banco.md) | Componentes, configuración y comandos |
 | [Protocolo original](docs/protocolo-s5.md) | Hipótesis y umbrales previos a la campaña |
 | [Resultados tabulares](resultados/metricas.csv) | Las 60 mediciones individuales |
