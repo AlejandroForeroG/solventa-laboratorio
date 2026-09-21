@@ -98,29 +98,19 @@ Cloudflare documenta que Service Bindings permite invocación interna sin URL p�
 
 ### 3.4 Flujo de control del recorrido principal
 
-1. El cliente o socio envía POST /v1/quotes con idempotency-key.
+![Flujo de control del recorrido principal](diagramas/lucid-flujo-principal.png)
 
-2. Edge aplica controles de transporte y entrega correlation-id.
+[Figura 3](https://lucid.app/lucidchart/48598a5b-beb0-45f1-8f76-832056912678/edit?page=~VbwroApN__Y). Flujo de control del recorrido principal.
 
-3. Acquisition & Risk valida identidad y socio y pide consentimiento fresco a Identity mediante un Service Binding. Identity aplica su política de lectura y devuelve autorización válida, denegación o error técnico; los dos últimos impiden consultar proveedor y respaldo.
+Acquisition & Risk valida identidad y socio y solicita consentimiento fresco a Identity por Service Binding. La denegación o el fallo de verificación bloquean proveedor y respaldo; el error SQL conserva su causa técnica.
 
-4. Solo con consentimiento verificado, el adaptador Open Finance de Acquisition & Risk consulta señales con deadline operativo de 120 ms y breaker local. No reintenta al proveedor en el recorrido síncrono.
-
-5. Una respuesta externa válida se normaliza como RiskSignals. Si falla, se lee respaldo con la política SQL acotada y se valida consentimiento, propósito y vigencia. Sin respaldo elegible se responde preliminar sin datos ni oferta; un fallo de lectura conserva su causa técnica.
-
-6. El caso de uso calcula perfil y oferta a partir de señales elegibles y reglas vigentes. El propietario confirma resultado, auditoría y outbox en una transacción local. Acquisition & Risk puede incluir una solicitud de actualización autorizada. Un fallo de commit no se presenta como éxito ni como auditoría durable: se responde error técnico y se conserva la correlación disponible.
-
-7. Se responde sin esperar publicación, con fuente, antigüedad, motivo y estado preliminar cuando corresponda. Ese estado se conserva en web y móvil hasta obtener confirmación válida; un dato degradado no autoriza por sí solo una transición contractual.
-
-8. El publicador del propietario envía a Queue. El consumidor deduplica eventId y confirma el mensaje solo después del commit de su efecto e inbox. Para actualizar señales, Acquisition & Risk verifica consentimiento antes de consultar y antes de aplicar la respuesta; cada uso posterior vuelve a verificarlo.
-
-No hay reintento síncrono de Open Finance. La excepción propuesta es un único reintento de SELECT por error transitorio permitido: primer intento de hasta 200 ms, cancelación/cierre del intento fallido, espera aleatoria de 10–25 ms y límite total de 700 ms. El presupuesto local por instancia y dependencia admite ráfaga de dos reintentos y repone cinco por segundo. Si no queda presupuesto o vence el plazo, se devuelve el estado explícito correspondiente. No cubre escrituras ni errores de autorización; el retry de serialización, cuando proceda, reejecuta la transacción completa con idempotencia y tiene reglas propias.
+El commit puede incluir una solicitud de actualización. La respuesta preliminar se mantiene en web y móvil hasta una confirmación válida y no autoriza cambios contractuales. Las flechas discontinuas representan trabajo asíncrono: la actualización revalida consentimiento antes de consultar, antes de aplicar y en cada uso posterior (6.2). La política SQL propuesta y sus límites se detallan en 6.3.
 
 ## 4. Vista de despliegue
 
 ![Despliegue conservado de Semana 6](diagramas/lucid-03-despliegue-s6.png)
 
-Figura 3. Despliegue objetivo conservado de S6.
+Figura 4. Despliegue objetivo conservado de S6.
 
 Los handlers de actualización y auditoría permanecen en sus Workers propietarios, con Queue, outbox y SQL. El laboratorio midió Acquisition, Identity y Simulator, dos Hyperdrive sin caché y CockroachDB Basic en AWS us-east-1, desde Bogotá. Simulator no sustituye Policy, Claims & Payments. Tres regiones y servicios productivos dibujados son diseño objetivo sin validación experimental.
 
@@ -194,7 +184,7 @@ Los nombres de recursos, credenciales, buckets, colas y configuraciones Hyperdri
 
 ![Información y propiedad de datos](diagramas/lucid-04-informacion.png)
 
-[Figura 4](https://lucid.app/lucidchart/48598a5b-beb0-45f1-8f76-832056912678/edit?page=uWnrQ4I3Be9m). Información ajustada.
+[Figura 5.](https://lucid.app/lucidchart/48598a5b-beb0-45f1-8f76-832056912678/edit?page=uWnrQ4I3Be9m) Información ajustada.
 
 Se conservan agregados y propietarios. Se añaden metadatos de fuente, vigencia, propósito y versión de consentimiento, trabajo de actualización y auditoría/outbox local. E07/E08 respaldan las barreras medidas. Queues no vuelve exactamente una vez al transporte y la transacción no cruza propietarios.
 
@@ -223,7 +213,7 @@ Cotización normal y degradada
 
 ![Flujo de cotización](diagramas/lucid-05-flujo-cotizacion.png)
 
-[Figura 5](https://lucid.app/lucidchart/ccffee59-dde0-4ee9-97c4-ecdf283c37ac/edit?page=quote). Cotización normal y degradada.
+[Figura 6.](https://lucid.app/lucidchart/ccffee59-dde0-4ee9-97c4-ecdf283c37ac/edit?page=quote) Cotización normal y degradada.
 
 Se mantiene el flujo de S6: consentimiento fresco antes de proveedor o respaldo; uso de copia solo si es elegible. Sin copia válida se devuelve preliminar sin oferta definitiva. Fuente, antigüedad y motivo llegan al cliente. La política de SELECT se aplica a las lecturas del propietario; una lectura fallida conserva causa técnica. La actualización posterior sigue el flujo adicional de la sección 6.2.
 
@@ -231,7 +221,7 @@ Propagación de eventos
 
 ![Publicación y consumo](diagramas/lucid-06-outbox-inbox.png)
 
-[Figura 6](https://lucid.app/lucidchart/ccffee59-dde0-4ee9-97c4-ecdf283c37ac/edit?page=events). Propagación de eventos.
+[Figura 7.](https://lucid.app/lucidchart/ccffee59-dde0-4ee9-97c4-ecdf283c37ac/edit?page=events) Propagación de eventos.
 
 Resultado, auditoría y outbox se guardan en una transacción del productor. Un fallo de commit impide declarar auditoría durable o trabajo aceptado. El consumidor confirma efecto e inbox antes del ACK; los duplicados no repiten el efecto lógico. Un despacho sin recibo permanece sin confirmar. La entrega es al menos una vez y la consistencia entre propietarios es eventual.
 
@@ -239,7 +229,7 @@ Carga y verificación de evidencias
 
 ![Evidencia binaria](diagramas/lucid-07-evidencia-r2.png)
 
-[Figura 7](https://lucid.app/lucidchart/ccffee59-dde0-4ee9-97c4-ecdf283c37ac/edit?page=evidence). Carga y verificación de evidencias, conservada de S6.
+[Figura 8.](https://lucid.app/lucidchart/ccffee59-dde0-4ee9-97c4-ecdf283c37ac/edit?page=evidence) Carga y verificación de evidencias, conservada de S6.
 
 El cliente carga directamente a R2. CARGADA acredita existencia; VERIFICADA requiere checksum y metadatos. La reconciliación reintenta el registro o elimina huérfanos según la política. R2 y SQL no comparten transacción. Este flujo no se declara probado por las corridas de cotización y perfilamiento.
 
@@ -263,9 +253,11 @@ El cliente carga directamente a R2. CARGADA acredita existencia; VERIFICADA requ
 
 ![Interacción de cotización y perfilamiento](diagramas/lucid-08-interaccion.png)
 
-[Figura 8](https://lucid.app/lucidchart/48598a5b-beb0-45f1-8f76-832056912678/edit?page=.Wnrt7v3wcNm). Interacción ajustada.
+[Figura 9.](https://lucid.app/lucidchart/48598a5b-beb0-45f1-8f76-832056912678/edit?page=.Wnrt7v3wcNm) Interacción ajustada.
 
 E01 produjo 25 respuestas degradadas en 90.000 solicitudes y un error técnico. E05 r2 incumplió p99 de cotización (556 > 500 ms) y E06 r2 incumplió Wilson de perfilamiento (99,8858 % < 99,9 %). Se conserva la protección externa y se propone recuperación de SELECT, sin reclasificar los 503 históricos ni afirmar mejora de p99 demostrada.
+
+[Ver el diagrama completo en PDF para ampliar sus mensajes y condiciones.](https://drive.google.com/file/d/1OR_jPaMJ8_7o_TH_t4TLSgDWjB0_wWm7/view)
 
 El flujo incluye la confirmación explícita de una acción irreversible con revalidación en servidor, la entrega al consumidor y su commit/ACK, y los sondeos de recuperación del circuito.
 
@@ -286,7 +278,7 @@ El límite duro del servicio sigue en 700 ms y el cliente experimental espera ha
 
 ![Actualización y auditoría asíncronas](diagramas/lucid-09-actualizacion-auditoria.png)
 
-[Figura 9](https://lucid.app/lucidchart/48598a5b-beb0-45f1-8f76-832056912678/edit?page=j.awHeLs8s6r). Actualización autorizada y auditoría.
+[Figura 10.](https://lucid.app/lucidchart/48598a5b-beb0-45f1-8f76-832056912678/edit?page=j.awHeLs8s6r) Actualización autorizada y auditoría.
 
 Acquisition & Risk solicita, publica y consume su trabajo sin añadir una dependencia al recorrido síncrono. La autorización se verifica al ejecutar y antes de aplicar; el consentimiento almacenado en el mensaje no concede acceso. Cada uso posterior requiere nueva validación. El commit de efecto e inbox precede al ACK y los fallos persistentes permanecen observables.
 
@@ -298,7 +290,7 @@ La comprobación en Identity y el commit en Acquisition & Risk no son una transa
 
 ![Recuperación acotada de SELECT](diagramas/lucid-10-recuperacion-sql.png)
 
-[Figura 10](https://lucid.app/lucidchart/48598a5b-beb0-45f1-8f76-832056912678/edit?page=U-awjyDsvcRs). Recuperación acotada de SELECT.
+[Figura 11.](https://lucid.app/lucidchart/48598a5b-beb0-45f1-8f76-832056912678/edit?page=U-awjyDsvcRs) Recuperación acotada de SELECT.
 
 El repositorio de cada propietario clasifica el fallo, cancela o cierra el intento anterior y permite un solo reintento elegible dentro del tiempo restante. El límite de 700 ms corresponde al recorrido completo: la recuperación no reinicia el reloj ni amplía el plazo de Open Finance. Los errores de autorización y las escrituras quedan fuera de esta política. Adoptar el SELECT de hasta 200 ms queda condicionado a resolver en refinamiento la interpretación del criterio de 120 ms, como establece el plan de Proyecto Final 2; no puede contradecir el criterio acordado.
 
@@ -367,8 +359,14 @@ ADR-S7-03 — Auditoría durable. Los 33 recibos no confirmados motivan resultad
 | retry síncrono agresivo | no adoptar | amplifica falla y rompe presupuesto | operación idempotente fuera del hot path |
 | breaker coordinado global | condicionado | añade salto/estado al hot path | reducción < 80 % (E05/E09 > 80 %: no activado); recuperación se revisa aparte |
 
-## 10. Conclusiones del cierre experimental
+## 10. Conclusiones de la arquitectura refinada
 
-Las 30 corridas contienen 60 resultados por operación y repetición: 52 pasan simultáneamente percentiles y Wilson; ocho no pasan (cotización E05 r2, perfilamiento E06 r2 y los seis de E09). Se emitieron 899.835 solicitudes y hubo 899.033 respuestas completas: 802 no completas, incluidas 793 fallas técnicas y nueve de clasificación adicional; no deben contarse dos veces. La corrección derivada de probe.at eliminó 52 falsas alarmas sin alterar umbrales ni métricas. Los estados automáticos pasaron de 12 básicos/4 ajustes/14 inconclusos a 14/2/14; no sustituyen los dictámenes por objetivo.
+El refinamiento conserva la arquitectura de Semana 6: tres Workers con responsabilidades y datos propios, puertos y adaptadores, y comunicación asíncrona para los efectos posteriores. La experimentación aporta evidencia parcial sobre cotización y perfilamiento; no justifica sustituir esta estructura ni acredita los flujos de pólizas, pagos y siniestros. Las decisiones se concentran en las debilidades observadas.
 
-Se conserva la arquitectura de S6 y se concretan tres ajustes: recuperación acotada de SELECT en Identity y Acquisition & Risk, actualización asíncrona autorizada y auditoría transaccional por propietario. E02, E03, E04, E07 y E08 pasan los objetivos evaluados; E01, E05 y E06 presentan incumplimientos y E09 no pasa como control sin circuito. La hipótesis conjunta no se acepta. Cancelar E10/E11 desvía el protocolo y no demuestra una excepción aprobada ni un plazo óptimo. Los ajustes requieren implementación y validación posterior en Proyecto Final 2; el cierre documental no cambia los resultados originales.
+Se mantienen el deadline de Open Finance, el breaker local y el fallback autorizado porque contuvieron las llamadas durante las fallas: E05 frente a E09 redujo las consultas entre 92,24 % y 97,31 %. Sin embargo, el p99 de 556 ms en cotización E05 r2 y el incumplimiento de Wilson en perfilamiento E06 r2 muestran que proteger al proveedor no basta para cumplir el recorrido completo. Por eso se propone recuperar de forma acotada los SELECT transitorios, sin reintentar Open Finance ni omitir consentimiento. Su efecto esperado es reducir fallas recuperables dentro del tiempo restante; añade cancelación, clasificación de errores y observabilidad. Los 200 ms siguen condicionados al refinamiento del criterio de 120 ms.
+
+La degradación de 85,88–90,38 % en E04 motiva actualizar señales fuera de la solicitud del usuario, dentro de Acquisition & Risk. Se busca disponer de respaldos más recientes y reducir respuestas preliminares, sin añadir un cuarto servicio. El coste es trabajo asíncrono, control de versiones y deduplicación. E07/E08 respaldan las barreras medidas: la actualización debe comprobar consentimiento antes de consultar, antes de aplicar y en cada uso posterior; un mensaje no concede autorización.
+
+Los 33 recibos no confirmados motivan distinguir despacho, recepción, resultado y commit. Confirmar resultado, auditoría y outbox en la transacción del propietario, y efecto e inbox antes del ACK, busca conservar trazabilidad y evitar pérdida o duplicación de efectos locales. Esto exige almacenamiento, publicación, reentrega y reconciliación. La campaña no validó todavía ese mecanismo completo y un commit fallido no permite prometer éxito ni auditoría durable.
+
+El resultado es una arquitectura conservada en su estructura y más precisa en sus límites de fallo, autorización y persistencia. La campaña cerró con 52 de 60 resultados de desempeño aprobados, pero la hipótesis conjunta no se acepta: E01, E05 y E06 presentan incumplimientos, y E09 no pasa como control sin circuito. E10/E11 no se ejecutaron, por lo que 120 ms no es un óptimo confirmado. Los beneficios de los tres ajustes son esperados y deberán medirse en Proyecto Final 2; el refinamiento no cambia los resultados originales.

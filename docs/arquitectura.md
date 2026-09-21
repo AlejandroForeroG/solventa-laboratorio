@@ -1,6 +1,6 @@
 # Catálogo de modelos y decisiones de arquitectura
 
-La [arquitectura final de Semana 7](arquitectura-s7.md) contiene 10 secciones principales, nueve tablas y diez figuras del documento de entrega. También está disponible como [Google Doc](https://docs.google.com/document/d/1BFg3RyFkN_HhRrEfmrd5rTXi0I6fseI1gssDeygQ1Rw/edit). [PDF de entrega revisado](https://drive.google.com/file/d/1713qHIL4C8yKortSbukF5MvtoOQl-gnX/view). Este catálogo reúne las fuentes editables y vistas complementarias.
+La [arquitectura final de Semana 7](arquitectura-s7.md) contiene 10 secciones principales, nueve tablas y once figuras del documento de entrega. También está disponible como [Google Doc](https://docs.google.com/document/d/1BFg3RyFkN_HhRrEfmrd5rTXi0I6fseI1gssDeygQ1Rw/edit). [PDF de entrega revisado](https://drive.google.com/file/d/1713qHIL4C8yKortSbukF5MvtoOQl-gnX/view). Este catálogo reúne las fuentes editables y vistas complementarias.
 
 Fecha: 20 de septiembre de 2026. Base: arquitectura de Semana 6 y modelos de Lucidchart; evidencia: 30 corridas de EXP-S5-01. Se mantienen los tres servicios del producto, los canales web y móvil y los flujos de pólizas, pagos y siniestros.
 
@@ -37,47 +37,53 @@ El despliegue conserva la figura de Semana 6: los ajustes se ejecutan dentro de 
 
 [Abrir diagrama editable en Lucidchart](https://lucid.app/lucidchart/48598a5b-beb0-45f1-8f76-832056912678/edit?page=JVnrTKTer72h).
 
-### 3. Despliegue conservado de Semana 6
+### 3. Flujo de control del recorrido principal
+
+![Flujo de control del recorrido principal](diagramas/lucid-flujo-principal.png)
+
+[Abrir diagrama editable en Lucidchart](https://lucid.app/lucidchart/48598a5b-beb0-45f1-8f76-832056912678/edit?page=~VbwroApN__Y).
+
+### 4. Despliegue conservado de Semana 6
 
 ![Despliegue conservado de Semana 6](diagramas/lucid-03-despliegue-s6.png)
 
-### 4. Información y propiedad de datos
+### 5. Información y propiedad de datos
 
 ![Información y propiedad de datos](diagramas/lucid-04-informacion.png)
 
 [Abrir diagrama editable en Lucidchart](https://lucid.app/lucidchart/48598a5b-beb0-45f1-8f76-832056912678/edit?page=uWnrQ4I3Be9m).
 
-### 5. Flujo de cotización
+### 6. Flujo de cotización
 
 ![Flujo de cotización](diagramas/lucid-05-flujo-cotizacion.png)
 
 [Abrir diagrama editable en Lucidchart](https://lucid.app/lucidchart/ccffee59-dde0-4ee9-97c4-ecdf283c37ac/edit?page=quote).
 
-### 6. Publicación y consumo
+### 7. Publicación y consumo
 
 ![Publicación y consumo](diagramas/lucid-06-outbox-inbox.png)
 
 [Abrir diagrama editable en Lucidchart](https://lucid.app/lucidchart/ccffee59-dde0-4ee9-97c4-ecdf283c37ac/edit?page=events).
 
-### 7. Evidencia binaria
+### 8. Evidencia binaria
 
 ![Evidencia binaria](diagramas/lucid-07-evidencia-r2.png)
 
 [Abrir diagrama editable en Lucidchart](https://lucid.app/lucidchart/ccffee59-dde0-4ee9-97c4-ecdf283c37ac/edit?page=evidence).
 
-### 8. Interacción de cotización y perfilamiento
+### 9. Interacción de cotización y perfilamiento
 
 ![Interacción de cotización y perfilamiento](diagramas/lucid-08-interaccion.png)
 
 [Abrir diagrama editable en Lucidchart](https://lucid.app/lucidchart/48598a5b-beb0-45f1-8f76-832056912678/edit?page=.Wnrt7v3wcNm).
 
-### 9. Actualización y auditoría asíncronas
+### 10. Actualización y auditoría asíncronas
 
 ![Actualización y auditoría asíncronas](diagramas/lucid-09-actualizacion-auditoria.png)
 
 [Abrir diagrama editable en Lucidchart](https://lucid.app/lucidchart/48598a5b-beb0-45f1-8f76-832056912678/edit?page=j.awHeLs8s6r).
 
-### 10. Recuperación acotada de SELECT
+### 11. Recuperación acotada de SELECT
 
 ![Recuperación acotada de SELECT](diagramas/lucid-10-recuperacion-sql.png)
 
