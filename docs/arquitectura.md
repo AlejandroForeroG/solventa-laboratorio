@@ -1,6 +1,6 @@
 # Catálogo de modelos y decisiones de arquitectura
 
-La [arquitectura final de Semana 7](arquitectura-s7.md) conserva las 11 secciones, nueve tablas y nueve figuras del documento de entrega. También está disponible como [Google Doc](https://docs.google.com/document/d/1BFg3RyFkN_HhRrEfmrd5rTXi0I6fseI1gssDeygQ1Rw/edit). Este catálogo reúne las fuentes editables y vistas complementarias.
+La [arquitectura final de Semana 7](arquitectura-s7.md) contiene 10 secciones principales, nueve tablas y nueve figuras del documento de entrega. También está disponible como [Google Doc](https://docs.google.com/document/d/1BFg3RyFkN_HhRrEfmrd5rTXi0I6fseI1gssDeygQ1Rw/edit). Este catálogo reúne las fuentes editables y vistas complementarias.
 
 Fecha: 20 de septiembre de 2026. Base: arquitectura de Semana 6 y modelos de Lucidchart; evidencia: 30 corridas de EXP-S5-01. Se mantienen los tres servicios del producto, los canales web y móvil y los flujos de pólizas, pagos y siniestros.
 
@@ -23,7 +23,7 @@ La recuperación SQL existe como opción diagnóstica; la actualización asíncr
 
 La conexión a [Lucidchart](https://lucid.app/lucidchart/48598a5b-beb0-45f1-8f76-832056912678/edit) permitió consultar el documento, pero devolvió `canEdit: false`. Por ello, este paquete entrega las vistas completas en Mermaid y SVG para trasladarlas a Lucidchart; el original no se ha modificado.
 
-Las cuatro primeras vistas conservan todos los nodos y conectores recuperados de las páginas 11, 15, 12 y 14 de Lucidchart. [procedencia.json](diagramas/procedencia.json) relaciona sus identificadores originales con los nuevos. Las adiciones están rotuladas «Propuesta S7». La interacción conserva los participantes y decisiones de la página 16 e incorpora las salidas ante error. Los modelos complementarios detallan actualización, auditoría y procesos ya incluidos en Semana 6.
+Las cuatro primeras vistas parten de las páginas 11, 15, 12 y 14 de Lucidchart y conservan sus identificadores; [procedencia.json](diagramas/procedencia.json) registra ese mapeo histórico. También se contrastaron con las imágenes efectivamente incrustadas en el documento de Semana 6, recuperando la API común y fachada de socios, el desglose hexagonal, CI/CD y la publicación por propietario. Algunos conectores se desglosan mediante esos componentes explícitos. La interacción recupera confirmación con revalidación, consumo con commit/ACK y sondeos de recuperación. Los conteos de procedencia describen la fuente Lucid anterior, no el tamaño de estos modelos extendidos. Las propuestas de Semana 7 mantienen su identificación y sus límites de evidencia.
 
 ### 1. Vista funcional
 

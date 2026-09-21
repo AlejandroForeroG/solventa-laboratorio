@@ -7,6 +7,12 @@ flowchart TB
     N22["3 regiones - SURVIVE REGION FAILURE<br/>localidad por tabla en migraciones<br/>plan y códigos físicos al aprovisionar"]
   end
   N3["GitHub Actions / IaC<br/>Local → Preview → Desarrollo → Staging → Producción<br/>recursos y secretos segregados, rollback"]
+  DEV["Desarrollador<br/>código y cambios de infraestructura"]
+  DEV --> N3
+  BUILD["Build, pruebas y migraciones versionadas<br/>artefacto inmutable antes de promoción"]
+  N3 --> BUILD
+  BUILD -.->|"despliegue"| N2
+  BUILD -.->|"migraciones"| N1
   N4["Telemetría sin PII<br/>p95/p99, instanceId, errores<br/>estado breaker, llamadas, rezago"]
   N5["QA-01/02: ejercicios pendientes<br/>zona: RTO 10 min / RPO 30 s<br/>región: RTO 5 min / sin pérdida confirmada"]
   N6["Navegador - SPA React/Vite"]

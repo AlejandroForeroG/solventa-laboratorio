@@ -36,7 +36,11 @@
       "LiAJ9NvIiKLUxYtmLJNQNi+6PXU=": "G27",
       "H/6MXoX0rC2eaFYT5rcFz14ZtqA=": "G28",
       "SFEd7N7vhdVSwl4tOH5Cr0PJwJ8=": "G29"
-    }
+    },
+    "countsScope": "Conteos de la fuente histórica Lucid; no son los conteos del modelo S7 extendido.",
+    "nativeS6Document": "1aC7he982xFqeTyKPZPiicSQeoC23DAfbpr_yV114wXk",
+    "nativeS6Restoration": "API común y fachada de socios separadas; adaptadores de pagos, firma/reaseguro/ACORD, identidad y notificaciones.",
+    "connectorAdaptation": "Se conservan responsabilidades y relaciones; algunos conectores se desglosan a través de componentes explícitos recuperados."
   },
   {
     "file": "02-hexagonal.mmd",
@@ -60,7 +64,11 @@
       "HmKvSvABWtiVHWq1q4XZnaJZmtI=": "N12",
       "wmROH0MuaJtJzXuf283wRThRwhw=": "N13",
       "HQufM14PiqWiJFVaEHwLCPuIwa4=": "G14"
-    }
+    },
+    "countsScope": "Conteos de la fuente histórica Lucid; no son los conteos del modelo S7 extendido.",
+    "nativeS6Document": "1aC7he982xFqeTyKPZPiicSQeoC23DAfbpr_yV114wXk",
+    "nativeS6Restoration": "Hono; Inbound/Application; entidades, objetos de valor y servicios de dominio; puertos Repository/Providers/Messaging y adaptadores externos.",
+    "connectorAdaptation": "Se conservan responsabilidades y relaciones; algunos conectores se desglosan a través de componentes explícitos recuperados."
   },
   {
     "file": "03-despliegue.mmd",
@@ -96,7 +104,11 @@
       "RcAhhnrpoOpRZ+7mtMVj+w2COKk=": "N24",
       "8SqIZBoQM6H5SjR/eEpZPzjg5Bk=": "N25",
       "Zy9gfMs4PYu3Yc6AxPYPd3REGSo=": "G26"
-    }
+    },
+    "countsScope": "Conteos de la fuente histórica Lucid; no son los conteos del modelo S7 extendido.",
+    "nativeS6Document": "1aC7he982xFqeTyKPZPiicSQeoC23DAfbpr_yV114wXk",
+    "nativeS6Restoration": "Desarrollador, CI/CD, build, pruebas y migraciones versionadas.",
+    "connectorAdaptation": "Se conservan responsabilidades y relaciones; algunos conectores se desglosan a través de componentes explícitos recuperados."
   },
   {
     "file": "04-informacion.mmd",
@@ -137,6 +149,10 @@
       "EuQ1CU9yVaX2t94LXaHE9iFxSzQ=": "G29",
       "JZSINeqrF8UX6pPERrTYA9VEAXw=": "G30",
       "Ok6q9ntzok+jWPgCkZeH4EvaFV8=": "G31"
-    }
+    },
+    "countsScope": "Conteos de la fuente histórica Lucid; no son los conteos del modelo S7 extendido.",
+    "nativeS6Document": "1aC7he982xFqeTyKPZPiicSQeoC23DAfbpr_yV114wXk",
+    "nativeS6Restoration": "Transacción, publicador e inbox por AR/PCP/ICE; lease, eventId, confirmación, deduplicación y reproceso.",
+    "connectorAdaptation": "Se conservan responsabilidades y relaciones; algunos conectores se desglosan a través de componentes explícitos recuperados."
   }
 ]

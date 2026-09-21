@@ -12,7 +12,7 @@ sequenceDiagram
     participant Q as Queue / consumidor
     C->>E: Cotizar o perfilar, idempotency-key
     E->>A: Contrato, scopes y correlation-id
-    A->>I: Consentimiento vigente por Service Binding
+    A->>I: Validar identidad, socio y consentimiento vigente por Service Binding
     I->>D: Lectura fresca en esquema Identity
     Note over I,D: Propuesta S7: recuperación de SELECT transitorio<br/>primer intento hasta 200 ms, cerrar conexión<br/>máximo un reintento si queda presupuesto total
     D-->>I: Estado o error técnico
@@ -68,11 +68,32 @@ sequenceDiagram
         end
     end
     Note over A,D: Solo se publica desde registros confirmados<br/>Una falla SQL no permite prometer auditoría persistida
-    U->>D: Reclamar evento pendiente del propietario
+    opt Acción irreversible posterior
+        C->>E: Confirmación explícita del usuario
+        E->>A: Comando idempotente confirmado
+        A->>I: Revalidar identidad, socio y autorización en servidor
+        I-->>A: Decisión vigente
+        Note over C,A: La confirmación de UI no sustituye autorización<br/>Un estado preliminar no equivale a contratación completa
+    end
+    U->>D: Reclamar evento pendiente del propietario con lease
     D-->>U: eventId e intento
     U->>Q: Publicar evento versionado
     Q-->>U: Confirmación o resultado incierto
     U->>D: Marcar publicado o reconciliar
-    Q->>Q: Deduplicar eventId y confirmar efecto local antes de ACK
+    Q-->>A: Entrega asíncrona al consumidor AR, duplicados posibles
+    A->>D: Transacción local: inbox UNIQUE(eventId, consumidor) y efecto
+    D-->>A: Commit, duplicado ya aplicado o error de persistencia
+    alt Commit confirmado o duplicado confirmado
+        A-->>Q: ACK sin repetir efecto lógico
+    else Persistencia no confirmada
+        A-->>Q: Sin ACK, reintento acotado y DLQ al agotar intentos
+    end
+    opt Recuperación del proveedor con tráfico posterior
+        O->>O: Tras 30 s abierto, pasar a semiabierto si llega tráfico
+        O->>P: Sondeo controlado, máximo dos por instancia cada 30 s
+        P-->>O: Respuesta válida o falla
+        O->>O: Cerrar tras cinco éxitos consecutivos entre ventanas
+        Note over O,P: Una falla reabre el circuito<br/>Sin tráfico posterior no se infiere recuperación fallida
+    end
     Note over O,P: Circuito local por instancia y operación<br/>20 muestras / 30 s, mínimo 10, apertura al 50 %<br/>30 s abierto, dos sondeos / 30 s, cierre con cinco éxitos
     Note over C,A: Acciones irreversibles requieren confirmación<br/>La interfaz no sustituye autorización ni idempotencia

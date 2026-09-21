@@ -1,5 +1,3 @@
-Documento nativo: [Arquitectura refinada y detallada — Semana 7](https://docs.google.com/document/d/1BFg3RyFkN_HhRrEfmrd5rTXi0I6fseI1gssDeygQ1Rw/edit)
-
 # Solventa - arquitectura refinada y detallada
 
 Versión ajustada — Semana 7
@@ -51,11 +49,15 @@ Los ASR de rendimiento, privacidad y modificabilidad gobiernan el recorrido eval
 
 [Figura 1](https://github.com/AlejandroForeroG/solventa-laboratorio/blob/main/docs/diagramas/01-funcional.svg). Vista funcional ajustada. Se conservan canales, tres dominios, proveedores y conectores de S6. Identity mantiene la autoridad de consentimiento; Acquisition & Risk incorpora actualización asíncrona de señales. La recuperación de SELECT pertenece al repositorio de cada propietario; resultado, auditoría y outbox se confirman localmente. E08 respalda la barrera medida, no toda la implementación propuesta.
 
+La API común de web/móvil y la fachada de socios, la pasarela de pagos, la firma/reaseguro/ACORD y las notificaciones mantienen adaptadores y contratos separados dentro de los dominios existentes.
+
 ### 3.1 Estructura interna hexagonal de cada Worker
 
 ![02-hexagonal](diagramas/02-hexagonal.svg)
 
 [Figura 2](https://github.com/AlejandroForeroG/solventa-laboratorio/blob/main/docs/diagramas/02-hexagonal.svg). Estructura hexagonal ajustada. Se conservan Domain, Application, puertos y adaptadores. La política de SELECT reside en persistencia; la actualización usa puertos de consentimiento, proveedor y outbox sin llevar SDK al núcleo. OpenFinancePort con simulador aporta evidencia parcial de QM-02; no demuestra integración productiva ni todos los contratos.
+
+Hono enruta HTTP; Inbound transforma peticiones, mensajes de cola y webhooks; Application orquesta casos de uso mediante puertos. Domain distingue entidades (Policy, User y Claim), objetos de valor (Money y Percentage) y servicios de dominio. Repository guarda y recupera entidades; Providers representa capacidades de otros Workers y terceros; Messaging publica eventos. Outbound/ACL implementa esos contratos sin filtrar modelos externos al dominio.
 
 ### 3.2 Componentes y responsabilidades
 
@@ -65,7 +67,7 @@ Los ASR de rendimiento, privacidad y modificabilidad gobiernan el recorrido eval
 | Mobile React Native/Expo | experiencia del cliente, captura controlada, modo degradado y sincronización | comandos idempotentes y evidencias autorizadas | ser fuente de verdad contractual | QS-01, QA-01 |
 | Partner API clients | integrar socios mediante contratos versionados | solicitudes con credenciales, scopes e idempotency-key | acceso directo a Workers internos o datos | QI-02, QS-01 |
 | Cloudflare Edge | TLS, WAF, rate limiting, routing, activos y correlation-id | contexto de entrada normalizado | reglas de negocio | QS-01, QE-01 |
-| Acquisition & Risk | cotización, pricing, perfil, rating, underwriting, ofertas y actualización asíncrona de señales autorizadas | Cotización, PerfilRiesgo con fuente/vigencia/consentimiento, Decisión, Oferta, trabajo de actualización, auditoría y outbox propios | emisión, cobro, tablas de otras unidades | QP-01/02, QM-02 |
+| Acquisition & Risk | cotización, pricing, perfil de riesgo, rating, underwriting, ofertas y actualización asíncrona de señales autorizadas | Cotización, PerfilRiesgo con fuente/vigencia/consentimiento, DecisiónSuscripción, Oferta, trabajo de actualización, auditoría y outbox propios | emisión, cobro, tablas de otras unidades | QP-01/02, QM-02 |
 | Policy, Claims & Payments | emisión, pólizas, prima, pagos, conciliación, siniestros, evidencia e indemnización | Póliza, Pago, Siniestro, Evidencia, Indemnización y outbox propio | contratos particulares de proveedores | QS-02, QA-01/02 |
 | Identity, Consent & Ecosystem | identidad, autorización, consentimiento, socios, cuotas y adaptadores de identidad | Cliente tokenizado, Consentimiento versionado, Socio, decisión de acceso, auditoría y outbox propios | decisiones actuariales o financieras | QS-01, QI-01/02 |
 | Outbox Publisher handlers | reclamar outbox y publicar desde un scheduled handler dentro de cada Worker propietario | evento publicado, intento y confirmación | modificar el agregado de negocio o centralizar ownership | QS-02, QE-02 |
@@ -96,13 +98,13 @@ Cloudflare documenta que Service Bindings permite invocación interna sin URL p�
 
 2. Edge aplica controles de transporte y entrega correlation-id.
 
-3. Acquisition & Risk pide consentimiento fresco a Identity mediante un Service Binding. Identity aplica su política de lectura y devuelve autorización válida, denegación o error técnico; los dos últimos impiden consultar proveedor y respaldo.
+3. Acquisition & Risk valida identidad y socio y pide consentimiento fresco a Identity mediante un Service Binding. Identity aplica su política de lectura y devuelve autorización válida, denegación o error técnico; los dos últimos impiden consultar proveedor y respaldo.
 
 4. Solo con consentimiento verificado, el adaptador Open Finance de Acquisition & Risk consulta señales con deadline operativo de 120 ms y breaker local. No reintenta al proveedor en el recorrido síncrono.
 
 5. Una respuesta externa válida se normaliza como RiskSignals. Si falla, se lee respaldo con la política SQL acotada y se valida consentimiento, propósito y vigencia. Sin respaldo elegible se responde preliminar sin datos ni oferta; un fallo de lectura conserva su causa técnica.
 
-6. El propietario confirma resultado, auditoría y outbox en una transacción local. Acquisition & Risk puede incluir una solicitud de actualización autorizada. Un fallo de commit no se presenta como éxito ni como auditoría durable: se responde error técnico y se conserva la correlación disponible.
+6. El caso de uso calcula perfil y oferta a partir de señales elegibles y reglas vigentes. El propietario confirma resultado, auditoría y outbox en una transacción local. Acquisition & Risk puede incluir una solicitud de actualización autorizada. Un fallo de commit no se presenta como éxito ni como auditoría durable: se responde error técnico y se conserva la correlación disponible.
 
 7. Se responde sin esperar publicación, con fuente, antigüedad, motivo y estado preliminar cuando corresponda. Ese estado se conserva en web y móvil hasta obtener confirmación válida; un dato degradado no autoriza por sí solo una transición contractual.
 
@@ -115,6 +117,8 @@ No hay reintento síncrono de Open Finance. La excepción propuesta es un único
 ![03-despliegue](diagramas/03-despliegue.svg)
 
 [Figura 3](https://github.com/AlejandroForeroG/solventa-laboratorio/blob/main/docs/diagramas/03-despliegue.svg). Despliegue objetivo ajustado. Los handlers de actualización y auditoría permanecen en sus Workers propietarios, con Queue, outbox y SQL. El laboratorio midió Acquisition, Identity y Simulator, dos Hyperdrive sin caché y CockroachDB Basic en AWS us-east-1, desde Bogotá. Simulator no sustituye Policy, Claims & Payments. Tres regiones y servicios productivos dibujados son diseño objetivo sin validación experimental.
+
+El recorrido del desarrollador hacia CI/CD e IaC incluye build, pruebas, migraciones versionadas y despliegue; esos artefactos se promueven mediante las reglas de cada ambiente.
 
 ### 4.1 Asignación de componentes a nodos
 
@@ -186,6 +190,8 @@ Los nombres de recursos, credenciales, buckets, colas y configuraciones Hyperdri
 
 [Figura 4](https://github.com/AlejandroForeroG/solventa-laboratorio/blob/main/docs/diagramas/04-informacion.svg). Información ajustada. Se conservan agregados y propietarios. Se añaden metadatos de fuente, vigencia, propósito y versión de consentimiento, trabajo de actualización y auditoría/outbox local. E07/E08 respaldan las barreras medidas. Queues no vuelve exactamente una vez al transporte y la transacción no cruza propietarios.
 
+AR, PCP e ICE tienen cada uno su transacción, publicador e inbox. Cada publicador reclama con lease y conserva eventId; solo marca publicación tras confirmación. Cada consumidor aplica UNIQUE(eventId, consumidor), confirma inbox y efecto juntos y después envía ACK. Reintentos y DLQ conservan eventId para reproceso y alertan por rezago.
+
 ### 5.1 Modelo y ownership
 
 | Agregado/estructura | Propietario | Contenido esencial | Consistencia y controles |
@@ -193,7 +199,7 @@ Los nombres de recursos, credenciales, buckets, colas y configuraciones Hyperdri
 | Cliente | Identity, Consent & Ecosystem | identificador tokenizado, estado y referencias | PII minimizada; acceso por scope |
 | Consentimiento | Identity, Consent & Ecosystem | propósito, alcance, fuente, versión, grantedAt, expiresAt y revokedAt | autorización vigente antes de usar señales |
 | Cotización | Acquisition & Risk | solicitud normalizada, versión de regla, resultado y estado de degradación | transacción local e idempotency-key |
-| PerfilRiesgo | Acquisition & Risk | señales, fuente, capturedAt, expiresAt, calidad, versión, consentimiento y propósito | verificar autorización fresca y vigencia en cada uso; versión guardada no reemplaza la consulta |
+| PerfilRiesgo | Acquisition & Risk | señales canónicas, fuente, capturedAt, expiresAt, calidad, versión, consentimiento y propósito | verificar autorización fresca y vigencia en cada uso; versión guardada no reemplaza la consulta |
 | DecisiónSuscripción/Oferta | Acquisition & Risk | regla aplicada, explicación, prima, coberturas y vigencia | auditabilidad y versión |
 | Póliza/Pago/Siniestro | Policy, Claims & Payments | estados contractuales/financieros y claves de idempotencia | serializable, auditoría y transiciones válidas |
 | EvidenciaMetadata | Policy, Claims & Payments | objectKey, tipo, tamaño, checksum, estado y retención | reconciliación con R2 |
@@ -235,7 +241,7 @@ Figura 7. Carga y verificación de evidencias, conservada de S6. El cliente carg
 
 5. R2 ofrece read-after-write fuerte por binding/API. Si se sirve mediante caché de dominio, la caché puede mostrar una versión anterior y debe purgarse cuando el caso lo requiera.
 
-6. Las lecturas de consentimiento y respaldo usan Hyperdrive sin caché y repositorios del propietario. Cualquier configuración con caché para otros datos tolerantes permanece separada y no se reutiliza para autorizar ni validar vigencia.
+6. Las lecturas de consentimiento y respaldo usan Hyperdrive sin caché y repositorios del propietario. Cualquier configuración con caché para otros datos tolerantes permanece separada y no se reutiliza para autorizar ni validar vigencia. Se conserva la separación de dos configuraciones cuando haga falta: caché habilitada para lecturas tolerantes y deshabilitada para lecturas que exigen read-after-write.
 
 7. Las tablas se separan primero por propietario lógico. partnerId se usa como clave de distribución o filtro de aislamiento solamente cuando el patrón de acceso y las pruebas de cardinalidad lo justifiquen; no habilita acceso cruzado entre unidades.
 
@@ -244,6 +250,8 @@ Figura 7. Carga y verificación de evidencias, conservada de S6. El cliente carg
 ![05-interaccion](diagramas/05-interaccion.svg)
 
 [Figura 8](https://github.com/AlejandroForeroG/solventa-laboratorio/blob/main/docs/diagramas/05-interaccion.svg). Interacción ajustada. E01 produjo 25 respuestas degradadas en 90.000 solicitudes y un error técnico. E05 r2 incumplió p99 de cotización (556 > 500 ms) y E06 r2 incumplió Wilson de perfilamiento (99,8858 % < 99,9 %). Se conserva la protección externa y se propone recuperación de SELECT, sin reclasificar los 503 históricos ni afirmar mejora de p99 demostrada.
+
+El flujo incluye la confirmación explícita de una acción irreversible con revalidación en servidor, la entrega al consumidor y su commit/ACK, y los sondeos de recuperación del circuito.
 
 ### 6.1 Presupuesto y medición
 
@@ -256,7 +264,7 @@ Figura 7. Carga y verificación de evidencias, conservada de S6. El cliente carg
 | Cotización total | p95 ≤ 250 ms; p99 ≤ 500 ms | se mide E2E, no sumando percentiles internos |
 | Perfilamiento total | p95 ≤ 400 ms; p99 ≤ 800 ms | se mide E2E |
 
-El límite duro del servicio sigue en 700 ms y el cliente experimental espera hasta 2 s; son límites diferentes de los objetivos p95/p99. El primer SELECT propuesto puede agotar 200 ms y su reintento usa solo el presupuesto restante. No se suman percentiles internos para acreditar latencia E2E. Las pruebas diagnósticas de la opción SQL registraron hasta 836 ms: no demuestran cumplimiento ni una mejora de p99.
+El límite duro del servicio sigue en 700 ms y el cliente experimental espera hasta 2 s; son límites diferentes de los objetivos p95/p99. El primer SELECT propuesto puede agotar 200 ms y su reintento usa solo el presupuesto restante. No se suman percentiles internos para acreditar latencia E2E. Las pruebas diagnósticas de la opción SQL registraron hasta 836 ms: no demuestran cumplimiento ni una mejora de p99. Como en S6, los 700 ms son una última barrera; una llamada del recorrido crítico no debe esperar habitualmente ese máximo.
 
 ### 6.2 Actualización asíncrona de señales y auditoría
 
@@ -282,7 +290,7 @@ Decisión y coste. Se conserva OpenFinancePort y la traducción de errores a un 
 
 Motivación y ASR. Acotar dependencias protege QP-01/02. Se mantiene un salto interno remoto y 120 ms para Open Finance, sin reintento síncrono del proveedor. El breaker local por instancia y operación conserva ventana de 20 intentos en 30 s, mínimo 10 muestras, apertura con al menos 50 % de fallas, 30 s abierto, máximo dos sondeos por instancia cada 30 s y cierre tras cinco respuestas válidas consecutivas. La recuperación acotada de SELECT es una política distinta.
 
-Decisión y coste. E05 frente a E09 redujo llamadas entre 92,24 % y 97,31 %, superando el 80 % en las seis comparaciones, pero no cumplió apertura universal antes de 30 s ni p99 en E05 r2. E06 registró 219 cierres y pico de 100,405–100,695 %, menor al 110 %, pero no pasó completitud en perfilamiento r2. Se conserva el circuito local, con estados cerrado/abierto/semiabierto; la última actividad y el tráfico posterior son observaciones, no un cuarto estado. E10/E11 se cancelaron: no hay sensibilidad ni confirmación del plazo. Bulkhead y coordinación global siguen condicionados a evidencia futura.
+Decisión y coste. El estado local evita coordinación remota, pero no proporciona una visión global. Un plazo corto aumenta la degradación y uno largo amenaza los percentiles. E05 frente a E09 redujo llamadas entre 92,24 % y 97,31 %, superando el 80 % en las seis comparaciones, pero no cumplió apertura universal antes de 30 s ni p99 en E05 r2. E06 registró 219 cierres y pico de 100,405–100,695 %, menor al 110 %, pero no pasó completitud en perfilamiento r2. Se conserva el circuito local, con estados cerrado/abierto/semiabierto; la última actividad y el tráfico posterior son observaciones, no un cuarto estado. E10/E11 se cancelaron: no hay sensibilidad ni confirmación del plazo. Bulkhead y coordinación global siguen condicionados a evidencia futura.
 
 ### 7.3 Fallback autorizado y degradación visible
 
@@ -294,7 +302,7 @@ Decisión y coste. E07 no usó respaldos no elegibles ni produjo ofertas definit
 
 Motivación y ASR. Separar datos por propietario favorece QS-01 y QM-01. Evitar eventos perdidos entre commit y publicación, o efectos repetidos ante duplicados, favorece QS-02 y QA-02. El productor confirma agregado y outbox en una transacción; su publicador programado envía a Queue. El consumidor registra eventId y efecto en una transacción local. Los efectos externos usan clave estable y reconciliación antes de repetir operaciones inciertas.
 
-Decisión y coste. Se mantienen esquemas, roles y repositorios por propietario. Los 33 recibos no confirmados del laboratorio motivan separar despacho, recepción, resultado y commit, con correlation-id, eventId, instancia y operación. Resultado, auditoría y outbox se confirman juntos; si la persistencia falla no se promete auditoría durable. ACK sigue al commit de efecto e inbox y los fallos van a reentrega/DLQ según política. Es diseño propuesto: el laboratorio no validó este mecanismo completo. Las trazas localizan esperas SQL sin aislar una causa exclusiva de base de datos, conexión, Hyperdrive o runtime.
+Decisión y coste. Se mantienen esquemas, roles y repositorios por propietario. Los 33 recibos no confirmados del laboratorio motivan separar despacho, recepción, resultado y commit, con correlation-id, eventId, instancia y operación. Resultado, auditoría y outbox se confirman juntos; si la persistencia falla no se promete auditoría durable. ACK sigue al commit de efecto e inbox y los fallos van a reentrega/DLQ según política. Es diseño propuesto: el laboratorio no validó este mecanismo completo. Las trazas localizan esperas SQL sin aislar una causa exclusiva de base de datos, conexión, Hyperdrive o runtime. Publicación, deduplicación y reconciliación añaden almacenamiento y trabajo operativo; la consistencia entre propietarios continúa siendo eventual.
 
 ### 7.5 Capacidades existentes cuya prioridad depende del flujo
 
@@ -338,19 +346,3 @@ ADR-S7-03 — Auditoría durable. Los 33 recibos no confirmados motivan resultad
 Las 30 corridas contienen 60 resultados por operación y repetición: 52 pasan simultáneamente percentiles y Wilson; ocho no pasan (cotización E05 r2, perfilamiento E06 r2 y los seis de E09). Se emitieron 899.835 solicitudes y hubo 899.033 respuestas completas: 802 no completas, incluidas 793 fallas técnicas y nueve de clasificación adicional; no deben contarse dos veces. La corrección derivada de probe.at eliminó 52 falsas alarmas sin alterar umbrales ni métricas. Los estados automáticos pasaron de 12 básicos/4 ajustes/14 inconclusos a 14/2/14; no sustituyen los dictámenes por objetivo.
 
 Se conserva la arquitectura de S6 y se concretan tres ajustes: recuperación acotada de SELECT en Identity y Acquisition & Risk, actualización asíncrona autorizada y auditoría transaccional por propietario. E02, E03, E04, E07 y E08 pasan los objetivos evaluados; E01, E05 y E06 presentan incumplimientos y E09 no pasa como control sin circuito. La hipótesis conjunta no se acepta. Cancelar E10/E11 desvía el protocolo y no demuestra una excepción aprobada ni un plazo óptimo. Los ajustes requieren implementación y validación posterior en Proyecto Final 2; el cierre documental no cambia los resultados originales.
-
-Fuentes de resultados y modelos: [Solventa - Resultados y análisis experimental - Semana 7](https://docs.google.com/document/d/1wOlHtOBtMxHu6x6mch2Nq1quFtkRIJLXdoAo-NSq9cw/edit); [Solventa - Registro de evidencias experimentales - Semana 7](https://docs.google.com/document/d/1Cxkaju0-vVX4Cm03mNZrDtWN5-GNgggsB5sbOqZfKbM/edit); [Solventa - Diseño final de experimentos - Semana 5](https://docs.google.com/document/d/1ojgu0vQBPDDUtLLbq0zzLS3dnSZHvwO2PkfPbBGdzNM/edit); [Solventa - Arquitectura refinada y detallada - Semana 6](https://docs.google.com/document/d/1aC7he982xFqeTyKPZPiicSQeoC23DAfbpr_yV114wXk/edit). Los modelos ajustados se entregan [en Mermaid y SVG completos](diagramas), conservando los elementos y relaciones de [Lucidchart](https://lucid.app/lucidchart/48598a5b-beb0-45f1-8f76-832056912678/edit). El acceso a Lucidchart es de solo lectura: su original no fue modificado. [El repositorio público](https://github.com/AlejandroForeroG/solventa-laboratorio) y [la versión laboratorio-s7](https://github.com/AlejandroForeroG/solventa-laboratorio/releases/tag/laboratorio-s7) permiten verificar análisis y registros crudos.
-
-## 11. Referencias técnicas
-
-[Cloudflare Workers Service Bindings](https://developers.cloudflare.com/workers/runtime-apis/bindings/service-bindings/)
-
-[Cloudflare Queues: garantías de entrega](https://developers.cloudflare.com/queues/reference/delivery-guarantees/)
-
-[Cloudflare Workflows: reglas de diseño](https://developers.cloudflare.com/workflows/build/rules-of-workflows/)
-
-[Cloudflare R2: modelo de consistencia](https://developers.cloudflare.com/r2/reference/consistency/)
-
-[Cloudflare Hyperdrive con CockroachDB](https://developers.cloudflare.com/hyperdrive/examples/connect-to-postgres/postgres-database-providers/cockroachdb/)
-
-[CockroachDB: esquema multi-región](https://docs.cockroachlabs.com/docs/stable/multiregion-overview)

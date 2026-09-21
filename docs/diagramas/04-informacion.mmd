@@ -1,8 +1,8 @@
 %%{init: {"theme": "base", "themeVariables": {"primaryColor": "#ffffff", "primaryTextColor": "#000000", "primaryBorderColor": "#000000", "lineColor": "#000000", "secondaryColor": "#ffffff", "tertiaryColor": "#ffffff", "clusterBkg": "#ffffff", "clusterBorder": "#000000", "edgeLabelBackground": "#ffffff", "fontFamily": "Arial", "actorBkg": "#ffffff", "actorBorder": "#000000", "actorTextColor": "#000000", "noteBkgColor": "#ffffff", "noteTextColor": "#000000", "noteBorderColor": "#000000", "labelBoxBkgColor": "#ffffff", "labelBoxBorderColor": "#000000", "signalColor": "#000000", "signalTextColor": "#000000"}}}%%
 flowchart TB
-  N18["Publisher por propietario<br/>claim → publicar → confirmar<br/>reconciliar registros detenidos"]
+  N18["Contrato de publicación por propietario<br/>claim con lease → publicar con eventId → confirmar<br/>ACK de publicación antes de marcar, reconciliar si es incierto"]
   N19["Queues - contrato versionado<br/>entrega al menos una vez"]
-  N20["Retry acotado, DLQ<br/>rezago observable"]
+  N20["Retry acotado y DLQ<br/>alerta por rezago<br/>reprocesar conservando eventId"]
   N21["Consumidor externo futuro<br/>analítica, fraude, auditoría"]
   N22["Web / Mobile"]
   N23[("R2 - objeto binario<br/>checksum, retención")]
@@ -16,6 +16,8 @@ flowchart TB
     N17[("Inbox ICE<br/>eventId + efecto local atómicos")]
     N27[("Socio y credenciales")]
     N28[("Auditoría<br/>actor, acción, recurso, correlation-id<br/>sin payload sensible")]
+    ICE_TX["ICE: transacción local<br/>agregado, auditoría y outbox<br/>esquema y rol SQL propios"]
+    ICE_PUB["Publicador ICE<br/>claim con lease, publicar, confirmar"]
   end
   subgraph G30["Ownership: Policy, Claims &amp; Payments"]
     N7[("Póliza")]
@@ -25,6 +27,8 @@ flowchart TB
     N11[("Indemnización")]
     N12[("Outbox PCP")]
     N13[("Inbox PCP<br/>eventId + efecto local atómicos")]
+    PCP_TX["PCP: transacción local<br/>agregado, auditoría y outbox<br/>esquema y rol SQL propios"]
+    PCP_PUB["Publicador PCP<br/>claim con lease, publicar, confirmar"]
   end
   subgraph G31["Ownership: Acquisition &amp; Risk"]
     N1[("Cotización<br/>idempotency-key, versión regla")]
@@ -33,6 +37,8 @@ flowchart TB
     N4[("Oferta<br/>prima, coberturas, vigencia")]
     N5[("Outbox AR<br/>eventId, agregado, versión, intentos")]
     N6[("Inbox AR<br/>eventId + efecto local atómicos")]
+    AR_TX["AR: transacción local<br/>agregado, auditoría y outbox<br/>esquema y rol SQL propios"]
+    AR_PUB["Publicador AR<br/>claim con lease, publicar, confirmar"]
   end
   N1 --> N2
   N2 --> N3
@@ -48,10 +54,18 @@ flowchart TB
   N9 -->|"misma transacción"| N12
   N14 --> N15
   N15 -->|"misma transacción"| N16
-  N5 --> N18
-  N12 --> N18
-  N16 --> N18
-  N18 --> N19
+  N5 --- AR_TX
+  N12 --- PCP_TX
+  N16 --- ICE_TX
+  N5 --> AR_PUB
+  N12 --> PCP_PUB
+  N16 --> ICE_PUB
+  AR_PUB -->|"publicar AR"| N19
+  PCP_PUB -->|"publicar PCP"| N19
+  ICE_PUB -->|"publicar ICE"| N19
+  N18 -.-> AR_PUB
+  N18 -.-> PCP_PUB
+  N18 -.-> ICE_PUB
   N19 --> N6
   N6 --> N1
   N19 --> N13
@@ -70,6 +84,11 @@ flowchart TB
   N25 -.-> N23
   N8 -.-> N26
   N27 --> N28
+  N14 --> N27
+  ACK["Consumo por propietario<br/>UNIQUE eventId y consumidor<br/>inbox y efecto local atómicos<br/>ACK solo después del commit"]
+  ACK -.-> N6
+  ACK -.-> N13
+  ACK -.-> N17
   META["Propuesta S7: metadatos del respaldo<br/>source, capturedAt, expiresAt<br/>consentVersion, propósito y alcance"]
   META --- N2
   JOB["Propuesta S7: solicitud de actualización<br/>eventId, sujeto tokenizado, propósito<br/>referencia de consentimiento, estado e intentos"]

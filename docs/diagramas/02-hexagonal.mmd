@@ -8,20 +8,52 @@ flowchart TB
   N12["OpenAPI y Pact<br/>bloquear incompatibilidad en CI<br/>evolución compatible y deprecación explícita"]
   N13["Se replica en AR, PCP e ICE<br/>cada Worker conserva dominio y ownership propios<br/>no biblioteca de negocio centralizada"]
   subgraph G14["Interior de cada Worker: mismo principio, responsabilidades propias"]
+    HONO["Hono<br/>enrutamiento de peticiones HTTP"]
     N2["Inbound adapters<br/>Hono, RPC, consumidor<br/>validar contrato y contexto"]
     N3["Application<br/>caso de uso, autorización<br/>coordinar transacción local"]
     N4["Domain<br/>entidades, agregados, políticas<br/>sin SDK, runtime ni red"]
     N5["Outbound ports<br/>contratos definidos hacia el núcleo<br/>Repository, RiskSignals, Consent"]
     N6["Outbound adapters<br/>SQL, R2 - Queue, proveedores<br/>implementan puertos"]
     N7["Adapter/ACL Open Finance<br/>schema externo → RiskSignals<br/>fuente, capturedAt, calidad<br/>referencia de consentimiento"]
+    ENT["Entidades<br/>Policy, User, Claim<br/>identidad e invariantes"]
+    VO["Value Objects<br/>Money, Percentage<br/>valores válidos e inmutables"]
+    DS["Servicios de dominio<br/>reglas que involucran varias entidades"]
+    RP["Puerto Repository<br/>guardar y recuperar entidades de dominio"]
+    PP["Puerto Providers<br/>capacidades de otros Workers<br/>y proveedores externos"]
+    MP["Puerto Messaging<br/>EventPublishers<br/>publicación hacia afuera"]
   end
+  N1 -->|"HTTP"| HONO
+  HONO --> N2
   N2 -->|"invoca"| N3
   N3 -->|"usa reglas"| N4
+  N4 --> ENT
+  N4 --> VO
+  N4 --> DS
+  N3 -->|"usa entidades"| ENT
+  N3 -->|"usa valores"| VO
+  N3 -->|"invoca reglas"| DS
   N3 -->|"requiere contrato"| N5
+  N5 --> RP
+  N5 --> PP
+  N5 --> MP
+  RP -.->|"tipos del dominio"| ENT
+  PP -.->|"tipos del dominio"| VO
+  MP -.->|"hechos del dominio"| DS
+  N6 -.->|"implementa"| RP
+  N6 -.->|"implementa"| PP
+  N6 -.->|"implementa"| MP
   N6 -.->|"implementa: dependencia<br/>de código"| N5
   N7 -.->|"implementa: dependencia<br/>de código"| N5
   N1 --> N2
   N6 -->|"I/O"| N8
+  SQL["CockroachDB vía Hyperdrive"]
+  CQ["Cloudflare Queues"]
+  R2["R2"]
+  HTTP["HTTP clients"]
+  N8 --> SQL
+  N8 --> CQ
+  N8 --> R2
+  N6 --> HTTP
   N7 -->|"HTTPS, deadline, breaker"| N9
   N10 -.-> N5
   N11 -.-> N4

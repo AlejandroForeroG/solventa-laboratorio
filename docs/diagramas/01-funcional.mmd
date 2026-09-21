@@ -33,6 +33,10 @@ flowchart TB
     N2["Mobile - React Native/Expo<br/>biometría, cámara, push<br/>caché cifrada y outbox local"]
     N3["Socios - API pública versionada"]
   end
+  subgraph INBOUND["Adaptadores de entrada del contrato público"]
+    COMMON["API común versionada<br/>Web y Mobile"]
+    PARTNER["Fachada pública de socios<br/>credenciales, scopes y cuota"]
+  end
   N1 -->|"HTTPS/JSON"| N4
   N2 -->|"HTTPS, sync idempotente"| N4
   N3 -->|"OAuth 2.0, scopes"| N4
@@ -45,15 +49,29 @@ flowchart TB
   N12 --> N13
   N14 --> N15
   N15 --> N16
-  N4 --> N5
-  N4 --> N11
-  N4 --> N14
+  N4 -->|"Web y Mobile"| COMMON
+  N4 -->|"Clientes API de socios"| PARTNER
+  COMMON --> N5
+  COMMON --> N11
+  COMMON --> N14
+  PARTNER --> N5
+  PARTNER --> N11
+  PARTNER --> N14
   N7 -->|"Service Binding:<br/>consentimiento<br/>máximo 1 dependencia<br/>interna remota en hot<br/>path"| N14
   N11 <-->|"RPC tipado: contratos<br/>internos"| N14
   N6 -.->|"OfertaAceptada: evento"| N11
   N8 -->|"HTTPS, deadline, breaker<br/>local<br/>sin retry síncrono"| N17
   N14 -->|"Adapter/ACL,<br/>HTTPS/webhook"| N18
   N11 -->|"Adapter/ACL, idempotencia"| N19
+  PAY["Pasarela de pagos"]
+  SIGN["Firma, reaseguro y ACORD"]
+  IDP["IdP OIDC"]
+  PUSH["Notificaciones y push"]
+  N19 --> PAY
+  N19 --> SIGN
+  N18 --> IDP
+  N18 --> PUSH
+  N20 -->|"trabajo de notificación"| PUSH
   N10 --> N20
   N13 --> N20
   N16 --> N20
