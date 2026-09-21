@@ -8,7 +8,7 @@ El lote s7-inicial-20260914-122029 terminó el 14 de septiembre de 2026 a las 20
 
 ### Estructura del informe
 
-La sección 1 presenta el montaje, los criterios y la ubicación de las evidencias. La sección 2 establece qué pasa y qué no pasa en los escenarios ejecutados. La sección 3 explica las incidencias y las correcciones realizadas. La sección 4 define las medidas de arquitectura. La sección 5 recoge la decisión final y su incorporación al proyecto.
+La sección 1 presenta el montaje, los criterios y la ubicación de las evidencias. La sección 2 establece qué pasa y qué no pasa en los escenarios ejecutados. La sección 3 explica las incidencias y las correcciones realizadas. La sección 4 define las medidas de arquitectura. La sección 5 recoge la decisión final y su incorporación al proyecto. La sección 6 añade vistas históricas de Cloudflare como evidencia complementaria.
 
 La experimentación se cierra con las 30 corridas realizadas, por decisión de terminar la campaña y concentrar el cierre en los resultados obtenidos. Se cancela la ejecución adicional de E10, E11 y las repeticiones propuestas. Esta decisión modifica el alcance de ejecución previsto en el protocolo S5; no modifica sus umbrales ni acredita su aceptación formal. Se conservan los resultados originales, los inconclusos y las gráficas obtenidas de registros reales. El cierre documental y las propuestas para el producto no equivalen a una nueva campaña de confirmación.
 
@@ -415,6 +415,32 @@ El laboratorio utilizó un proveedor simulado, CockroachDB de una región y k6 d
 Las capturas 10 y 11 muestran E03 r1, con calentamiento y ambas operaciones: 41.965 cierres en el panel frente a 42.002 registros API exportados. Se usan los archivos del banco para los conteos y el cliente para la latencia. Posteriormente se observó un aviso de muestreo del 1 % en Observability; al desconocerse su inicio, la ausencia de un evento en ese panel no se toma como prueba de que una solicitud no ocurrió. El registro durable del banco es independiente de ese muestreo y sus recibos faltantes permanecen registrados.
 
 El informe y el registro de evidencias están en Drive. Los archivos originales conservan sus estados y huellas, y las figuras muestran los resultados obtenidos. Las decisiones de este cierre se integran al plan de implementación; los permisos de entrega, el video y la actualización gráfica de los modelos se gestionan en los documentos correspondientes.
+
+
+## 6. Observabilidad complementaria en Cloudflare
+
+Las siguientes capturas reales corresponden al intervalo histórico visible de la campaña s7-inicial-20260914-122029, de 12:00 a 21:00 (GMT-5). La consulta selecciona eventos kind=api del servicio solventa-exp-acquisition-staging, sin restringir runId ni fase. Incluye calentamiento y todo evento coincidente; sus conteos no son el denominador de las 899.835 solicitudes medidas. No se ejecutaron cargas nuevas para obtener estas figuras.
+
+### Figura 15. Latencia interna del proveedor: p99 y p95
+
+![Figura 15. Latencia interna del proveedor: p99 y p95](../resultados/cloudflare-observabilidad/latencias.png)
+
+Las dos series comparan quote y profile; la leyenda de operaciones está en la figura 16. providerMs mide la etapa del proveedor en milisegundos, no la latencia de extremo a extremo del cliente. Los cambios temporales permiten localizar períodos de mayor espera. Un valor cero puede corresponder a omisión de la consulta o ausencia de tráfico; no demuestra una respuesta instantánea ni el cumplimiento de los objetivos.
+
+### Figura 16. Volumen de eventos API por operación
+
+![Figura 16. Volumen de eventos API por operación](../resultados/cloudflare-observabilidad/volumen.png)
+
+La distribución temporal permite reconocer períodos con actividad y contrastar cotización con perfilamiento. Count cuenta registros observados por intervalo, no solicitudes por segundo ni solicitudes medidas completas. El agregado no basta para afirmar que cada solicitud emitida quedó registrada: el aviso de muestreo y las diferencias de conciliación descritas en 5.3 mantienen su alcance.
+
+### Figura 17. Respuestas normales, degradadas, denegadas y errores técnicos
+
+![Figura 17. Respuestas normales, degradadas, denegadas y errores técnicos](../resultados/cloudflare-observabilidad/respuestas.png)
+
+La separación por operation y classification muestra cómo varía el tipo de respuesta. degraded representa continuidad mediante una respuesta alternativa; denied es una denegación controlada y technical_error un fallo técnico. La gráfica permite explorar el comportamiento, pero no atribuye causalidad ni reemplaza la comparación E05/E09 o los controles de consentimiento de E07/E08. Los dictámenes se conservan por corrida y fase medida.
+
+Consultas de origen (requieren acceso a la cuenta): [Volumen y latencia del proveedor](https://dash.cloudflare.com/803fd559877aae8f638140610f106857/observability/queries/mbxzs9awhzzczyn02w3hrl0i) y [Respuestas y errores por operación](https://dash.cloudflare.com/803fd559877aae8f638140610f106857/observability/queries/o3982zddrxm0usvo4erbg3ze).
+
 
 ## Referencias y reproducción de los resultados
 
