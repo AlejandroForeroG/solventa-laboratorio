@@ -2,6 +2,8 @@
 
 Este registro conserva los resultados originales y el recálculo de las 30 corridas de E01–E09. El informe principal distingue el dictamen por objetivo de las etiquetas automáticas históricas. La campaña está cerrada, pero la hipótesis conjunta no está aceptada: E10 y E11 se cancelaron y la aceptación formal prevista en el protocolo S5 no se ejecutó. Un problema de trazabilidad no sustituye la evaluación de latencia, completitud o seguridad.
 
+Informe principal: [Resultados y análisis experimental — Semana 7 (PDF)](https://drive.google.com/file/d/12FF5nkcFencGkJbBIDvHldCAiCf8osgf/view).
+
 Corte fijo del lote terminado el 14 de septiembre de 2026 a las 20:42:26 de Bogotá. La ejecución experimental queda cerrada sin nuevas cargas. Los dictámenes finales se presentan en el informe principal; esta tabla preserva los estados de los archivos originales y derivados.
 
 Repositorio público: [Solventa](https://github.com/AlejandroForeroG/solventa-laboratorio). Registros crudos: [30 ZIP, SHA256SUMS y manifest.json](https://github.com/AlejandroForeroG/solventa-laboratorio/releases/tag/laboratorio-s7). El paquete histórico de Drive contiene resúmenes y figuras; los registros masivos están en la versión pública.

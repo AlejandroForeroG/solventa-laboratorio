@@ -55,7 +55,7 @@ El dictamen final usa “Pasa” cuando los datos cumplen el objetivo evaluado y
 
 Cada escenario presenta el objetivo, los resultados y la decisión de arquitectura. Las figuras se integran junto al análisis correspondiente. Para revisar las 30 corridas individualmente, el registro de evidencias conserva los estados originales y recalculados, las imágenes y los enlaces a los archivos.
 
-[Carpeta de evidencias experimentales](https://drive.google.com/drive/folders/11Mw4NfLJkKveZMJeMDr9IgAThBlqIuGO) · [Solventa - Registro de evidencias experimentales - Semana 7](https://docs.google.com/document/d/1Cxkaju0-vVX4Cm03mNZrDtWN5-GNgggsB5sbOqZfKbM/edit) · [Paquete de respaldo](https://drive.google.com/file/d/1GF7b2SNPBP9VaVHPl2Pp00X5DAMl3wzK/view)
+[Carpeta de evidencias experimentales](https://drive.google.com/drive/folders/11Mw4NfLJkKveZMJeMDr9IgAThBlqIuGO) · [Registro de evidencias experimentales — Semana 7 (PDF)](https://drive.google.com/file/d/1uabu1qfqhHeuiuS8NPDbt7aw0fmFhGfZ/view) · [Paquete de respaldo](https://drive.google.com/file/d/1GF7b2SNPBP9VaVHPl2Pp00X5DAMl3wzK/view)
 
 Las tablas y gráficas se calcularon desde los resultados exportados: métricas por corrida para desempeño; incidencias para respuestas incompletas; comparación E05/E09 para llamadas evitadas; recuperación para cierres y picos; sondeos para la corrección del analizador. Las cinco capturas de Cloudflare documentan ejemplos reales de E03 repetición 1; corresponden a esa corrida.
 
@@ -383,6 +383,8 @@ Cada componente conservará su responsabilidad: Identity verifica consentimiento
 
 El cálculo del analizador está corregido; las políticas SQL existen como opciones diagnósticas; la actualización asíncrona de señales y la integración de auditoría del producto son propuestas de implementación.  Los modelos refinados y sus diagramas de Lucidchart se presentan en el documento de arquitectura de Semana 7; representan decisiones de diseño y no una validación experimental adicional.
 
+Arquitectura detallada ajustada con estos resultados: [Arquitectura refinada y detallada — Semana 7 (PDF)](https://drive.google.com/file/d/1713qHIL4C8yKortSbukF5MvtoOQl-gnX/view).
+
 ## 5. Conclusiones
 
 | Objetivo |Conclusión sustentada |
@@ -451,7 +453,7 @@ Consultas de origen (requieren acceso a la cuenta): [Volumen y latencia del prov
 
 ## Referencias y reproducción de los resultados
 
-Los criterios proceden del [protocolo experimental preregistrado de Semana 5](https://docs.google.com/document/d/1ojgu0vQBPDDUtLLbq0zzLS3dnSZHvwO2PkfPbBGdzNM/edit), cuya copia se conserva en [protocolo-s5.md](protocolo-s5.md). La [entrega oficial de Semana 7](https://www.coursera.org/learn/miso-proyecto-1/assignment-submission/J2Z0o/entrega-semana-7) rige los criterios de la entrega académica.
+Los criterios proceden del [Diseño final de experimentos — Semana 5 (PDF)](https://drive.google.com/file/d/1tskLH4FDJmJkA8l41WNGj9hSLG_EHv9F/view), cuya copia se conserva en [protocolo-s5.md](protocolo-s5.md). La [entrega oficial de Semana 7](https://www.coursera.org/learn/miso-proyecto-1/assignment-submission/J2Z0o/entrega-semana-7) rige los criterios de la entrega académica.
 
 La [carpeta de evidencias experimentales](https://drive.google.com/drive/folders/11Mw4NfLJkKveZMJeMDr9IgAThBlqIuGO) contiene copias de resultados, configuración y manifiestos; analisis-30.json incluye métricas, incidencias, eventos, series, comparaciones y 120 huellas de archivos fuente. verificacion-ventanas.json conserva configuración emparejada, aperturas y grupos censurados. Se entregan seis CSV para revisión, nueve gráficas en PNG/PDF y cinco capturas originales, enlazados en el [registro de evidencias](registro-evidencias.md).
 
